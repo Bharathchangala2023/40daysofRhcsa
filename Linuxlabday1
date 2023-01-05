@@ -1,0 +1,700 @@
+Microsoft Windows [Version 10.0.19045.2364]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd c;
+bash: cd: c: No such file or directory
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd c:
+
+bhara@DESKTOP-SSN6PB4  /c
+$ ls
+'$Recycle.Bin'  'Documents and Settings'   Intel          PerfLogs               ProgramData  'System Volume Information'   hiberfil.sys   tools
+'$SysReset'      DumpStack.log.tmp         MSOCache      'Program Files'         RHCSA         Users                        pagefile.sys   vagrent
+'$WinREAgent'    HashiCorp                 OneDriveTemp  'Program Files (x86)'   Recovery      Windows                      swapfile.sys
+
+bhara@DESKTOP-SSN6PB4  /c
+$ cd Users
+
+bhara@DESKTOP-SSN6PB4  /c/Users
+$ ls
+'All Users'   Default  'Default User'   Public   bhara   desktop.ini
+
+bhara@DESKTOP-SSN6PB4  /c/Users
+$ cd bhara
+
+bhara@DESKTOP-SSN6PB4  ~
+$ pwd
+/c/Users/bhara
+
+bhara@DESKTOP-SSN6PB4  ~
+$ ls
+'3D Objects'             Links                                                                                         'Notes for Devops'   Videos
+ AppData                'Local Settings'                                                                                OneDrive           'VirtualBox VMs'
+'Application Data'       Music                                                                                          PrintHood           devops
+ Contacts               'My Documents'                                                                                  Recent              ntuser.dat.LOG1
+ Cookies                 NTUSER.DAT                                                                                    'Saved Games'        ntuser.dat.LOG2
+ Documents               NTUSER.DAT{f709009e-89b3-11ed-9186-b469218484dc}.TM.blf                                        Searches            ntuser.ini
+ Downloads               NTUSER.DAT{f709009e-89b3-11ed-9186-b469218484dc}.TMContainer00000000000000000001.regtrans-ms   SendTo              vagrant
+ Favorites               NTUSER.DAT{f709009e-89b3-11ed-9186-b469218484dc}.TMContainer00000000000000000002.regtrans-ms  'Start Menu'
+ IntelGraphicsProfiles   NetHood                                                                                        Templates
+
+bhara@DESKTOP-SSN6PB4  ~
+$ cd devops
+
+bhara@DESKTOP-SSN6PB4  ~/devops
+$ ls
+coding  provision  release
+
+bhara@DESKTOP-SSN6PB4  ~/devops
+$ cd provision
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision
+$ ls
+docker  kubernetes  vagrant
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision
+$ cd vagrant/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ ls
+centos  ubuntu
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd centos/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant ssh
+VM must be running to open SSH connection. Run `vagrant up`
+to start the virtual machine.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'centos/7' version '2004.01' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: No guest additions were detected on the base box for this VM! Guest
+    default: additions are required for forwarded ports, shared folders, host only
+    default: networking, and more. If SSH fails on this machine, please install
+    default: the guest additions and repackage the box to continue.
+    default:
+    default: This is not an error message; everything may continue to work properly,
+    default: in which case you may ignore this message.
+==> default: Rsyncing folder: /cygdrive/c/Users/bhara/devops/provision/vagrant/centos/ => /vagrant
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant ssh
+[vagrant@10 ~]$ pwd
+/home/vagrant
+[vagrant@10 ~]$ version
+-bash: version: command not found
+[vagrant@10 ~]$ --version
+-bash: --version: command not found
+[vagrant@10 ~]$ hostnameclt
+-bash: hostnameclt: command not found
+[vagrant@10 ~]$ ls -ltr
+total 0
+[vagrant@10 ~]$ ls
+[vagrant@10 ~]$ sudo su -
+[root@10 ~]# ls
+anaconda-ks.cfg  original-ks.cfg
+[root@10 ~]# cd /
+[root@10 /]# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  swapfile  sys  tmp  usr  vagrant  var
+[root@10 /]# exit
+logout
+[vagrant@10 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant box list
+centos/7           (virtualbox, 2004.01)
+generic/rhel9      (virtualbox, 4.2.8)
+generic/ubuntu1804 (virtualbox, 4.2.8)
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ cat /etc/os-release
+cat: /etc/os-release: No such file or directory
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ ls
+centos  ubuntu
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd ubuntu
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+VM must be running to open SSH connection. Run `vagrant up`
+to start the virtual machine.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd centos/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd ubuntu/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ c
+bash: c: command not found
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/ubuntu1804' version '4.2.8' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 5.2.42
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+Last login: Thu Jan  5 05:37:21 2023 from 10.0.2.2
+vagrant@ubuntu1804:~$ sudo su -
+root@ubuntu1804:~# ls
+Avengers  test-docker.sh
+root@ubuntu1804:~# cd Avengers/
+root@ubuntu1804:~/Avengers# cd .
+root@ubuntu1804:~/Avengers# cd ..
+root@ubuntu1804:~# mkdir DC
+root@ubuntu1804:~# ls
+Avengers  DC  test-docker.sh
+root@ubuntu1804:~# touch Avengers/HULK
+root@ubuntu1804:~# ls -l Avengers/
+total 0
+-rw-r--r-- 1 root root 0 Jan  5 05:30 file1
+-rw-r--r-- 1 root root 0 Jan  5 15:09 HULK
+root@ubuntu1804:~# ls  Avengers/
+file1  HULK
+root@ubuntu1804:~# cd Avengers/
+root@ubuntu1804:~/Avengers# touch {IRONMAN;VISION}
+VISION}: command not found
+root@ubuntu1804:~/Avengers# touch {IRONMAN,VISION}
+root@ubuntu1804:~/Avengers# ls
+file1  HULK  IRONMAN  {IRONMAN  VISION
+root@ubuntu1804:~/Avengers# rm \{IRONMAN
+root@ubuntu1804:~/Avengers# ls
+file1  HULK  IRONMAN  VISION
+root@ubuntu1804:~/Avengers# cd ..
+root@ubuntu1804:~# touch DC/{ flash,Aquaman}
+root@ubuntu1804:~# ls DC/
+'{'
+root@ubuntu1804:~# cd DC/
+root@ubuntu1804:~/DC# ls
+'{'
+root@ubuntu1804:~/DC# rm \{
+root@ubuntu1804:~/DC# ls
+root@ubuntu1804:~/DC# touch {flash,Aquaman};
+root@ubuntu1804:~/DC# ls
+Aquaman  flash
+root@ubuntu1804:~/DC# cd ..
+root@ubuntu1804:~# tree
+
+Command 'tree' not found, but can be installed with:
+
+snap install tree  # version 1.8.0+pkg-3fd6, or
+apt  install tree
+
+See 'snap info tree' for additional versions.
+
+root@ubuntu1804:~#
+root@ubuntu1804:~# mkdir project
+root@ubuntu1804:~# --help
+--help: command not found
+root@ubuntu1804:~# ls
+Avengers  DC  flash,Aquaman}  project  test-docker.sh
+root@ubuntu1804:~# rm flash,Aquaman}
+root@ubuntu1804:~# ls
+Avengers  DC  project  test-docker.sh
+root@ubuntu1804:~# move --h
+
+Command 'move' not found, did you mean:
+
+  command 'love' from snap love (11.2+pkg-d332)
+  command 'movx' from snap movx (2.0.1)
+  command 'mote' from snap mote (2.0.5)
+  command 'more' from deb util-linux
+  command 'jove' from deb jove
+  command 'love' from deb love
+  command 'mmove' from deb mtools
+  command 'fmove' from deb embassy-phylip
+  command 'lmove' from deb suck
+
+See 'snap info <snapname>' for additional versions.
+
+root@ubuntu1804:~# move -help
+
+Command 'move' not found, did you mean:
+
+  command 'mote' from snap mote (2.0.5)
+  command 'movx' from snap movx (2.0.1)
+  command 'love' from snap love (11.2+pkg-d332)
+  command 'fmove' from deb embassy-phylip
+  command 'more' from deb util-linux
+  command 'mmove' from deb mtools
+  command 'lmove' from deb suck
+  command 'love' from deb love
+  command 'jove' from deb jove
+
+See 'snap info <snapname>' for additional versions.
+
+root@ubuntu1804:~# cd project/
+root@ubuntu1804:~/project# mkdir {avengers,DC};
+root@ubuntu1804:~/project# ls
+avengers  DC
+root@ubuntu1804:~/project# touch avengers/ file1
+root@ubuntu1804:~/project# ls
+avengers  DC  file1
+root@ubuntu1804:~/project# rm file1
+root@ubuntu1804:~/project# ls
+avengers  DC
+root@ubuntu1804:~/project# touch avengers/file1
+root@ubuntu1804:~/project# ls
+avengers  DC
+root@ubuntu1804:~/project# touch DC/
+root@ubuntu1804:~/project# touch DC/file{1..5};
+root@ubuntu1804:~/project# ls
+avengers  DC
+root@ubuntu1804:~/project# ls DC/
+file1  file2  file3  file4  file5
+root@ubuntu1804:~/project# tree
+
+Command 'tree' not found, but can be installed with:
+
+snap install tree  # version 1.8.0+pkg-3fd6, or
+apt  install tree
+
+See 'snap info tree' for additional versions.
+
+root@ubuntu1804:~/project# tree project
+
+Command 'tree' not found, but can be installed with:
+
+snap install tree  # version 1.8.0+pkg-3fd6, or
+apt  install tree
+
+See 'snap info tree' for additional versions.
+
+root@ubuntu1804:~/project# ls avengers/
+file1
+root@ubuntu1804:~/project# ls -l
+total 8
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 avengers
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 DC
+root@ubuntu1804:~/project# ls -a
+.  ..  avengers  DC
+root@ubuntu1804:~/project# ls -lt
+total 8
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 DC
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 avengers
+root@ubuntu1804:~/project# ls -ltr
+total 8
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 avengers
+drwxr-xr-x 2 root root 4096 Jan  5 15:19 DC
+root@ubuntu1804:~/project# pwd
+/root/project
+root@ubuntu1804:~/project# apt install tree
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 40.7 kB of archives.
+After this operation, 105 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 tree amd64 1.7.0-5 [40.7 kB]
+Fetched 40.7 kB in 5s (7,816 B/s)
+Selecting previously unselected package tree.
+(Reading database ... 106280 files and directories currently installed.)
+Preparing to unpack .../tree_1.7.0-5_amd64.deb ...
+Unpacking tree (1.7.0-5) ...
+Setting up tree (1.7.0-5) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@ubuntu1804:~/project# tree
+.
++-- avengers
+¦   +-- file1
++-- DC
+    +-- file1
+    +-- file2
+    +-- file3
+    +-- file4
+    +-- file5
+
+2 directories, 6 files
+root@ubuntu1804:~/project# cd ..
+root@ubuntu1804:~# tree
+.
++-- Avengers
+¦   +-- file1
+¦   +-- HULK
+¦   +-- IRONMAN
+¦   +-- VISION
++-- DC
+¦   +-- Aquaman
+¦   +-- flash
++-- project
+¦   +-- avengers
+¦   ¦   +-- file1
+¦   +-- DC
+¦       +-- file1
+¦       +-- file2
+¦       +-- file3
+¦       +-- file4
+¦       +-- file5
++-- test-docker.sh
+
+5 directories, 13 files
+root@ubuntu1804:~# rm -help
+rm: invalid option -- 'h'
+Try 'rm --help' for more information.
+root@ubuntu1804:~# rm --help
+Usage: rm [OPTION]... [FILE]...
+Remove (unlink) the FILE(s).
+
+  -f, --force           ignore nonexistent files and arguments, never prompt
+  -i                    prompt before every removal
+  -I                    prompt once before removing more than three files, or
+                          when removing recursively; less intrusive than -i,
+                          while still giving protection against most mistakes
+      --interactive[=WHEN]  prompt according to WHEN: never, once (-I), or
+                          always (-i); without WHEN, prompt always
+      --one-file-system  when removing a hierarchy recursively, skip any
+                          directory that is on a file system different from
+                          that of the corresponding command line argument
+      --no-preserve-root  do not treat '/' specially
+      --preserve-root   do not remove '/' (default)
+  -r, -R, --recursive   remove directories and their contents recursively
+  -d, --dir             remove empty directories
+  -v, --verbose         explain what is being done
+      --help     display this help and exit
+      --version  output version information and exit
+
+By default, rm does not remove directories.  Use the --recursive (-r or -R)
+option to remove each listed directory, too, along with all of its contents.
+
+To remove a file whose name starts with a '-', for example '-foo',
+use one of these commands:
+  rm -- -foo
+
+  rm ./-foo
+
+Note that if you use rm to remove a file, it might be possible to recover
+some of its contents, given sufficient expertise and/or time.  For greater
+assurance that the contents are truly unrecoverable, consider using shred.
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/rm>
+or available locally via: info '(coreutils) rm invocation'
+root@ubuntu1804:~#
+root@ubuntu1804:~# rm Avengers/DC/
+rm: cannot remove 'Avengers/DC/': No such file or directory
+root@ubuntu1804:~# rm Avengers/
+rm: cannot remove 'Avengers/': Is a directory
+root@ubuntu1804:~# ls
+Avengers  DC  project  test-docker.sh
+root@ubuntu1804:~# rm Avengers
+rm: cannot remove 'Avengers': Is a directory
+root@ubuntu1804:~# del Avengers/
+
+Command 'del' not found, did you mean:
+
+  command 'den' from snap den (1.2.0-0)
+  command 'el' from deb oneliner-el
+  command 'wdel' from deb wput
+  command 'hdel' from deb hfsutils
+  command 'bel' from deb belier
+  command 'deal' from deb deal
+  command 'dex' from deb dex
+  command 'delv' from deb dnsutils
+  command 'qdel' from deb gridengine-client
+  command 'qdel' from deb slurm-wlm-torque
+  command 'mdel' from deb mtools
+  command 'delp' from deb fp-utils-3.0.4
+  command 'tel' from deb orville-write
+  command 'dep' from deb go-dep
+  command 'dll' from deb brickos
+
+See 'snap info <snapname>' for additional versions.
+
+root@ubuntu1804:~# rm -r Avengers
+root@ubuntu1804:~# ls
+DC  project  test-docker.sh
+root@ubuntu1804:~# rm -r project/
+root@ubuntu1804:~# ls
+DC  test-docker.sh
+root@ubuntu1804:~# tree
+.
++-- DC
+¦   +-- Aquaman
+¦   +-- flash
++-- test-docker.sh
+
+1 directory, 3 files
+root@ubuntu1804:~# rm -r DC/
+root@ubuntu1804:~# ls
+test-docker.sh
+root@ubuntu1804:~# mkdir project
+root@ubuntu1804:~# ls
+project  test-docker.sh
+root@ubuntu1804:~# ls -l
+total 24
+drwxr-xr-x 2 root root  4096 Jan  5 15:37 project
+-rw-r--r-- 1 root root 19871 Jan  4 13:16 test-docker.sh
+root@ubuntu1804:~# cd project/
+root@ubuntu1804:~/project# mkdir {rhcsa,rhce};
+root@ubuntu1804:~/project# ls
+rhce  rhcsa
+root@ubuntu1804:~/project# ls -l
+total 8
+drwxr-xr-x 2 root root 4096 Jan  5 15:39 rhce
+drwxr-xr-x 2 root root 4096 Jan  5 15:39 rhcsa
+root@ubuntu1804:~/project# cd rhcsa/
+root@ubuntu1804:~/project/rhcsa# pwd
+/root/project/rhcsa
+root@ubuntu1804:~/project/rhcsa# touch file{1..5};
+root@ubuntu1804:~/project/rhcsa# ls
+file1  file2  file3  file4  file5
+root@ubuntu1804:~/project/rhcsa# cd ..
+root@ubuntu1804:~/project# cd rche
+-su: cd: rche: No such file or directory
+root@ubuntu1804:~/project# cd rhce/
+root@ubuntu1804:~/project/rhce# touch file{6..10};
+root@ubuntu1804:~/project/rhce# ls -l
+total 0
+-rw-r--r-- 1 root root 0 Jan  5 15:41 file10
+-rw-r--r-- 1 root root 0 Jan  5 15:41 file6
+-rw-r--r-- 1 root root 0 Jan  5 15:41 file7
+-rw-r--r-- 1 root root 0 Jan  5 15:41 file8
+-rw-r--r-- 1 root root 0 Jan  5 15:41 file9
+root@ubuntu1804:~/project/rhce# cd ..
+root@ubuntu1804:~/project# tree
+.
++-- rhce
+¦   +-- file10
+¦   +-- file6
+¦   +-- file7
+¦   +-- file8
+¦   +-- file9
++-- rhcsa
+    +-- file1
+    +-- file2
+    +-- file3
+    +-- file4
+    +-- file5
+
+2 directories, 10 files
+root@ubuntu1804:~/project# ls -ltr
+total 8
+drwxr-xr-x 2 root root 4096 Jan  5 15:40 rhcsa
+drwxr-xr-x 2 root root 4096 Jan  5 15:41 rhce
+root@ubuntu1804:~/project# cd
+root@ubuntu1804:~# history
+    1  cat /etc/*release
+    2  apt-get update
+    3  curl -fsSL https://test.docker.com -o test-docker.sh
+    4  sh test-docker.sh
+    5  systemctl status docker
+    6  pwd
+    7  tail -2 /etc/passwd
+    8  su -hulk
+    9  cd hulk
+   10  su hulk
+   11  cd /etc/passwd
+   12  ls
+   13  ls /etc/passwd
+   14  tail -2 /etc/passwd
+   15  clear
+   16  exit
+   17  pwd
+   18  ls
+   19  ls /etc/passwd
+   20  mkdir Avengers
+   21  ls
+   22  cd Avengers/
+   23  touch file1,file2
+   24  ls
+   25  remove file1,file2
+   26  rm -rf file1,file2
+   27  ls
+   28  touch file1;file2;file3
+   29  touch file1
+   30  ls
+   31  cd ..
+   32  tree
+   33  useradd hulk
+   34  ls
+   35  tail /etc/passwd
+   36  tail -2 /etc/passwd
+   37  useradd Tony
+   38  tail -2 /etc/passwd
+   39  su hulk
+   40  ls
+   41  cd Avengers/
+   42  cd .
+   43  cd ..
+   44  mkdir DC
+   45  ls
+   46  touch Avengers/HULK
+   47  ls -l Avengers/
+   48  ls  Avengers/
+   49  cd Avengers/
+   50  touch {IRONMAN;VISION}
+   51  touch {IRONMAN,VISION}
+   52  ls
+   53  rm \{IRONMAN
+   54  ls
+   55  cd ..
+   56  touch DC/{ flash,Aquaman}
+   57  ls DC/
+   58  cd DC/
+   59  ls
+   60  rm \{
+   61  ls
+   62  touch {flash,Aquaman};
+   63  ls
+   64  cd ..
+   65  tree
+   66  mkdir project
+   67  --help
+   68  ls
+   69  rm flash,Aquaman}
+   70  ls
+   71  move --h
+   72  move -help
+   73  cd project/
+   74  mkdir {avengers,DC};
+   75  ls
+   76  touch avengers/ file1
+   77  ls
+   78  rm file1
+   79  ls
+   80  touch avengers/file1
+   81  ls
+   82  touch DC/
+   83  touch DC/file{1..5};
+   84  ls
+   85  ls DC/
+   86  tree
+   87  tree project
+   88  ls avengers/
+   89  ls -l
+   90  ls -a
+   91  ls -lt
+   92  ls -ltr
+   93  pwd
+   94  apt install tree
+   95  tree
+   96  cd ..
+   97  tree
+   98  rm -help
+   99  rm --help
+  100  rm Avengers/DC/
+  101  rm Avengers/
+  102  ls
+  103  rm Avengers
+  104  del Avengers/
+  105  rm -r Avengers
+  106  ls
+  107  rm -r project/
+  108  ls
+  109  tree
+  110  rm -r DC/
+  111  ls
+  112  mkdir project
+  113  ls
+  114  ls -l
+  115  cd project/
+  116  mkdir {rhcsa,rhce};
+  117  ls
+  118  ls -l
+  119  cd rhcsa/
+  120  pwd
+  121  touch file{1..5};
+  122  ls
+  123  cd ..
+  124  cd rche
+  125  cd rhce/
+  126  touch file{6..10};
+  127  ls -l
+  128  cd ..
+  129  tree
+  130  ls -ltr
+  131  cd
+  132  history
+root@ubuntu1804:~#
+root@ubuntu1804:~#
+root@ubuntu1804:~#
