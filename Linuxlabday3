@@ -1,0 +1,537 @@
+Microsoft Windows [Version 10.0.19045.2364]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ date
+Sun Jan  8 18:03:43 IST 2023
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~
+
+bhara@DESKTOP-SSN6PB4  ~
+$ cd devops/provision/vagrant/ubuntu/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd centos/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd ubuntu/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/ubuntu1804' version '4.2.8' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Warning: Connection aborted. Retrying...
+    default: Warning: Connection reset. Retrying...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 5.2.42
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+Last login: Sun Jan  8 07:59:44 2023 from 10.0.2.2
+vagrant@ubuntu1804:~$ sudo su -
+root@ubuntu1804:~# cd /
+root@ubuntu1804:/# ls -l
+total 89
+drwxr-xr-x   2 root root  4096 Dec  9 20:38 bin
+drwxr-xr-x   4 root root  1024 Dec  9 21:15 boot
+drwxr-xr-x  16 root root  3760 Jan  8 12:35 dev
+drwxr-xr-x  97 root root  4096 Jan  8 12:35 etc
+drwxr-xr-x   3 root root  4096 Dec  9 20:28 home
+lrwxrwxrwx   1 root root    34 Dec  9 21:01 initrd.img -> boot/initrd.img-4.15.0-200-generic
+lrwxrwxrwx   1 root root    34 Dec  9 20:11 initrd.img.old -> boot/initrd.img-4.15.0-156-generic
+drwxr-xr-x  24 root root  4096 Dec  9 21:06 lib
+drwxr-xr-x   2 root root  4096 Dec  9 20:31 lib64
+drwx------   2 root root 16384 Dec  9 20:09 lost+found
+drwxr-xr-x   3 root root  4096 Dec  9 20:10 media
+drwxr-xr-x   2 root root  4096 Sep 15  2021 mnt
+drwxr-xr-x   3 root root  4096 Jan  7 05:29 opt
+dr-xr-xr-x 112 root root     0 Jan  8 12:35 proc
+drwxr-xr-x   2 root root  4096 Jan  6 08:44 project1
+drwx------   5 root root  4096 Jan  7 05:27 root
+drwxr-xr-x  26 root root   940 Jan  8 12:40 run
+drwxr-xr-x   2 root root 12288 Dec  9 21:06 sbin
+drwxr-xr-x   2 root root  4096 Dec  9 20:30 snap
+drwxr-xr-x   2 root root  4096 Sep 15  2021 srv
+dr-xr-xr-x  13 root root     0 Jan  8 12:35 sys
+drwxrwxrwt  10 root root  4096 Jan  8 12:36 tmp
+drwxr-xr-x  11 root root  4096 Jan  7 05:29 usr
+drwxr-xr-x  13 root root  4096 Dec  9 20:23 var
+lrwxrwxrwx   1 root root    31 Dec  9 21:01 vmlinuz -> boot/vmlinuz-4.15.0-200-generic
+lrwxrwxrwx   1 root root    31 Dec  9 20:11 vmlinuz.old -> boot/vmlinuz-4.15.0-156-generic
+root@ubuntu1804:/# /
+-su: /: Is a directory
+root@ubuntu1804:/# cd ~
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# ls -l
+total 12
+drwxr-xr-x 2 root root 4096 Jan  6 08:46 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+root@ubuntu1804:~/project1# tree
+.
++-- devteam
+¦   +-- file1
++-- Itteam
+¦   +-- report1
+¦   +-- report2
+¦   +-- report3
+¦   +-- report4
+¦   +-- report5
++-- opsteam
+    +-- sop1
+    +-- sop2
+    +-- sop3
+    +-- sop4
+    +-- sop5
+    +-- sop6
+    +-- sop7
+    +-- sop8
+    +-- sop9
+
+3 directories, 15 files
+root@ubuntu1804:~/project1# ls -l devteam/
+total 4
+-rw-r--r-- 1 root root 17 Jan  6 15:42 file1
+root@ubuntu1804:~/project1# cat devteam/file1
+Avengers Endgame
+root@ubuntu1804:~/project1# cat Itteam/report1
+this is located in /project/ITteam
+aicjiajfa
+asjcnasFAC
+ASCJANFAFAC
+DSKJSAVNJ
+fdsvnsdvsadvsav
+asvjnvsavn
+avljndsvndsv
+root@ubuntu1804:~/project1# cat -n Itteam/report1
+     1  this is located in /project/ITteam
+     2  aicjiajfa
+     3  asjcnasFAC
+     4  ASCJANFAFAC
+     5  DSKJSAVNJ
+     6  fdsvnsdvsadvsav
+     7  asvjnvsavn
+     8  avljndsvndsv
+root@ubuntu1804:~/project1# cd devteam/
+root@ubuntu1804:~/project1/devteam# pwd
+/root/project1/devteam
+root@ubuntu1804:~/project1/devteam# cat > file1
+This is a prod server
+root@ubuntu1804:~/project1/devteam# cat file1
+This is a prod server
+root@ubuntu1804:~/project1/devteam# cat >> file1
+PLEASE HANDLE WITH CARE
+root@ubuntu1804:~/project1/devteam# cat file1
+This is a prod server
+PLEASE HANDLE WITH CARE
+root@ubuntu1804:~/project1/devteam# mkdir testTeam1 testTeam2
+root@ubuntu1804:~/project1/devteam# ls -l
+total 12
+-rw-r--r-- 1 root root   46 Jan  8 12:44 file1
+drwxr-xr-x 2 root root 4096 Jan  8 12:45 testTeam1
+drwxr-xr-x 2 root root 4096 Jan  8 12:45 testTeam2
+root@ubuntu1804:~/project1/devteam# tree project
+project [error opening dir]
+
+0 directories, 0 files
+root@ubuntu1804:~/project1/devteam# cd ..
+root@ubuntu1804:~/project1# tree
+.
++-- devteam
+¦   +-- file1
+¦   +-- testTeam1
+¦   +-- testTeam2
++-- Itteam
+¦   +-- report1
+¦   +-- report2
+¦   +-- report3
+¦   +-- report4
+¦   +-- report5
++-- opsteam
+    +-- sop1
+    +-- sop2
+    +-- sop3
+    +-- sop4
+    +-- sop5
+    +-- sop6
+    +-- sop7
+    +-- sop8
+    +-- sop9
+
+5 directories, 15 files
+root@ubuntu1804:~/project1# touch devteam/testTeam1/file{1..49}
+root@ubuntu1804:~/project1# cat devteam/testTeam1/
+cat: devteam/testTeam1/: Is a directory
+root@ubuntu1804:~/project1# ls devteam/testTeam1/
+file1   file12  file15  file18  file20  file23  file26  file29  file31  file34  file37  file4   file42  file45  file48  file6  file9
+file10  file13  file16  file19  file21  file24  file27  file3   file32  file35  file38  file40  file43  file46  file49  file7
+file11  file14  file17  file2   file22  file25  file28  file30  file33  file36  file39  file41  file44  file47  file5   file8
+root@ubuntu1804:~/project1# cd devteam/testTeam1
+root@ubuntu1804:~/project1/devteam/testTeam1# touch file1
+root@ubuntu1804:~/project1/devteam/testTeam1# cat > file1
+RHCSA
+root@ubuntu1804:~/project1/devteam/testTeam1# rm file1
+root@ubuntu1804:~/project1/devteam/testTeam1# touch file1
+root@ubuntu1804:~/project1/devteam/testTeam1# cat > file1
+RHCHA
+root@ubuntu1804:~/project1/devteam/testTeam1# cd ..
+root@ubuntu1804:~/project1/devteam# cd ..
+root@ubuntu1804:~/project1# rmdir testTeam1
+rmdir: failed to remove 'testTeam1': No such file or directory
+root@ubuntu1804:~/project1# rmdir devteam/testTeam1
+rmdir: failed to remove 'devteam/testTeam1': Directory not empty
+root@ubuntu1804:~/project1# rm -rf devteam/testTeam1
+root@ubuntu1804:~/project1# ls devteam/
+file1  testTeam2
+root@ubuntu1804:~/project1# hostname
+ubuntu1804.localdomain
+root@ubuntu1804:~/project1# hostnamect
+
+Command 'hostnamect' not found, did you mean:
+
+  command 'hostnamectl' from deb systemd
+
+Try: apt install <deb name>
+
+root@ubuntu1804:~/project1# hostnamectl
+   Static hostname: ubuntu1804.localdomain
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 100d69bdca3c43589a161bef54a4afd9
+           Boot ID: 010e7394dbb34be1883abd73497b0149
+    Virtualization: oracle
+  Operating System: Ubuntu 18.04.6 LTS
+            Kernel: Linux 4.15.0-200-generic
+      Architecture: x86-64
+root@ubuntu1804:~/project1# hostname Bharath
+root@ubuntu1804:~/project1# hostnamectl
+   Static hostname: ubuntu1804.localdomain
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 100d69bdca3c43589a161bef54a4afd9
+           Boot ID: 010e7394dbb34be1883abd73497b0149
+    Virtualization: oracle
+  Operating System: Ubuntu 18.04.6 LTS
+            Kernel: Linux 4.15.0-200-generic
+      Architecture: x86-64
+root@ubuntu1804:~/project1# cd ..
+root@ubuntu1804:~# cd ..
+root@ubuntu1804:/# cd ..
+root@ubuntu1804:/# exit
+logout
+vagrant@ubuntu1804:~$ hostname
+Bharath
+vagrant@ubuntu1804:~$ hostnamectl
+   Static hostname: ubuntu1804.localdomain
+Transient hostname: Bharath
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 100d69bdca3c43589a161bef54a4afd9
+           Boot ID: 010e7394dbb34be1883abd73497b0149
+    Virtualization: oracle
+  Operating System: Ubuntu 18.04.6 LTS
+            Kernel: Linux 4.15.0-200-generic
+      Architecture: x86-64
+vagrant@ubuntu1804:~$ sudo su -
+root@Bharath:~# ls -l
+total 24
+drwxr-xr-x 5 root root  4096 Jan  6 08:45 project1
+-rw-r--r-- 1 root root 19871 Jan  7 05:27 test-docker.sh
+root@Bharath:~# cd project1/
+root@Bharath:~/project1# ls -l
+total 12
+drwxr-xr-x 3 root root 4096 Jan  8 12:51 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+root@Bharath:~/project1# ls devteam/
+file1  testTeam2
+root@Bharath:~/project1# touch devteam/file1
+root@Bharath:~/project1# cat > devteam/file1
+****PROD SERVER*****
+HANDLE WITH CARE
+root@Bharath:~/project1# touch devteam/file1
+root@Bharath:~/project1# ls devteam/
+file1  testTeam2
+root@Bharath:~/project1# cat devteam/file1
+****PROD SERVER*****
+HANDLE WITH CARE
+root@Bharath:~/project1# cp devteam/file1 devteam/testTeam2/
+root@Bharath:~/project1# ls devteam/testTeam2/
+file1
+root@Bharath:~/project1# cat devteam/testTeam2/file1
+****PROD SERVER*****
+HANDLE WITH CARE
+root@Bharath:~/project1# mv devteam/file1 devteam/testTeam2/
+root@Bharath:~/project1# ls devteam/
+testTeam2
+root@Bharath:~/project1# ls devteam/testTeam2/
+file1
+root@Bharath:~/project1# cat devteam/testTeam2/file1
+****PROD SERVER*****
+HANDLE WITH CARE
+root@Bharath:~/project1# cd devteam/
+root@Bharath:~/project1/devteam# pwd
+/root/project1/devteam
+root@Bharath:~/project1/devteam# cwd
+
+Command 'cwd' not found, did you mean:
+
+  command 'cwr' from snap cwr (0.4.2)
+  command 'xwd' from deb x11-apps
+  command 'cwm' from deb swap-cwm
+  command 'pwd' from deb coreutils
+  command 'cdw' from deb cdw
+  command 'gwd' from deb geneweb
+  command 'cw' from deb cw
+
+See 'snap info <snapname>' for additional versions.
+
+root@Bharath:~/project1/devteam# ls
+testTeam2
+root@Bharath:~/project1/devteam#
+root@Bharath:~/project1/devteam# cp testTeam2/file1 devteam/
+cp: cannot create regular file 'devteam/': Not a directory
+root@Bharath:~/project1/devteam# touch text
+root@Bharath:~/project1/devteam# ls
+testTeam2  text
+root@Bharath:~/project1/devteam# vim text
+root@Bharath:~/project1/devteam# wc text
+ 23  19 158 text
+root@Bharath:~/project1/devteam# wc -l text
+23 text
+root@Bharath:~/project1/devteam# wc -w text
+19 text
+root@Bharath:~/project1/devteam# wc -c text
+158 text
+root@Bharath:~/project1/devteam# wc text
+ 23  19 158 text
+root@Bharath:~/project1/devteam# touch outputfile
+root@Bharath:~/project1/devteam# wc text > outputfile
+root@Bharath:~/project1/devteam# cat outputfile
+ 23  19 158 text
+root@Bharath:~/project1/devteam# which wc
+/usr/bin/wc
+root@Bharath:~/project1/devteam# which vim
+/usr/bin/vim
+root@Bharath:~/project1/devteam# which ls
+/bin/ls
+root@Bharath:~/project1/devteam# which cp
+/bin/cp
+root@Bharath:~/project1/devteam# which sudo
+/usr/bin/sudo
+root@Bharath:~/project1/devteam#
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+Last login: Tue Jan 10 14:12:45 2023 from 10.0.2.2
+vagrant@ubuntu1804:~$ sudo su -
+root@ubuntu1804:~# pwd
+/root
+root@ubuntu1804:~# ls
+project1  test-docker.sh
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# tree
+.
++-- devteam
+¦   +-- outputfile
+¦   +-- testTeam2
+¦   ¦   +-- file1
+¦   +-- text
++-- Itteam
+¦   +-- report1
+¦   +-- report2
+¦   +-- report3
+¦   +-- report4
+¦   +-- report5
++-- opsteam
+    +-- sop1
+    +-- sop2
+    +-- sop3
+    +-- sop4
+    +-- sop5
+    +-- sop6
+    +-- sop7
+    +-- sop8
+    +-- sop9
+
+4 directories, 17 files
+root@ubuntu1804:~/project1# mkdir prod
+root@ubuntu1804:~/project1# touch prod/test
+root@ubuntu1804:~/project1# ls prod/
+test
+root@ubuntu1804:~/project1# cd ..
+root@ubuntu1804:~# ls project1/prod/
+test
+root@ubuntu1804:~# cat > project1/prod
+-su: project1/prod: Is a directory
+root@ubuntu1804:~# cat > project1/prod/test
+This is test file
+root@ubuntu1804:~# cat project1/prod/test
+This is test file
+root@ubuntu1804:~# cat >> project1/prod/test
+This is contains in project dir
+root@ubuntu1804:~# cat project1/prod/test
+This is test file
+This is contains in project dir
+root@ubuntu1804:~# ln project1/prod/test link-test
+root@ubuntu1804:~# ls project1/
+devteam  Itteam  opsteam  prod
+root@ubuntu1804:~# ls -l project1/
+total 16
+drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+root@ubuntu1804:~# ls -l project1/prod/
+total 4
+-rw-r--r-- 2 root root 50 Jan 13 11:50 test
+root@ubuntu1804:~# cat project1/prod/tes
+cat: project1/prod/tes: No such file or directory
+root@ubuntu1804:~# cat project1/prod/test
+This is test file
+This is contains in project dir
+root@ubuntu1804:~# cat -n project1/prod/test
+     1  This is test file
+     2  This is contains in project dir
+root@ubuntu1804:~# wc project1/prod/test
+ 2 10 50 project1/prod/test
+root@ubuntu1804:~# wc -l project1/prod/test
+2 project1/prod/test
+root@ubuntu1804:~# wc -w project1/prod/test
+10 project1/prod/test
+root@ubuntu1804:~# wc -c project1/prod/test
+50 project1/prod/test
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# ls
+devteam  Itteam  opsteam  prod
+root@ubuntu1804:~/project1# touch text1
+root@ubuntu1804:~/project1# ls -l
+total 16
+drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+-rw-r--r-- 1 root root    0 Jan 13 12:06 text1
+root@ubuntu1804:~/project1# cat > text1
+My name is Bharath
+root@ubuntu1804:~/project1# ln text1 link-text1
+root@ubuntu1804:~/project1# ls -l
+total 24
+drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+-rw-r--r-- 2 root root   19 Jan 13 12:07 link-text1
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+-rw-r--r-- 2 root root   19 Jan 13 12:07 text1
+root@ubuntu1804:~/project1# ls -li
+total 24
+1703947 drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+1703949 drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+1703972 -rw-r--r-- 2 root root   19 Jan 13 12:07 link-text1
+1703948 drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+1703970 drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+1703972 -rw-r--r-- 2 root root   19 Jan 13 12:07 text1
+root@ubuntu1804:~/project1# ln -s text2 link-text2
+root@ubuntu1804:~/project1# ls -l
+total 24
+drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+-rw-r--r-- 2 root root   19 Jan 13 12:07 link-text1
+lrwxrwxrwx 1 root root    5 Jan 13 12:10 link-text2 -> text2
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+-rw-r--r-- 2 root root   19 Jan 13 12:07 text1
+root@ubuntu1804:~/project1# cat >> text2
+My name is Bharath
+root@ubuntu1804:~/project1# cat text
+cat: text: No such file or directory
+root@ubuntu1804:~/project1# cat text2
+My name is Bharath
+root@ubuntu1804:~/project1# cat link-text2
+My name is Bharath
+root@ubuntu1804:~/project1# cat >> link-text2
+And also my last name is Changala
+root@ubuntu1804:~/project1# cat link-text2
+My name is Bharath
+And also my last name is Changala
+root@ubuntu1804:~/project1# ls -l
+total 28
+drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+-rw-r--r-- 2 root root   19 Jan 13 12:07 link-text1
+lrwxrwxrwx 1 root root    5 Jan 13 12:10 link-text2 -> text2
+drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+-rw-r--r-- 2 root root   19 Jan 13 12:07 text1
+-rw-r--r-- 1 root root   53 Jan 13 12:12 text2
+root@ubuntu1804:~/project1# ls -li
+total 28
+1703947 drwxr-xr-x 3 root root 4096 Jan  8 13:08 devteam
+1703949 drwxr-xr-x 2 root root 4096 Jan  6 08:48 Itteam
+1703972 -rw-r--r-- 2 root root   19 Jan 13 12:07 link-text1
+1703973 lrwxrwxrwx 1 root root    5 Jan 13 12:10 link-text2 -> text2
+1703948 drwxr-xr-x 2 root root 4096 Jan  6 08:50 opsteam
+1703970 drwxr-xr-x 2 root root 4096 Jan 13 11:48 prod
+1703972 -rw-r--r-- 2 root root   19 Jan 13 12:07 text1
+1703974 -rw-r--r-- 1 root root   53 Jan 13 12:12 text2
+root@ubuntu1804:~/project1# rm -rf text2
+root@ubuntu1804:~/project1# cat link-text2
+cat: link-text2: No such file or directory
+root@ubuntu1804:~/project1# cat text1
+My name is Bharath
+root@ubuntu1804:~/project1# cat link-text1
+My name is Bharath
+root@ubuntu1804:~/project1# rm -rf text1
+root@ubuntu1804:~/project1# cat link-text1
+My name is Bharath
+root@ubuntu1804:~/project1#
+root@ubuntu1804:~/project1#
+root@ubuntu1804:~/project1#

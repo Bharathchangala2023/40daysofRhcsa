@@ -1,0 +1,292 @@
+root@ubuntu1804:~# ls
+root@ubuntu1804:~# ls -l
+total 0
+root@ubuntu1804:~# ls -l /etc/passwd
+-rw-r--r-- 1 root root 1567 Dec  9 20:28 /etc/passwd
+root@ubuntu1804:~# mkdir /project1
+root@ubuntu1804:~# ls
+root@ubuntu1804:~# ls -l
+total 0
+root@ubuntu1804:~# ls /project1/
+root@ubuntu1804:~# mkdir project1
+root@ubuntu1804:~# ls
+project1
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# mkdir devteam
+root@ubuntu1804:~/project1# mkdir opsteam
+root@ubuntu1804:~/project1# mkdir Itteam
+root@ubuntu1804:~/project1# ls -l
+total 12
+drwxr-xr-x 2 root root 4096 Jan  6 08:45 devteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:45 Itteam
+drwxr-xr-x 2 root root 4096 Jan  6 08:45 opsteam
+root@ubuntu1804:~/project1# touch devteam/file1
+root@ubuntu1804:~/project1# ls -l devteam/
+total 0
+-rw-r--r-- 1 root root 0 Jan  6 08:46 file1
+root@ubuntu1804:~/project1# ls  devteam/
+file1
+root@ubuntu1804:~/project1# touch Itteam/report{1..5};
+root@ubuntu1804:~/project1# ls Itteam/
+report1  report2  report3  report4  report5
+root@ubuntu1804:~/project1# touch opsteam/sop{1..10};
+root@ubuntu1804:~/project1#
+root@ubuntu1804:~/project1# ls opsteam/
+sop1  sop10  sop2  sop3  sop4  sop5  sop6  sop7  sop8  sop9
+root@ubuntu1804:~/project1# rm opsteam/sop10
+root@ubuntu1804:~/project1# ls opsteam/
+sop1  sop2  sop3  sop4  sop5  sop6  sop7  sop8  sop9
+root@ubuntu1804:~/project1# tree
+
+Command 'tree' not found, but can be installed with:
+
+snap install tree  # version 1.8.0+pkg-3fd6, or
+apt  install tree
+
+See 'snap info tree' for additional versions.
+
+root@ubuntu1804:~/project1# apt install tree
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  tree
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 40.7 kB of archives.
+After this operation, 105 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 tree amd64 1.7.0-5 [40.7 kB]
+Fetched 40.7 kB in 4s (9,406 B/s)
+Selecting previously unselected package tree.
+(Reading database ... 106033 files and directories currently installed.)
+Preparing to unpack .../tree_1.7.0-5_amd64.deb ...
+Unpacking tree (1.7.0-5) ...
+Setting up tree (1.7.0-5) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+root@ubuntu1804:~/project1# tree
+.
++-- devteam
+¦   +-- file1
++-- Itteam
+¦   +-- report1
+¦   +-- report2
+¦   +-- report3
+¦   +-- report4
+¦   +-- report5
++-- opsteam
+    +-- sop1
+    +-- sop2
+    +-- sop3
+    +-- sop4
+    +-- sop5
+    +-- sop6
+    +-- sop7
+    +-- sop8
+    +-- sop9
+
+3 directories, 15 files
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+Last login: Fri Jan  6 07:39:43 2023 from 10.0.2.2
+vagrant@ubuntu1804:~$ sudo su -
+root@ubuntu1804:~# ls -l /etc/passwd
+-rw-r--r-- 1 root root 1567 Dec  9 20:28 /etc/passwd
+root@ubuntu1804:~# useradd bharath
+root@ubuntu1804:~# ls -l /etc/passwd
+-rw-r--r-- 1 root root 1610 Jan  6 15:35 /etc/passwd
+root@ubuntu1804:~# tail /etc/passwd
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+vagrant:x:1000:1000:vagrant,,,:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/sh
+root@ubuntu1804:~# tail -2 /etc/passwd
+vagrant:x:1000:1000:vagrant,,,:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/sh
+root@ubuntu1804:~# su - bharath
+No directory, logging in with HOME=/
+$
+$ ^C
+$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant ssh
+Last login: Fri Jan  6 15:34:42 2023 from 10.0.2.2
+vagrant@ubuntu1804:~$ sudo su -
+root@ubuntu1804:~# tail -2 /etc/passwd
+vagrant:x:1000:1000:vagrant,,,:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/sh
+root@ubuntu1804:~# cd bharath
+-su: cd: bharath: No such file or directory
+root@ubuntu1804:~# su --help
+Usage: su [options] [LOGIN]
+
+Options:
+  -c, --command COMMAND         pass COMMAND to the invoked shell
+  -h, --help                    display this help message and exit
+  -, -l, --login                make the shell a login shell
+  -m, -p,
+  --preserve-environment        do not reset environment variables, and
+                                keep the same shell
+  -s, --shell SHELL             use SHELL instead of the default in passwd
+
+root@ubuntu1804:~# ls -l
+total 4
+drwxr-xr-x 5 root root 4096 Jan  6 08:45 project1
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# tree
+.
++-- devteam
+¦   +-- file1
++-- Itteam
+¦   +-- report1
+¦   +-- report2
+¦   +-- report3
+¦   +-- report4
+¦   +-- report5
++-- opsteam
+    +-- sop1
+    +-- sop2
+    +-- sop3
+    +-- sop4
+    +-- sop5
+    +-- sop6
+    +-- sop7
+    +-- sop8
+    +-- sop9
+
+3 directories, 15 files
+root@ubuntu1804:~/project1# cd devteam/
+root@ubuntu1804:~/project1/devteam# pwd
+/root/project1/devteam
+root@ubuntu1804:~/project1/devteam# ls
+file1
+root@ubuntu1804:~/project1/devteam# cat > file1
+This is the test file
+root@ubuntu1804:~/project1/devteam# cat file1
+This is the test file
+root@ubuntu1804:~/project1/devteam# cat >> file1
+this is located in the project/devteam
+root@ubuntu1804:~/project1/devteam# cat file1
+This is the test file
+this is located in the project/devteam
+root@ubuntu1804:~/project1/devteam# cat > file1
+Avengers Endgame
+root@ubuntu1804:~/project1/devteam# cat file1
+Avengers Endgame
+root@ubuntu1804:~/project1/devteam# ls -
+ls: cannot access '-': No such file or directory
+root@ubuntu1804:~/project1/devteam# ls -l
+total 4
+-rw-r--r-- 1 root root 17 Jan  6 15:42 file1
+root@ubuntu1804:~/project1/devteam# cd ..
+root@ubuntu1804:~/project1# cd Itteam/
+root@ubuntu1804:~/project1/Itteam# ls -l
+total 0
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report1
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report2
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report3
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report4
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report5
+root@ubuntu1804:~/project1/Itteam# touch report1
+root@ubuntu1804:~/project1/Itteam# ls -l
+total 0
+-rw-r--r-- 1 root root 0 Jan  6 15:43 report1
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report2
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report3
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report4
+-rw-r--r-- 1 root root 0 Jan  6 08:48 report5
+root@ubuntu1804:~/project1/Itteam# cat > report1
+this is located in /project/ITteam
+aicjiajfa
+asjcnasFAC
+ASCJANFAFAC
+DSKJSAVNJ
+fdsvnsdvsadvsav
+asvjnvsavn
+avljndsvndsv
+root@ubuntu1804:~/project1/Itteam# cat -n report1
+     1  this is located in /project/ITteam
+     2  aicjiajfa
+     3  asjcnasFAC
+     4  ASCJANFAFAC
+     5  DSKJSAVNJ
+     6  fdsvnsdvsadvsav
+     7  asvjnvsavn
+     8  avljndsvndsv
+root@ubuntu1804:~/project1/Itteam# cd ..
+root@ubuntu1804:~/project1# id bharath
+uid=1001(bharath) gid=1001(bharath) groups=1001(bharath)
+root@ubuntu1804:~/project1# passwd --stdin bharath
+passwd: unrecognized option '--stdin'
+Usage: passwd [options] [LOGIN]
+
+Options:
+  -a, --all                     report password status on all accounts
+  -d, --delete                  delete the password for the named account
+  -e, --expire                  force expire the password for the named account
+  -h, --help                    display this help message and exit
+  -k, --keep-tokens             change password only if expired
+  -i, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --lock                    lock the password of the named account
+  -n, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -q, --quiet                   quiet mode
+  -r, --repository REPOSITORY   change password in REPOSITORY repository
+  -R, --root CHROOT_DIR         directory to chroot into
+  -S, --status                  report password status on the named account
+  -u, --unlock                  unlock the password of the named account
+  -w, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+  -x, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+
+root@ubuntu1804:~/project1# cd ..
+root@ubuntu1804:~# tail -2 /etc/passwd
+vagrant:x:1000:1000:vagrant,,,:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/sh
+root@ubuntu1804:~# su - bharath
+No directory, logging in with HOME=/
+$ /bharath
+-su: 1: /bharath: not found
+$ c
+-su: 2: c: not found
+$ ^Z
+$
+$
+$
+$ cd ..
+$ exit
+root@ubuntu1804:~# ls -lt
+total 4
+drwxr-xr-x 5 root root 4096 Jan  6 08:45 project1
+root@ubuntu1804:~# ls -lt /etc/passwd
+-rw-r--r-- 1 root root 1610 Jan  6 15:35 /etc/passwd
+root@ubuntu1804:~# tail -2 /etc/passwd
+vagrant:x:1000:1000:vagrant,,,:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/sh
+root@ubuntu1804:~# ssh bharath
+ssh: Could not resolve hostname bharath: Temporary failure in name resolution
+root@ubuntu1804:~# su - bharath
+No directory, logging in with HOME=/
+$ cd ..
+$ exit
+root@ubuntu1804:~# cd project1/
+root@ubuntu1804:~/project1# useradd bharath
+useradd: user 'bharath' already exists
+root@ubuntu1804:~/project1# useradd bharath1
+root@ubuntu1804:~/project1# su - bharath1
+No directory, logging in with HOME=/
+$ exit
+root@ubuntu1804:~/project1# tail -2 /etc/pa
+pam.conf  pam.d/    passwd    passwd-
+root@ubuntu1804:~/project1# tail -2 /etc/passwd
+bharath:x:1001:1001::/home/bharath:/bin/sh
+bharath1:x:1002:1002::/home/bharath1:/bin/sh
+root@ubuntu1804:~/project1# exit
+logout
+vagrant@ubuntu1804:~$

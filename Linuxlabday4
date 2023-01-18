@@ -1,0 +1,926 @@
+Microsoft Windows [Version 10.0.19045.2364]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~/devops/provision/vagrant/ubuntu/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/ubuntu
+$ cd ..
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ ls
+centos  ubuntu
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant
+$ cd centos/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'centos/7' version '2004.01' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: No guest additions were detected on the base box for this VM! Guest
+    default: additions are required for forwarded ports, shared folders, host only
+    default: networking, and more. If SSH fails on this machine, please install
+    default: the guest additions and repackage the box to continue.
+    default:
+    default: This is not an error message; everything may continue to work properly,
+    default: in which case you may ignore this message.
+==> default: Rsyncing folder: /cygdrive/c/Users/bhara/devops/provision/vagrant/centos/ => /vagrant
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant ssh
+Last login: Sun Jan  8 12:18:31 2023 from 10.0.2.2
+[vagrant@10 ~]$ sudo su -
+Last login: Sun Jan  8 12:18:47 UTC 2023 on pts/0
+[root@10 ~]# ls -l /etc/passwd
+-rw-r--r--. 1 root root 1276 Jan  6 16:01 /etc/passwd
+[root@10 ~]# useradd bharath
+useradd: user 'bharath' already exists
+[root@10 ~]# ls -l
+total 16
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# cd /etc/
+[root@10 etc]# ls -l
+total 1072
+-rw-r--r--.  1 root root       16 Apr 30  2020 adjtime
+-rw-r--r--.  1 root root     1529 Apr  1  2020 aliases
+-rw-r--r--.  1 root root    12288 Jan 18 14:34 aliases.db
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 alternatives
+-rw-------.  1 root root      541 Aug  8  2019 anacrontab
+drwxr-x---.  3 root root       43 Apr 30  2020 audisp
+drwxr-x---.  3 root root       83 Jan  4 12:28 audit
+drwxr-xr-x.  2 root root       68 Apr 30  2020 bash_completion.d
+-rw-r--r--.  1 root root     2853 Apr  1  2020 bashrc
+drwxr-xr-x.  2 root root        6 Apr  7  2020 binfmt.d
+-rw-r--r--.  1 root root       37 Apr  7  2020 centos-release
+-rw-r--r--.  1 root root       51 Apr  7  2020 centos-release-upstream
+drwxr-xr-x.  2 root root        6 Aug  4  2017 chkconfig.d
+-rw-r--r--.  1 root root     1108 Aug  8  2019 chrony.conf
+-rw-r-----.  1 root chrony    481 Aug  8  2019 chrony.keys
+drwxr-xr-x.  2 root root       26 Apr 30  2020 cifs-utils
+drwxr-xr-x.  2 root root       21 Apr 30  2020 cron.d
+drwxr-xr-x.  2 root root       42 Apr 30  2020 cron.daily
+-rw-------.  1 root root        0 Aug  8  2019 cron.deny
+drwxr-xr-x.  2 root root       22 Jun  9  2014 cron.hourly
+drwxr-xr-x.  2 root root        6 Jun  9  2014 cron.monthly
+-rw-r--r--.  1 root root      451 Jun  9  2014 crontab
+drwxr-xr-x.  2 root root        6 Jun  9  2014 cron.weekly
+-rw-------.  1 root root        0 Apr 30  2020 crypttab
+-rw-r--r--.  1 root root     1620 Apr  1  2020 csh.cshrc
+-rw-r--r--.  1 root root     1103 Apr  1  2020 csh.login
+drwxr-xr-x.  4 root root       78 Apr 30  2020 dbus-1
+drwxr-xr-x.  2 root root       44 Apr 30  2020 default
+drwxr-xr-x.  2 root root       23 Apr 30  2020 depmod.d
+drwxr-x---.  4 root root       53 Apr 30  2020 dhcp
+-rw-r--r--.  1 root root     5090 Aug  6  2019 DIR_COLORS
+-rw-r--r--.  1 root root     5725 Aug  6  2019 DIR_COLORS.256color
+-rw-r--r--.  1 root root     4669 Aug  6  2019 DIR_COLORS.lightbgcolor
+-rw-r--r--.  1 root root     1285 Apr  1  2020 dracut.conf
+drwxr-xr-x.  2 root root       88 Apr 30  2020 dracut.conf.d
+-rw-r--r--.  1 root root      112 Nov 27  2019 e2fsck.conf
+-rw-r--r--.  1 root root        0 Apr  1  2020 environment
+-rw-r--r--.  1 root root     1317 Apr 11  2018 ethertypes
+-rw-r--r--.  1 root root        0 Jun  7  2013 exports
+drwxr-xr-x.  2 root root        6 Apr  1  2020 exports.d
+-rw-r--r--.  1 root root       70 Apr  1  2020 filesystems
+drwxr-x---.  7 root root      133 Apr 30  2020 firewalld
+-rw-r--r--.  1 root root      450 Jan 18 14:34 fstab
+-rw-r--r--.  1 root root       38 Oct 30  2018 fuse.conf
+drwxr-xr-x.  2 root root        6 Aug  2  2017 gcrypt
+drwxr-xr-x.  2 root root        6 Jul 13  2018 gnupg
+-rw-r--r--.  1 root root       94 Mar 24  2017 GREP_COLORS
+drwxr-xr-x.  4 root root       40 Apr 30  2020 groff
+-rw-r--r--.  1 root root      575 Jan  6 16:01 group
+-rw-r--r--.  1 root root      559 Jan  6 16:01 group-
+lrwxrwxrwx.  1 root root       22 Apr 30  2020 grub2.cfg -> ../boot/grub2/grub.cfg
+drwx------.  2 root root      182 Apr 30  2020 grub.d
+----------.  1 root root      457 Jan  6 16:01 gshadow
+----------.  1 root root      445 Jan  6 16:01 gshadow-
+drwxr-xr-x.  3 root root       20 Apr 30  2020 gss
+drwxr-xr-x.  2 root root       79 Apr 30  2020 gssproxy
+-rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+-rw-r--r--.  1 root root       22 Apr 30  2020 hostname
+-rw-r--r--.  1 root root      158 Jun  7  2013 hosts
+-rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+-rw-r--r--.  1 root root     4849 Apr 11  2018 idmapd.conf
+lrwxrwxrwx.  1 root root       11 Apr 30  2020 init.d -> rc.d/init.d
+-rw-r--r--.  1 root root      511 Apr  1  2020 inittab
+-rw-r--r--.  1 root root      942 Jun  7  2013 inputrc
+drwxr-xr-x.  2 root root      159 Apr 30  2020 iproute2
+-rw-r--r--.  1 root root       23 Apr  7  2020 issue
+-rw-r--r--.  1 root root       22 Apr  7  2020 issue.net
+-rw-r--r--.  1 root root      646 Mar 31  2020 krb5.conf
+drwxr-xr-x.  2 root root        6 Apr  1  2020 krb5.conf.d
+-rw-r--r--.  1 root root    22882 Apr 30  2020 ld.so.cache
+-rw-r--r--.  1 root root       28 Feb 27  2013 ld.so.conf
+drwxr-xr-x.  2 root root      106 Apr 30  2020 ld.so.conf.d
+-rw-r-----.  1 root root      191 Mar  1  2019 libaudit.conf
+drwxr-xr-x.  2 root root       35 Apr 30  2020 libnl
+-rw-r--r--.  1 root root     2388 Apr 30  2020 libuser.conf
+-rw-r--r--.  1 root root       19 Apr 30  2020 locale.conf
+lrwxrwxrwx.  1 root root       25 Apr 30  2020 localtime -> ../usr/share/zoneinfo/UTC
+-rw-r--r--.  1 root root     2043 Apr 30  2020 login.defs
+-rw-r--r--.  1 root root      662 Jul 31  2013 logrotate.conf
+drwxr-xr-x.  2 root root       80 Apr 30  2020 logrotate.d
+-r--r--r--.  1 root root       33 Jan  4 12:28 machine-id
+-rw-r--r--.  1 root root      111 Apr  1  2020 magic
+-rw-r--r--.  1 root root     5171 Oct 30  2018 man_db.conf
+-rw-r--r--.  1 root root      936 Apr  1  2020 mke2fs.conf
+drwxr-xr-x.  2 root root      120 Apr 30  2020 modprobe.d
+drwxr-xr-x.  2 root root        6 Apr  7  2020 modules-load.d
+-rw-r--r--.  1 root root        0 Jun  7  2013 motd
+lrwxrwxrwx.  1 root root       17 Apr 30  2020 mtab -> /proc/self/mounts
+-rw-r--r--.  1 root root      570 Nov 27  2019 my.cnf
+drwxr-xr-x.  2 root root       31 Apr 30  2020 my.cnf.d
+-rw-r--r--.  1 root root      767 Aug  9  2019 netconfig
+drwxr-xr-x.  7 root root      134 Apr  2  2020 NetworkManager
+-rw-r--r--.  1 root root       58 Apr  1  2020 networks
+-rw-r--r--.  1 root root     1023 Apr  1  2020 nfs.conf
+-rw-r--r--.  1 root root     3391 Apr  1  2020 nfsmount.conf
+-rw-r--r--.  1 root root     1949 Apr 30  2020 nsswitch.conf
+-rw-r--r--.  1 root root     1938 Mar 31  2020 nsswitch.conf.bak
+drwxr-xr-x.  3 root root       36 Apr 30  2020 openldap
+drwxr-xr-x.  2 root root        6 Apr 11  2018 opt
+lrwxrwxrwx.  1 root root       21 Apr 30  2020 os-release -> ../usr/lib/os-release
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 pam.d
+-rw-r--r--.  1 root root     1276 Jan  6 16:01 passwd
+-rw-r--r--.  1 root root     1231 Jan  6 16:01 passwd-
+drwxr-xr-x.  3 root root       21 Apr 30  2020 pkcs11
+drwxr-xr-x. 10 root root      116 Apr 30  2020 pki
+drwxr-xr-x.  5 root root       52 Apr 30  2020 pm
+drwxr-xr-x.  5 root root       72 Apr 30  2020 polkit-1
+drwxr-xr-x.  2 root root        6 Jun 10  2014 popt.d
+drwxr-xr-x.  2 root root      154 Jan 18 14:34 postfix
+drwxr-xr-x.  3 root root      123 Apr 30  2020 ppp
+drwxr-xr-x.  2 root root       78 Apr 30  2020 prelink.conf.d
+-rw-r--r--.  1 root root      233 Jun  7  2013 printcap
+-rw-r--r--.  1 root root     1819 Apr  1  2020 profile
+drwxr-xr-x.  2 root root      277 Apr 30  2020 profile.d
+-rw-r--r--.  1 root root     6545 Apr  1  2020 protocols
+drwxr-xr-x.  2 root root       35 Apr 30  2020 python
+drwxr-xr-x.  3 root root       50 Apr 30  2020 qemu-ga
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc0.d -> rc.d/rc0.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc1.d -> rc.d/rc1.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc2.d -> rc.d/rc2.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc3.d -> rc.d/rc3.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc4.d -> rc.d/rc4.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc5.d -> rc.d/rc5.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc6.d -> rc.d/rc6.d
+drwxr-xr-x. 10 root root      127 Apr 30  2020 rc.d
+lrwxrwxrwx.  1 root root       13 Apr 30  2020 rc.local -> rc.d/rc.local
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 redhat-release -> centos-release
+-rw-r--r--.  1 root root     1787 Jun 10  2014 request-key.conf
+drwxr-xr-x.  2 root root       77 Apr 30  2020 request-key.d
+-rw-r--r--.  1 root root       50 Jan 18 14:34 resolv.conf
+-rw-r--r--.  1 root root     1634 Dec 25  2012 rpc
+drwxr-xr-x.  2 root root       25 Apr  1  2020 rpm
+-rw-r--r--.  1 root root      458 Apr  1  2020 rsyncd.conf
+-rw-r--r--.  1 root root     3232 Nov 27  2019 rsyslog.conf
+drwxr-xr-x.  2 root root       25 Apr  1  2020 rsyslog.d
+-rw-r--r--.  1 root root      966 Apr  1  2020 rwtab
+drwxr-xr-x.  2 root root       39 Apr 30  2020 rwtab.d
+drwxr-xr-x.  2 root root       61 Apr 30  2020 samba
+drwxr-xr-x.  2 root root       24 Apr 30  2020 sasl2
+-rw-------.  1 root root      221 Apr  1  2020 securetty
+drwxr-xr-x.  6 root root     4096 Apr 30  2020 security
+drwxr-xr-x.  5 root root       81 Apr 30  2020 selinux
+-rw-r--r--.  1 root root   670293 Jun  7  2013 services
+-rw-r--r--.  1 root root      216 Apr  1  2020 sestatus.conf
+----------.  1 root root      723 Jan  6 16:01 shadow
+----------.  1 root root      693 Jan  6 16:01 shadow-
+-rw-r--r--.  1 root root       44 Apr  1  2020 shells
+drwxr-xr-x.  2 root root       62 Apr 30  2020 skel
+drwxr-xr-x.  2 root root      225 Jan  4 12:28 ssh
+drwxr-xr-x.  2 root root       19 Apr 30  2020 ssl
+-rw-r--r--.  1 root root      212 Apr  1  2020 statetab
+drwxr-xr-x.  2 root root        6 Apr  1  2020 statetab.d
+-rw-r--r--.  1 root root       42 Jan  6 16:01 subgid
+-rw-r--r--.  1 root root       21 Jan  6 16:01 subgid-
+-rw-r--r--.  1 root root       42 Jan  6 16:01 subuid
+-rw-r--r--.  1 root root       21 Jan  6 16:01 subuid-
+-rw-r-----.  1 root root     1786 Nov 27  2019 sudo.conf
+-r--r-----.  1 root root     4328 Nov 27  2019 sudoers
+drwxr-x---.  2 root root       21 Apr 30  2020 sudoers.d
+-rw-r-----.  1 root root     3181 Nov 27  2019 sudo-ldap.conf
+drwxr-xr-x.  6 root root     4096 Apr 30  2020 sysconfig
+-rw-r--r--.  1 root root      449 Apr  1  2020 sysctl.conf
+drwxr-xr-x.  2 root root       28 Apr 30  2020 sysctl.d
+drwxr-xr-x.  4 root root      151 Apr 30  2020 systemd
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 system-release -> centos-release
+-rw-r--r--.  1 root root       23 Apr  7  2020 system-release-cpe
+-rw-------.  1 tss  tss      7046 Aug  3  2017 tcsd.conf
+drwxr-xr-x.  2 root root        6 Sep  6  2017 terminfo
+drwxr-xr-x.  2 root root        6 Apr  7  2020 tmpfiles.d
+drwxr-xr-x.  3 root root      109 Apr 30  2020 tuned
+drwxr-xr-x.  3 root root       54 Jan  4 12:28 udev
+-rw-r--r--.  1 root root       37 Apr 30  2020 vconsole.conf
+-rw-r--r--.  1 root root     1982 Aug  9  2019 virc
+drwxr-xr-x.  5 root root      231 Apr 30  2020 vmware-tools
+drwxr-xr-x.  2 root root       33 Apr 30  2020 wpa_supplicant
+drwxr-xr-x.  5 root root       57 Apr 30  2020 X11
+drwxr-xr-x.  4 root root       38 Apr 30  2020 xdg
+drwxr-xr-x.  2 root root        6 Apr 11  2018 xinetd.d
+drwxr-xr-x.  6 root root      100 Apr 30  2020 yum
+-rw-r--r--.  1 root root      970 Apr  2  2020 yum.conf
+drwxr-xr-x.  2 root root      220 Apr  2  2020 yum.repos.d
+[root@10 etc]# cd passwd-
+-bash: cd: passwd-: Not a directory
+[root@10 etc]# cd passwd
+-bash: cd: passwd: Not a directory
+[root@10 etc]# cd ..
+[root@10 /]# cd ..
+[root@10 /]# cd ~
+[root@10 ~]# pwd
+/root
+[root@10 ~]# su bharath
+[bharath@10 root]$ ls -l
+ls: cannot open directory .: Permission denied
+[bharath@10 root]$ mkdir project
+mkdir: cannot create directory ‘project’: Permission denied
+[bharath@10 root]$ pwd
+/root
+[bharath@10 root]$ exit
+exit
+[root@10 ~]# ls /etc/passwd
+/etc/passwd
+[root@10 ~]# ls -la /etc/passwd
+-rw-r--r--. 1 root root 1276 Jan  6 16:01 /etc/passwd
+[root@10 ~]# useradd rhel
+[root@10 ~]# su rhel
+[rhel@10 root]$ touch text.txt
+touch: cannot touch ‘text.txt’: Permission denied
+[rhel@10 root]$ exit
+exit
+[root@10 ~]# su - bharath
+Last login: Wed Jan 18 14:39:13 UTC 2023 on pts/0
+[bharath@10 ~]$ ls -l
+total 0
+[bharath@10 ~]$ ls
+[bharath@10 ~]$ mkdir project
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+[bharath@10 ~]$ mkdir Music pictures Videos
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Music
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 pictures
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Videos
+[bharath@10 ~]$ touch song1.mp3 song2.mp3 song3.mp3 song4.mp3 song5.mp3 song6.mp3
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Music
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 pictures
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song2.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song3.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song4.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song6.mp3
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Videos
+[bharath@10 ~]$ touch snap1.jpg snap2.jpg snap3.jpg snap4.jpg snap5.jpg snap6.jpg
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Music
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 pictures
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap1.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap2.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap3.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap4.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap6.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song2.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song3.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song4.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song6.mp3
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Videos
+[bharath@10 ~]$ touch file1.avi file2.avi file3.avi file4.avi file5.avi file6.avi
+[bharath@10 ~]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file1.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file2.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file3.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file4.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file5.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file6.avi
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Music
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 pictures
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap1.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap2.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap3.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap4.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap6.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song2.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song3.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song4.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song6.mp3
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:42 Videos
+[bharath@10 ~]$ mv song1.mp3 song2.mp3 song3.mp3 song4.mp3 > song5.mp3 song6.mp3
+mv: target ‘song6.mp3’ is not a directory
+[bharath@10 ~]$ mv song1.mp3 song2.mp3 song3.mp3 song4.mp3 \  > song5.mp3 song6.mp3
+mv: target ‘song6.mp3’ is not a directory
+[bharath@10 ~]$ mv song1.mp3 song2.mp3 song3.mp3 song4.mp3 song5.mp3 song6.mp3 Music/
+[bharath@10 ~]$ mv file1.avi file2.avi file3.avi file4.avi file5.avi file6.avi Videos/
+[bharath@10 ~]$ mv snap1.jpg snap2.jpg snap3.jpg snap4.jpg snap5.jpg snap6.jpg pictures/
+[bharath@10 ~]$ ls -l Music pictures Videos
+Music:
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song2.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song3.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song4.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:47 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:43 song6.mp3
+
+pictures:
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap1.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap2.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap3.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap4.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:44 snap6.jpg
+
+Videos:
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file1.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file2.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file3.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file4.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file5.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:45 file6.avi
+[bharath@10 ~]$ mkdir friends family work
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath   6 Jan 18 14:50 family
+drwxrwxr-x. 2 bharath bharath   6 Jan 18 14:50 friends
+drwxrwxr-x. 2 bharath bharath 108 Jan 18 14:47 Music
+drwxrwxr-x. 2 bharath bharath 108 Jan 18 14:48 pictures
+drwxrwxr-x. 2 bharath bharath   6 Jan 18 14:41 project
+drwxrwxr-x. 2 bharath bharath 108 Jan 18 14:48 Videos
+drwxrwxr-x. 2 bharath bharath   6 Jan 18 14:50 work
+[bharath@10 ~]$ cp Music/song1.mp3 Music/song2.mp3 family/
+[bharath@10 ~]$ ls -l family/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 song2.mp3
+[bharath@10 ~]$ cp Videos/file1.avi Videos/file2.avi family/
+[bharath@10 ~]$ cp pictures/snap1.jpg pictures/snap2.jpg family/
+[bharath@10 ~]$ ls -l family/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 file1.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 file2.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:55 snap1.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:55 snap2.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 song1.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:54 song2.mp3
+[bharath@10 ~]$ cp Music/song3.mp3 Music/song4.mp3 friends/
+[bharath@10 ~]$ cp Videos/file1.avi Videos/file2.avi friends/
+[bharath@10 ~]$ cp pictures/snap3.jpg pictures/snap4.jpg friends/
+[bharath@10 ~]$ ls -l friends/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:57 file1.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:57 file2.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:57 snap3.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:57 snap4.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:56 song3.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:56 song4.mp3
+[bharath@10 ~]$ cp Music/song5.mp3 Music/song6.mp3 work/
+[bharath@10 ~]$ cp Videos/file5.avi Videos/file6.avi work/
+[bharath@10 ~]$ cp pictures/snap5.jpg pictures/snap6.jpg work/
+[bharath@10 ~]$ ls -l work/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 file5.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 file6.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap6.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song6.mp3
+[bharath@10 ~]$ rmdir friends/
+rmdir: failed to remove ‘friends/’: Directory not empty
+[bharath@10 ~]$ rm -r friends/
+[bharath@10 ~]$ ls
+family  Music  pictures  project  Videos  work
+[bharath@10 ~]$ rm -r family Music pictures Videos
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath   6 Jan 18 14:41 project
+drwxrwxr-x. 2 bharath bharath 108 Jan 18 14:59 work
+[bharath@10 ~]$ ls -l work/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 file5.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 file6.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap6.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song6.mp3
+[bharath@10 ~]$ rm work/file5.avi
+[bharath@10 ~]$ ls -l work/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 file6.avi
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap5.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:59 snap6.jpg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song5.mp3
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 14:58 song6.mp3
+[bharath@10 ~]$ cd work/
+[bharath@10 work]$ pwd
+/home/bharath/work
+[bharath@10 work]$ rm file6.avi snap5.jpg snap6.jpg song5.mp3 song6.mp3
+[bharath@10 work]$ ls -l
+total 0
+[bharath@10 work]$ cd ..
+[bharath@10 ~]$ rmdir work/
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$ Date
+-bash: Date: command not found
+[bharath@10 ~]$ date
+Wed Jan 18 15:03:04 UTC 2023
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 14:41 project
+[bharath@10 ~]$ pwd
+/home/bharath
+[bharath@10 ~]$ mkdir -p documents/project_plans
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+[bharath@10 ~]$ ls -l documents/
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 15:20 project_plans
+[bharath@10 ~]$ tree
+-bash: tree: command not found
+[bharath@10 ~]$ touch documents/project_plans/season1_project_plan.odf documents/project_plans/season2_project_plan
+[bharath@10 ~]$ ls -l documents/
+total 0
+drwxrwxr-x. 2 bharath bharath 66 Jan 18 15:21 project_plans
+[bharath@10 ~]$ ls -l documents/project_plans/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:21 season1_project_plan.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:21 season2_project_plan
+[bharath@10 ~]$ rm documents/project_plans/season2_project_plan
+[bharath@10 ~]$ ls -l documents/project_plans/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:21 season1_project_plan.odf
+[bharath@10 ~]$ touch documents/project_plans/season2_project_plan.odf
+[bharath@10 ~]$ ls -l documents/project_plans/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:21 season1_project_plan.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:23 season2_project_plan.odf
+[bharath@10 ~]$ touch season{1..2}_episode{1..6}.ogg
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode6.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode6.ogg
+[bharath@10 ~]$ touch mystery_chapter{1..8}.odf
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter1.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter2.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter6.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter8.odf
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode6.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode6.ogg
+[bharath@10 ~]$ mkdir Videos
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter1.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter2.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter6.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter8.odf
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode6.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode6.ogg
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 15:27 Videos
+[bharath@10 ~]$ mkdir season1 season2 Videos/
+mkdir: cannot create directory ‘Videos/’: File exists
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter1.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter2.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter6.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter8.odf
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 15:28 season1
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode6.ogg
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 15:28 season2
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode6.ogg
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 15:27 Videos
+[bharath@10 ~]$ mv season1 season2 Videos/
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 3 bharath bharath 27 Jan 18 15:20 documents
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter1.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter2.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter6.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:27 mystery_chapter8.odf
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season1_episode6.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath  0 Jan 18 15:25 season2_episode6.ogg
+drwxrwxr-x. 4 bharath bharath 36 Jan 18 15:29 Videos
+[bharath@10 ~]$ ls -l Videos/
+total 0
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 15:28 season1
+drwxrwxr-x. 2 bharath bharath 6 Jan 18 15:28 season2
+[bharath@10 ~]$ mv season1_episode{1..6}.ogg season1
+mv: target ‘season1’ is not a directory
+[bharath@10 ~]$ mv season1_episode{1..6}.ogg Videos/season1/
+[bharath@10 ~]$ ls -l Videos/season1/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode6.ogg
+[bharath@10 ~]$ mv season2_episode{1..6}.ogg Videos/season2/
+[bharath@10 ~]$ ls -l Videos/season2/
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode6.ogg
+[bharath@10 ~]$ mkdir -p documents/my_bestseller/chapters
+[bharath@10 ~]$ ls -R documents/
+documents/:
+my_bestseller  project_plans
+
+documents/my_bestseller:
+chapters
+
+documents/my_bestseller/chapters:
+
+documents/project_plans:
+season1_project_plan.odf  season2_project_plan.odf
+[bharath@10 ~]$ mkdir documents/my_bestseller/{editors,changes,vacation}
+[bharath@10 ~]$ ls -R documents/
+documents/:
+my_bestseller  project_plans
+
+documents/my_bestseller:
+changes  chapters  editors  vacation
+
+documents/my_bestseller/changes:
+
+documents/my_bestseller/chapters:
+
+documents/my_bestseller/editors:
+
+documents/my_bestseller/vacation:
+
+documents/project_plans:
+season1_project_plan.odf  season2_project_plan.odf
+[bharath@10 ~]$ mv documents/my_bestseller/chapters/ mystery_chapter{1..8}
+mv: target ‘mystery_chapter8’ is not a directory
+[bharath@10 ~]$ mv documents/my_bestseller/chapters/ mystery_chapter{1..8}.ogg
+mv: target ‘mystery_chapter8.ogg’ is not a directory
+[bharath@10 ~]$ mv documents/my_bestseller/chapters/ mystery_chapter*
+mv: target ‘mystery_chapter8.odf’ is not a directory
+[bharath@10 ~]$ cd documents/my_bestseller/chapters/
+[bharath@10 chapters]$ mv ~/mystery_chapter*
+mv: target ‘/home/bharath/mystery_chapter8.odf’ is not a directory
+[bharath@10 chapters]$ mv ~/mystery_chapter* .
+[bharath@10 chapters]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter1.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter2.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter6.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter8.odf
+[bharath@10 chapters]$ cat >mystery_chapter1.odf
+What is the .odf file format
+[bharath@10 chapters]$ cat mystery_chapter1.odf
+What is the .odf file format
+[bharath@10 chapters]$ pwd
+/home/bharath/documents/my_bestseller/chapters
+[bharath@10 chapters]$ mv mystery_chapter{1..2}.odf ../editors/
+[bharath@10 chapters]$ ls
+mystery_chapter3.odf  mystery_chapter4.odf  mystery_chapter5.odf  mystery_chapter6.odf  mystery_chapter7.odf  mystery_chapter8.odf
+[bharath@10 chapters]$ ls ../editors/
+mystery_chapter1.odf  mystery_chapter2.odf
+[bharath@10 chapters]$ mv mystery_chapter{7..8}.odf ../vacation/
+[bharath@10 chapters]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter6.odf
+[bharath@10 chapters]$ ls ../vacation/
+mystery_chapter7.odf  mystery_chapter8.odf
+[bharath@10 chapters]$ cd ~/Videos/season2
+[bharath@10 season2]$ ls
+season2_episode1.ogg  season2_episode2.ogg  season2_episode3.ogg  season2_episode4.ogg  season2_episode5.ogg  season2_episode6.ogg
+[bharath@10 season2]$ cd ..
+[bharath@10 Videos]$ cd ~
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 4 bharath bharath 48 Jan 18 15:34 documents
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 4 bharath bharath 36 Jan 18 15:29 Videos
+[bharath@10 ~]$ cd documents/
+[bharath@10 documents]$ ls
+my_bestseller  project_plans
+[bharath@10 documents]$ cd ..
+[bharath@10 ~]$ cd -
+/home/bharath/documents
+[bharath@10 documents]$ ls my_bestseller/
+changes  chapters  editors  vacation
+[bharath@10 documents]$ ls project_plans/
+season1_project_plan.odf  season2_project_plan.odf
+[bharath@10 documents]$ ~/Videos/season2/
+-bash: /home/bharath/Videos/season2/: Is a directory
+[bharath@10 documents]$ cd ~/Videos/season2/
+[bharath@10 season2]$ cp  season2_episode1.ogg ~/documents/my_bestseller/vacation/
+[bharath@10 season2]$ cd ~/documents/my_bestseller/vacation/
+[bharath@10 vacation]$ ls
+mystery_chapter7.odf  mystery_chapter8.odf  season2_episode1.ogg
+[bharath@10 vacation]$ cd -
+/home/bharath/Videos/season2
+[bharath@10 season2]$ cp  season2_episode2.ogg ~/documents/my_bestseller/vacation/
+[bharath@10 season2]$ cd -
+/home/bharath/documents/my_bestseller/vacation
+[bharath@10 vacation]$ ls
+mystery_chapter7.odf  mystery_chapter8.odf  season2_episode1.ogg  season2_episode2.ogg
+[bharath@10 vacation]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter7.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter8.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:53 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:56 season2_episode2.ogg
+[bharath@10 vacation]$ cd ~/documents/my_bestseller/chapters/
+[bharath@10 chapters]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter3.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter4.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:27 mystery_chapter6.odf
+[bharath@10 chapters]$ cp mystery_chapter[56].odf ../change
+cp: target ‘../change’ is not a directory
+[bharath@10 chapters]$ cp mystery_chapter[56].odf ../changes/
+[bharath@10 chapters]$ ls ../changes/
+mystery_chapter5.odf  mystery_chapter6.odf
+[bharath@10 chapters]$ cd ../changes
+[bharath@10 changes]$ cp mystery_chapter5.odf mystery_chapter5_$(date +%F).odf
+[bharath@10 changes]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:06 mystery_chapter5_2023-01-18.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:00 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:00 mystery_chapter6.odf
+[bharath@10 changes]$ cp mystery_chapter5.odf mystery_chapter5_$(date +%s).odf
+[bharath@10 changes]$ ls -l
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:07 mystery_chapter5_1674058022.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:06 mystery_chapter5_2023-01-18.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:00 mystery_chapter5.odf
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 16:00 mystery_chapter6.odf
+[bharath@10 changes]$ rm mystery*
+[bharath@10 changes]$ ls -l
+total 0
+[bharath@10 changes]$ cd ..
+[bharath@10 my_bestseller]$ rm changes/
+rm: cannot remove ‘changes/’: Is a directory
+[bharath@10 my_bestseller]$ rmdir changes
+[bharath@10 my_bestseller]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 118 Jan 18 15:47 chapters
+drwxrwxr-x. 2 bharath bharath  62 Jan 18 15:46 editors
+drwxrwxr-x. 2 bharath bharath 118 Jan 18 15:56 vacation
+[bharath@10 my_bestseller]$ rm vacation/
+rm: cannot remove ‘vacation/’: Is a directory
+[bharath@10 my_bestseller]$ rmdir vacation/
+rmdir: failed to remove ‘vacation/’: Directory not empty
+[bharath@10 my_bestseller]$ rm -r vacation/
+[bharath@10 my_bestseller]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath 118 Jan 18 15:47 chapters
+drwxrwxr-x. 2 bharath bharath  62 Jan 18 15:46 editors
+[bharath@10 my_bestseller]$ cd ..
+[bharath@10 documents]$ cd ..
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 4 bharath bharath 48 Jan 18 15:34 documents
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 4 bharath bharath 36 Jan 18 15:29 Videos
+[bharath@10 ~]$ rmdir documents/
+rmdir: failed to remove ‘documents/’: Directory not empty
+[bharath@10 ~]$ rm -r documents/
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 4 bharath bharath 36 Jan 18 15:29 Videos
+[bharath@10 ~]$ ls -l Videos/
+total 0
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season1
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season2
+[bharath@10 ~]$ ls -l Videos/season{1..2}
+Videos/season1:
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode1.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode2.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode3.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode4.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode5.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season1_episode6.ogg
+
+Videos/season2:
+total 0
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode1.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode2.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode3.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode4.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode5.ogg
+-rw-rw-r--. 1 bharath bharath 0 Jan 18 15:25 season2_episode6.ogg
+[bharath@10 ~]$ mkdir Videos/backup
+[bharath@10 ~]$ ls -l
+total 0
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 5 bharath bharath 50 Jan 18 16:12 Videos
+[bharath@10 ~]$ ls Videos/
+backup  season1  season2
+[bharath@10 ~]$
+[bharath@10 ~]$ ln Videos/backup/ backup.back
+ln: ‘Videos/backup/’: hard link not allowed for directory
+[bharath@10 ~]$ ln -s Videos/backup/ backup.back
+[bharath@10 ~]$ ls -l Videos/backup/
+total 0
+[bharath@10 ~]$ ls -l
+total 0
+lrwxrwxrwx. 1 bharath bharath 14 Jan 18 16:15 backup.back -> Videos/backup/
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+drwxrwxr-x. 5 bharath bharath 50 Jan 18 16:12 Videos
+[bharath@10 ~]$ ls -l backup.back/
+total 0
+[bharath@10 ~]$ cd Videos/
+[bharath@10 Videos]$ ls
+backup  season1  season2
+[bharath@10 Videos]$ ls -l backup/
+total 0
+[bharath@10 Videos]$ mv season{1..2}/ backup/
+[bharath@10 Videos]$ ls -l
+total 0
+drwxrwxr-x. 4 bharath bharath 36 Jan 18 16:17 backup
+[bharath@10 Videos]$ ls -l backup/
+total 0
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season1
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season2
+[bharath@10 Videos]$ cd ..
+[bharath@10 ~]$ pwd
+/home/bharath
+[bharath@10 ~]$ ls -l backup.back/
+total 0
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season1
+drwxrwxr-x. 2 bharath bharath 174 Jan 18 15:31 season2
+[bharath@10 ~]$ rm Videos/
+rm: cannot remove ‘Videos/’: Is a directory
+[bharath@10 ~]$ rmdir Videos/
+rmdir: failed to remove ‘Videos/’: Directory not empty
+[bharath@10 ~]$ rm -r Videos/
+[bharath@10 ~]$ ls -l
+total 0
+lrwxrwxrwx. 1 bharath bharath 14 Jan 18 16:15 backup.back -> Videos/backup/
+drwxrwxr-x. 2 bharath bharath  6 Jan 18 14:41 project
+[bharath@10 ~]$ ls -l backup.back
+lrwxrwxrwx. 1 bharath bharath 14 Jan 18 16:15 backup.back -> Videos/backup/
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$
+[bharath@10 ~]$ date
+Wed Jan 18 16:19:16 UTC 2023
+[bharath@10 ~]$
