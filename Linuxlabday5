@@ -1,0 +1,421 @@
+Microsoft Windows [Version 10.0.19045.2364]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ date
+Thu Jan 19 17:03:53 IST 2023
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~/devops/provision/vagrant/centos/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant ssh
+Last login: Thu Jan 19 11:31:31 2023 from 10.0.2.2
+[vagrant@10 ~]$ sudo su -
+Last login: Thu Jan 19 11:31:44 UTC 2023 on pts/0
+[root@10 ~]# ls -l
+total 16
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# ls -l >file1
+[root@10 ~]# ls -l
+total 20
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# cat file1
+total 16
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+-rw-r--r--. 1 root root    0 Jan 19 11:35 file1
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# sleep 100
+^C
+[root@10 ~]#
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant ssh
+Last login: Thu Jan 19 11:34:40 2023 from 10.0.2.2
+[vagrant@10 ~]$ sudo su -
+Last login: Thu Jan 19 11:34:46 UTC 2023 on pts/1
+[root@10 ~]# sleep 1000 $
+sleep: invalid time interval ‘$’
+Try 'sleep --help' for more information.
+[root@10 ~]# sleep 1000 &
+[1] 1867
+[root@10 ~]# jobs -l
+[1]+  1867 Running                 sleep 1000 &
+[root@10 ~]# ls -ld /proc/
+dr-xr-xr-x. 103 root root 0 Jan 19 11:29 /proc/
+[root@10 ~]# cd /proc/
+[root@10 proc]# cd ..
+[root@10 /]# cd /proc/1867/fd
+[root@10 fd]# pwd
+/proc/1867/fd
+[root@10 fd]# ls -l
+total 0
+lrwx------. 1 root root 64 Jan 19 11:39 0 -> /dev/pts/2
+lrwx------. 1 root root 64 Jan 19 11:39 1 -> /dev/pts/2
+lrwx------. 1 root root 64 Jan 19 11:39 2 -> /dev/pts/2
+[root@10 fd]# cd ~
+[root@10 ~]# pwd
+/root
+[root@10 ~]# echo $SHELL
+/bin/bash
+[root@10 ~]# tty
+/dev/pts/2
+[root@10 ~]# ls -l
+total 20
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# mkdir dir{1..5}
+[root@10 ~]# ls -l >directories
+[root@10 ~]# cat directories
+total 20
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root    0 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# ls -l
+total 24
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# l
+-bash: l: command not found
+[root@10 ~]# l >file.txt
+-bash: l: command not found
+[root@10 ~]# l 2>file.txt
+[root@10 ~]# cat file.txt
+-bash: l: command not found
+[root@10 ~]# ls -l
+total 28
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   28 Jan 19 11:46 file.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# l 2>>file.txt
+[root@10 ~]# cat file.txt
+-bash: l: command not found
+-bash: l: command not found
+[root@10 ~]# ls -l 2>>one.txt
+total 28
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root    0 Jan 19 11:49 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# cat one.txt
+[root@10 ~]# ls -l 1>one.txt
+[root@10 ~]# cat one.txt
+total 28
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root    0 Jan 19 11:49 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# l -l 2>one.txt
+[root@10 ~]# cat one.txt
+-bash: l: command not found
+[root@10 ~]# ls -l 1>one.txt
+[root@10 ~]# ls -l 2>one.txt
+total 28
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root    0 Jan 19 11:50 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# ls -l >one.txt
+[root@10 ~]# cat one.txt
+total 28
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root    0 Jan 19 11:51 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# ls -l
+total 32
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir3
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir4
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir5
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root  613 Jan 19 11:51 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# rmdir dir{3..5}
+[root@10 ~]# ls -l
+total 32
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root  613 Jan 19 11:51 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# l -l
+-bash: l: command not found
+[root@10 ~]# l > /dev/null
+-bash: l: command not found
+[root@10 ~]# l 2> /dev/null
+[root@10 ~]# ls 2> /dev/null
+anaconda-ks.cfg  dir1  dir2  directories  file1  file.txt  one.txt  original-ks.cfg  project
+[root@10 ~]# ls 1> /dev/null
+[root@10 ~]#
+[1]+  Done                    sleep 1000
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]# ls -l /etc/passwd
+-rw-r--r--. 1 root root 1315 Jan 18 14:40 /etc/passwd
+[root@10 ~]# head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+[root@10 ~]# tail -5 /etc/passwd
+chrony:x:998:995::/var/lib/chrony:/sbin/nologin
+vagrant:x:1000:1000:vagrant:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/bash
+koushik:x:1002:1002::/home/koushik:/bin/bash
+rhel:x:1003:1003::/home/rhel:/bin/bash
+[root@10 ~]# tail -2 /etc/passwd
+koushik:x:1002:1002::/home/koushik:/bin/bash
+rhel:x:1003:1003::/home/rhel:/bin/bash
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+polkitd:x:999:998:User for polkitd:/:/sbin/nologin
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+chrony:x:998:995::/var/lib/chrony:/sbin/nologin
+vagrant:x:1000:1000:vagrant:/home/vagrant:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/bash
+koushik:x:1002:1002::/home/koushik:/bin/bash
+rhel:x:1003:1003::/home/rhel:/bin/bash
+[root@10 ~]# ls -l
+total 32
+-rw-------. 1 root root 5570 Apr 30  2020 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir1
+drwxr-xr-x. 2 root root    6 Jan 19 11:44 dir2
+-rw-r--r--. 1 root root  512 Jan 19 11:45 directories
+-rw-r--r--. 1 root root  223 Jan 19 11:35 file1
+-rw-r--r--. 1 root root   56 Jan 19 11:47 file.txt
+-rw-r--r--. 1 root root  613 Jan 19 11:51 one.txt
+-rw-------. 1 root root 5300 Apr 30  2020 original-ks.cfg
+drwxr-xr-x. 3 root root   51 Jan  8 12:27 project
+[root@10 ~]# rm -rf*
+rm: invalid option -- '*'
+Try 'rm --help' for more information.
+[root@10 ~]# rm -rf *
+[root@10 ~]# ls -l
+total 0
+[root@10 ~]# ls
+[root@10 ~]# mkdir file{1..9}
+[root@10 ~]# ls
+file1  file2  file3  file4  file5  file6  file7  file8  file9
+[root@10 ~]# ls | cat list_files
+cat: list_files: No such file or directory
+[root@10 ~]# touch list_files
+[root@10 ~]# ls | cat list_files
+[root@10 ~]# cat list_files
+[root@10 ~]# ls
+file1  file2  file3  file4  file5  file6  file7  file8  file9  list_files
+[root@10 ~]# ls | cat >list_files
+[root@10 ~]# cat list_files
+file1
+file2
+file3
+file4
+file5
+file6
+file7
+file8
+file9
+list_files
+[root@10 ~]# mkdir dir&&ls -ld&&touch text.txt
+dr-xr-x---. 13 root root 271 Jan 19 12:30 .
+[root@10 ~]# ls
+dir  file1  file2  file3  file4  file5  file6  file7  file8  file9  list_files  text.txt
+[root@10 ~]# mkdir dir&&l -ld&&touch text.txt
+mkdir: cannot create directory ‘dir’: File exists
+[root@10 ~]# mkdir dir1&&l -ld&&touch text.txt
+-bash: l: command not found
+[root@10 ~]# mkdir dir2;l -ld; touch text1.txt
+-bash: l: command not found
+[root@10 ~]# ls
+dir  dir1  dir2  file1  file2  file3  file4  file5  file6  file7  file8  file9  list_files  text1.txt  text.txt
+[root@10 ~]# vim text.txt
+-bash: vim: command not found
+[root@10 ~]# vi text.txt
+[root@10 ~]# cat text.txt
+ABCDEFGHIJKLM
+abcdefghijklmno
+1111234567
+jnxjcnlsac
+adfaefewfadsw
+ascq32er3c3rc
+c324e32c2c
+cdewddc23dc
+c34c3r324435
+dc23ec2
+[root@10 ~]# vi text.txt
+[root@10 ~]# cat text.txt
+ABCDEFGHIJKLM
+abcdefghijklmno
+1111234567
+jnxjcnlsac
+adfaefewfadsw
+ascq32er3c3rc
+c324e32c2c
+cdewddc23dc
+c34c3r324435
+dc23ec2
+This is first VI editor text. Please be aware while using the editor files or scripting files
+first
+[root@10 ~]# vi text.txt
+[root@10 ~]# cat text.txt
+ABCDEFGHIJKLM
+abcdefghijklmno
+1111234567
+jnxjcnlsac
+adfaefewfadsw
+ascq32er3c3rc
+c324e32c2c
+cdewddc23dc
+c34c3r324435
+dc23ec2
+This is first VI editor text. Please be aware while using the editor files or scripting files
+first
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]#
+[root@10 ~]# exit
+logout
+[vagrant@10 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+tcsetattr: Input/output error
+Connection to 127.0.0.1 closed by remote host.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/centos
+$ exit
+exit
+
+C:\WINDOWS\system32>
+C:\WINDOWS\system32>
