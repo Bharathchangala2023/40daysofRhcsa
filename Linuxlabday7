@@ -1,0 +1,867 @@
+Microsoft Windows [Version 10.0.19045.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~/devops/provision/vagrant/rhel9/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Mon Jan 23 11:48:39 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Mon Jan 23 06:18:01 2023 from 10.0.2.2
+[vagrant@rhel8 ~]$
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Sun Jan 22 12:47:23 UTC 2023 on pts/1
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -l
+total 0
+[root@rhel8 ~]# tail -5 /etc/passwd
+vboxadd:x:994:1::/var/run/vboxadd:/sbin/nologin
+bharath:x:1001:1001:cloudteam:/home/bharath:/bin/bash
+koushik:x:2020:2020:cloudteam:/home/koushik:/bin/bash
+manudeep:x:1010:3030:cloudteam:/home/manudeep:/bin/bash
+david:x:4040:4040:devteam:/home/david:/bin/bash
+[root@rhel8 ~]# tail -5 /etc/shadow
+vboxadd:!!:19335::::::
+bharath:$6$Cc.8GN2N0ARDb.Mg$nvEWsOcjiIRMBm0SSOALClbC18g82wTCk6W9rot8ZGclggF8HiPaqXp30Xc6eV0rTTE/zUny5yKTVfqTE8mlf/:19379:0:99999:7:::
+koushik:$6$g182wxju8fp3L7M2$9ygMpzGqEZsLL6YWnej8L5enpErID5BgDp3BX4qKq24vlBfMn5/EmTqlSicMc8n0KLF0hvMdGxxHBcV87qnuh0:19379:0:99999:7:::
+manudeep:!!:19379:0:99999:7:::
+david:!!:19379:0:99999:7:::
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=1001(bharath) groups=1001(bharath)
+[root@rhel8 ~]#
+[root@rhel8 ~]# chage -l bharath
+Last password change                                    : Jan 22, 2023
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@rhel8 ~]# chage --help
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]# chage -E 2023-05-01
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]# chage -E 2023-05-01 bharath
+[root@rhel8 ~]# chage -l bharath
+Last password change                                    : Jan 22, 2023
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : May 01, 2023
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@rhel8 ~]# chage -m 2023-02-01 bharath
+chage: invalid numeric argument '2023-02-01'
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]# chage -m 10 bharath
+[root@rhel8 ~]# chage -l bharath
+Last password change                                    : Jan 22, 2023
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : May 01, 2023
+Minimum number of days between password change          : 10
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+[root@rhel8 ~]# chage -I INACTIVE bharath
+chage: invalid numeric argument 'INACTIVE'
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]# chage -I  bharath
+chage: invalid numeric argument 'bharath'
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]# chage -I bharath
+chage: invalid numeric argument 'bharath'
+Usage: chage [options] LOGIN
+
+Options:
+  -d, --lastday LAST_DAY        set date of last password change to LAST_DAY
+  -E, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+  -h, --help                    display this help message and exit
+  -I, --inactive INACTIVE       set password inactive after expiration
+                                to INACTIVE
+  -l, --list                    show account aging information
+  -m, --mindays MIN_DAYS        set minimum number of days before password
+                                change to MIN_DAYS
+  -M, --maxdays MAX_DAYS        set maximum number of days before password
+                                change to MAX_DAYS
+  -R, --root CHROOT_DIR         directory to chroot into
+  -W, --warndays WARN_DAYS      set expiration warning days to WARN_DAYS
+
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# tail -5 /etc/group
+slocate:x:21:
+bharath:x:1001:
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+[root@rhel8 ~]# groupadd devteam
+[root@rhel8 ~]# tail -5 /etc/group
+bharath:x:1001:
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:
+[root@rhel8 ~]# id devteam
+id: ‘devteam’: no such user
+[root@rhel8 ~]# groupadd opsteam
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=1001(bharath) groups=1001(bharath)
+[root@rhel8 ~]# usermod -g devteam bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4041(devteam) groups=4041(devteam)
+[root@rhel8 ~]# usermod -g devteam koushik
+[root@rhel8 ~]# usermod -g opsteam manudeep
+[root@rhel8 ~]# id manudeep
+uid=1010(manudeep) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -g 4042 david
+[root@rhel8 ~]# id david
+uid=4040(david) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:
+opsteam:x:4042:
+[root@rhel8 ~]# usermod -G 4041 bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4041(devteam) groups=4041(devteam)
+[root@rhel8 ~]# usermod -G 4042 bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4041(devteam) groups=4041(devteam),4042(opsteam)
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:
+opsteam:x:4042:bharath
+[root@rhel8 ~]# usermod -G 4042 koushik
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:
+opsteam:x:4042:bharath,koushik
+[root@rhel8 ~]# id david
+uid=4040(david) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# useradd -g opsteam vector
+[root@rhel8 ~]# id vector
+uid=4041(vector) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -G 4041 vector
+[root@rhel8 ~]# usermod -G 4041 david
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:vector,david
+opsteam:x:4042:bharath,koushik
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:1001:4041:cloudteam:/home/bharath:/bin/bash
+koushik:x:2020:4041:cloudteam:/home/koushik:/bin/bash
+manudeep:x:1010:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:4040:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042::/home/vector:/bin/bash
+[root@rhel8 ~]# gpasswd -M test1,test2,test3
+gpasswd: user 'test1' does not exist
+gpasswd: user 'test2' does not exist
+gpasswd: user 'test3' does not exist
+[root@rhel8 ~]# useradd test1
+[root@rhel8 ~]# useradd test2
+[root@rhel8 ~]# useradd test3
+[root@rhel8 ~]# gpasswd -M test1,test2,test3
+Usage: gpasswd [option] GROUP
+
+Options:
+  -a, --add USER                add USER to GROUP
+  -d, --delete USER             remove USER from GROUP
+  -h, --help                    display this help message and exit
+  -Q, --root CHROOT_DIR         directory to chroot into
+  -r, --delete-password         remove the GROUP's password
+  -R, --restrict                restrict access to GROUP to its members
+  -M, --members USER,...        set the list of members of GROUP
+  -A, --administrators ADMIN,...
+                                set the list of administrators for GROUP
+Except for the -A and -M options, the options cannot be combined.
+[root@rhel8 ~]# gpasswd -M test1,test2,test3 opsteam
+[root@rhel8 ~]# history
+    1  ls -l /etc/release*
+    2  ls -l /etc/release *
+    3  hostnamectl
+    4  ls -l
+    5  tail /etc/passwd
+    6  exit
+    7  ls -l
+    8  tail /etc/passwd
+    9  useradd dev1
+   10  id dev1
+   11  tail -2 /etc/passwd
+   12  su - dev1
+   13  useradd -u 4040 dev2
+   14  tail -3 /etc/passwd
+   15  useradd -u 3000 -c devteam dev3
+   16  tail -3 /etc/passwd
+   17  usermod -c devteam dev1
+   18  usermod -c devteam dev2
+   19  tail -3 /etc/passwd
+   20  usermod -s /sbin/nologin dev3
+   21  tail -3 /etc/passwd
+   22  id dev3
+   23  su - dev3
+   24  usermod -s /bin/bash
+   25  usermod -s /bin/bash  dev3
+   26  tail -3 /etc/passwd
+   27  su - dev3
+   28  passwd dev1
+   29  su - dev3
+   30  tty
+   31  ssh dev1
+   32  passwd --stdin dev2
+   33  chage -l dev1
+   34  chage -m 10 dev1
+   35  chage -l dev1
+   36  clear
+   37  chage -d 11 dev1
+   38  chage -l dev1
+   39  chage -d Feb 01 2024 dev1
+   40  chage -d Feb 2024 dev1
+   41  chage -d 2024 dev1
+   42  chage -l dev1
+   43  chage -d 20 dev1
+   44  chage -l dev1
+   45  chage -i dev1
+   46  chage -i 2023-03-10 dev1
+   47  chage -E 2023-02-01 dev1
+   48  chage -l dev1
+   49  chage -d 2023-02-01 dev1
+   50  chage -l dev1
+   51  chage -W 30 dev1
+   52  chage -l dev1
+   53  tail -5 /etc/group
+   54  id dev1
+   55  groupadd devteam
+   56  groupadd opsteam
+   57  tail -5 /etc/group
+   58  usermod -g devteam dev1
+   59  tail -5 /etc/passwd
+   60  id dev1
+   61  id dev2
+   62  usermod -g 4041 dev2
+   63  id dev2
+   64  usermod -g 4041 dev3
+   65  id dev2
+   66  clear
+   67  exit
+   68  koushik ssh
+   69  tail -3 /etc/shadow
+   70  tail -4 /etc/shadow
+   71  exit
+   72  ls -l
+   73  ls /etc/passwd
+   74  ls -l /etc/passwd
+   75  useradd dev1
+   76  id
+   77  tail -5 /etc/passwd
+   78  userdel dev1,dev2,dev3
+   79  userdel dev1
+   80  id dev1
+   81  su - dev1
+   82  ls /home/dev1
+   83  ls -l /home/dev1
+   84  rm -rf /home/dev1/
+   85  rm -rf /var/spool/dev1
+   86  useradd dev1
+   87  ls /etc/passwd
+   88  ls -l /etc/passwd
+   89  tail -4 /etc/passwd
+   90  tail -4 /etc/gpasswd
+   91  tail -4 /etc/group
+   92  groupdel dev1
+   93  useradd dev1
+   94  groupdel dev2
+   95  groupdel dev3
+   96  groupdel devteam
+   97  tail -4 /etc/passwd
+   98  userdel dev2
+   99  userdel dev3
+  100  rm -rf /home/dev2
+  101  rm -rf /home/dev3
+  102  useradd dev2
+  103  userdel dev2
+  104  rm -rf /var/spool/dev2
+  105  rm -rf /var/spool/dev3
+  106  tail -4 /etc/passwd
+  107  userdel dev1
+  108  tail -4 /etc/passwd
+  109  tail -4 /etc/group
+  110  groupdel devteam
+  111  groupdel opsteam
+  112  tail -4 /etc/group
+  113  useradd bharath
+  114  tail -3 /etc/group
+  115  useradd -u 2020 koushik
+  116  tail -3 /etc/group
+  117  tail -3 /etc/passwd
+  118  id bharath
+  119  id koushik
+  120  usermod -c cloudteam bharath
+  121  tail -3 /etc/passwd
+  122  usermod -c cloudteam koushik
+  123  tail -3 /etc/passwd
+  124  useradd -u 3030 -c cloudteam manudeep
+  125  tail -3 /etc/passwd
+  126  id manudeep
+  127  usermod -u 1010 manudeep
+  128  tail -3 /etc/passwd
+  129  su - bharath
+  130  su - koushik
+  131  ls -ld /sbin/nologin
+  132  usermod -s /sbin/nologin
+  133  usermod -s /sbin/nologin bharath
+  134  tail -3 /etc/passwd
+  135  su - bharath
+  136  usermod -s /bin/bash
+  137  usermod -s /bin/bash bharath
+  138  tail -3 /etc/passwd
+  139  su - bharath
+  140  chsh -l
+  141  cat /etc/shells
+  142  tail -3 /etc/passwd
+  143  useradd -u 4040 -c devteam -s /sbin/nologin david
+  144  tail -3 /etc/passwd
+  145  su - david
+  146  usermod -s /bin/bash
+  147  usermod -s /bin/bash david
+  148  tail -3 /etc/passwd
+  149  passwd bharath
+  150  su - bharath
+  151  tail -3 /etc/passwd
+  152  id
+  153  id bharath
+  154  passwd --stdin bharath
+  155  echo "1234" | passwd --stdin koushik
+  156  ssh koushik@localhost
+  157  ssh koushik
+  158  ls -l
+  159  tail -5 /etc/passwd
+  160  tail -5 /etc/shadow
+  161  id bharath
+  162  chage -l bharath
+  163  chage --help
+  164  chage -E 2023-05-01
+  165  chage -E 2023-05-01 bharath
+  166  chage -l bharath
+  167  chage -m 2023-02-01 bharath
+  168  chage -m 10 bharath
+  169  chage -l bharath
+  170  chage -I INACTIVE bharath
+  171  chage -I  bharath
+  172  chage -I bharath
+  173  tail -5 /etc/group
+  174  groupadd devteam
+  175  tail -5 /etc/group
+  176  id devteam
+  177  groupadd opsteam
+  178  id bharath
+  179  usermod -g devteam bharath
+  180  id bharath
+  181  usermod -g devteam koushik
+  182  usermod -g opsteam manudeep
+  183  id manudeep
+  184  usermod -g 4042 david
+  185  id david
+  186  tail -5 /etc/group
+  187  usermod -G 4041 bharath
+  188  id bharath
+  189  usermod -G 4042 bharath
+  190  id bharath
+  191  tail -5 /etc/group
+  192  usermod -G 4042 koushik
+  193  tail -5 /etc/group
+  194  id david
+  195  useradd -g opsteam vector
+  196  id vector
+  197  usermod -G 4041 vector
+  198  usermod -G 4041 david
+  199  tail -5 /etc/group
+  200  tail -5 /etc/passwd
+  201  gpasswd -M test1,test2,test3
+  202  useradd test1
+  203  useradd test2
+  204  useradd test3
+  205  gpasswd -M test1,test2,test3
+  206  gpasswd -M test1,test2,test3 opsteam
+  207  history
+[root@rhel8 ~]# 199!
+-bash: 199!: command not found
+[root@rhel8 ~]# !199
+tail -5 /etc/group
+devteam:x:4041:vector,david
+opsteam:x:4042:test1,test2,test3
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# tail -10 /etc/group
+slocate:x:21:
+bharath:x:1001:
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:vector,david
+opsteam:x:4042:test1,test2,test3
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# id test1
+uid=4042(test1) gid=4043(test1) groups=4043(test1),4042(opsteam)
+[root@rhel8 ~]# gpasswd -d test1 opsteam
+Removing user test1 from group opsteam
+[root@rhel8 ~]# id test1
+uid=4042(test1) gid=4043(test1) groups=4043(test1)
+[root@rhel8 ~]# tail -10 /etc/group
+slocate:x:21:
+bharath:x:1001:
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:vector,david
+opsteam:x:4042:test2,test3
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# gpasswd -a david opsteam
+Adding user david to group opsteam
+[root@rhel8 ~]# tail -10 /etc/group
+slocate:x:21:
+bharath:x:1001:
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:vector,david
+opsteam:x:4042:test2,test3,david
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4041(devteam) groups=4041(devteam)
+[root@rhel8 ~]# id koushik
+uid=2020(koushik) gid=4041(devteam) groups=4041(devteam)
+[root@rhel8 ~]# id manudeep
+uid=1010(manudeep) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -g 4042 bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -G 4041 bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# usermod -g opsteam koushik
+[root@rhel8 ~]# id koushik
+uid=2020(koushik) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# id manudeep
+uid=1010(manudeep) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -G 4041 manudeep
+[root@rhel8 ~]# usermod -G 4041 koushik
+[root@rhel8 ~]# tail -5 /etc/gro
+groff/  group   group-
+[root@rhel8 ~]# tail -5 /etc/group
+devteam:x:4041:vector,david,bharath,manudeep,koushik
+opsteam:x:4042:test2,test3,david
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# gpasswd -A test1 opsteam
+[root@rhel8 ~]# id test1
+uid=4042(test1) gid=4043(test1) groups=4043(test1)
+[root@rhel8 ~]# tail -5 /etc/group
+devteam:x:4041:vector,david,bharath,manudeep,koushik
+opsteam:x:4042:test2,test3,david
+test1:x:4043:
+test2:x:4044:
+test3:x:4045:
+[root@rhel8 ~]# gpasswd -A test1 devteam
+[root@rhel8 ~]# tail -5 /etc/shadow
+david:!!:19379:0:99999:7:::
+vector:!!:19380:0:99999:7:::
+test1:!!:19380:0:99999:7:::
+test2:!!:19380:0:99999:7:::
+test3:!!:19380:0:99999:7:::
+[root@rhel8 ~]# tail -5 /etc/gshadow
+devteam:!:test1:vector,david,bharath,manudeep,koushik
+opsteam:!:test1:test2,test3,david
+test1:!::
+test2:!::
+test3:!::
+[root@rhel8 ~]# gpasswd -A test1 REDHAT
+gpasswd: group 'REDHAT' does not exist in /etc/group
+[root@rhel8 ~]# groupadd REDHAT
+[root@rhel8 ~]# gpasswd -A test1 REDHAT
+[root@rhel8 ~]# tail -5 /etc/gshadow
+opsteam:!:test1:test2,test3,david
+test1:!::
+test2:!::
+test3:!::
+REDHAT:!:test1:
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# ls /home/
+bharath  david  dev1  dev2  koushik  manudeep  test1  test2  test3  vagrant  vector
+[root@rhel8 ~]# ls /var/spool/mail/
+bharath  david  dev1  dev2  dev3  koushik  manudeep  test1  test2  test3  vagrant  vector
+[root@rhel8 ~]# id test
+id: ‘test’: no such user
+[root@rhel8 ~]# id test1
+id: ‘test1’: no such user
+[root@rhel8 ~]# useradd test1
+useradd: warning: the home directory already exists.
+Not copying any file from skel directory into it.
+Creating mailbox file: File exists
+[root@rhel8 ~]# ls -ld /etc/skel/
+drwxr-xr-x. 2 root root 62 Dec  9 15:58 /etc/skel/
+[root@rhel8 ~]# rm -rf /home/test1/
+[root@rhel8 ~]# rm -rf /var/spool/mail/test1
+[root@rhel8 ~]# useradd test1
+useradd: user 'test1' already exists
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# useradd test1
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# useradd test1
+useradd: warning: the home directory already exists.
+Not copying any file from skel directory into it.
+Creating mailbox file: File exists
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# rm -rf /home/test1/
+[root@rhel8 ~]# rm -rf /var/spool/mail/test1
+[root@rhel8 ~]# useradd test1
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# rm -rf /home/test1/
+[root@rhel8 ~]# rm -rf /var/spool/mail/test1
+[root@rhel8 ~]# userdel test2
+[root@rhel8 ~]# rm -rf /home/test2
+[root@rhel8 ~]# rm -rf /var/spool/mail/test2
+[root@rhel8 ~]# userdel test3
+[root@rhel8 ~]# id test2
+id: ‘test2’: no such user
+[root@rhel8 ~]# rm -rf /var/spool/mail/test3
+[root@rhel8 ~]# rm -rf /home/test3
+[root@rhel8 ~]# id test1
+id: ‘test1’: no such user
+[root@rhel8 ~]# id test3
+id: ‘test3’: no such user
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:1001:4042:cloudteam:/home/bharath:/bin/bash
+koushik:x:2020:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:1010:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:4040:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042::/home/vector:/bin/bash
+[root@rhel8 ~]# tail -5 /etc/group
+manudeep:x:3030:
+david:x:4040:
+devteam:x:4041:vector,david,bharath,manudeep,koushik
+opsteam:x:4042:david
+REDHAT:x:4046:
+[root@rhel8 ~]# id david
+uid=4040(david) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# id koushik
+uid=2020(koushik) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# id manudeep
+uid=1010(manudeep) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# id vector
+uid=4041(vector) gid=4042(opsteam) groups=4042(opsteam),4041(devteam)
+[root@rhel8 ~]# groupdel devteam
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# usermod -G opsteam koushik
+[root@rhel8 ~]# id koushik
+uid=2020(koushik) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# groupdel opsteam
+groupdel: cannot remove the primary group of user 'bharath'
+[root@rhel8 ~]# usermod -g dev bharath
+usermod: group 'dev' does not exist
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+opsteam:x:4042:david,koushik
+REDHAT:x:4046:
+[root@rhel8 ~]# usermod -g REDHAT bharath
+[root@rhel8 ~]# id bharath
+uid=1001(bharath) gid=4046(REDHAT) groups=4046(REDHAT)
+[root@rhel8 ~]# groupdel opsteam
+groupdel: cannot remove the primary group of user 'koushik'
+[root@rhel8 ~]# usermod -G REDHAT manudeep
+[root@rhel8 ~]# id manudeep
+uid=1010(manudeep) gid=4042(opsteam) groups=4042(opsteam),4046(REDHAT)
+[root@rhel8 ~]# useradd 4041 peter
+Usage: useradd [options] LOGIN
+       useradd -D
+       useradd -D [options]
+
+Options:
+  -b, --base-dir BASE_DIR       base directory for the home directory of the
+                                new account
+  -c, --comment COMMENT         GECOS field of the new account
+  -d, --home-dir HOME_DIR       home directory of the new account
+  -D, --defaults                print or change default useradd configuration
+  -e, --expiredate EXPIRE_DATE  expiration date of the new account
+  -f, --inactive INACTIVE       password inactivity period of the new account
+  -g, --gid GROUP               name or ID of the primary group of the new
+                                account
+  -G, --groups GROUPS           list of supplementary groups of the new
+                                account
+  -h, --help                    display this help message and exit
+  -k, --skel SKEL_DIR           use this alternative skeleton directory
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -l, --no-log-init             do not add the user to the lastlog and
+                                faillog databases
+  -m, --create-home             create the user's home directory
+  -M, --no-create-home          do not create the user's home directory
+  -N, --no-user-group           do not create a group with the same name as
+                                the user
+  -o, --non-unique              allow to create users with duplicate
+                                (non-unique) UID
+  -p, --password PASSWORD       encrypted password of the new account
+  -r, --system                  create a system account
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       prefix directory where are located the /etc/* files
+  -s, --shell SHELL             login shell of the new account
+  -u, --uid UID                 user ID of the new account
+  -U, --user-group              create a group with the same name as the user
+  -Z, --selinux-user SEUSER     use a specific SEUSER for the SELinux user mapping
+
+[root@rhel8 ~]# useradd -u 4041 peter
+useradd: UID 4041 is not unique
+[root@rhel8 ~]# groupadd -G 4046 COSS
+groupadd: invalid option -- 'G'
+Usage: groupadd [options] GROUP
+
+Options:
+  -f, --force                   exit successfully if the group already exists,
+                                and cancel -g if the GID is already used
+  -g, --gid GID                 use GID for the new group
+  -h, --help                    display this help message and exit
+  -K, --key KEY=VALUE           override /etc/login.defs defaults
+  -o, --non-unique              allow to create groups with duplicate
+                                (non-unique) GID
+  -p, --password PASSWORD       use this encrypted password for the new group
+  -r, --system                  create a system account
+  -R, --root CHROOT_DIR         directory to chroot into
+  -P, --prefix PREFIX_DIR       directory prefix
+
+[root@rhel8 ~]# groupadd -g 4046 COSS
+groupadd: GID '4046' already exists
+[root@rhel8 ~]# usermod -u 1000 bharath
+usermod: UID '1000' already exists
+[root@rhel8 ~]# usermod -u 7000 bharath
+[root@rhel8 ~]# id bharath
+uid=7000(bharath) gid=4046(REDHAT) groups=4046(REDHAT)
+[root@rhel8 ~]# usermod -u 7100 koushik
+[root@rhel8 ~]# usermod -u 7200 manudeep
+[root@rhel8 ~]# usermod -u 7300 david
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:7000:4046:cloudteam:/home/bharath:/bin/bash
+koushik:x:7100:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:7200:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:7300:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042::/home/vector:/bin/bash
+[root@rhel8 ~]# usermod -c "devteam" david
+usermod: no changes
+[root@rhel8 ~]# usermod -c devteam david
+usermod: no changes
+[root@rhel8 ~]# usermod -c devteam vector
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:7000:4046:cloudteam:/home/bharath:/bin/bash
+koushik:x:7100:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:7200:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:7300:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042:devteam:/home/vector:/bin/bash
+[root@rhel8 ~]# passwd bharath
+Changing password for user bharath.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@rhel8 ~]# su - bharath
+Last login: Sun Jan 22 12:41:46 UTC 2023 on pts/0
+[bharath@rhel8 ~]$ ssh bharath
+ssh: Could not resolve hostname bharath: Name or service not known
+[bharath@rhel8 ~]$ useradd test1
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+[bharath@rhel8 ~]$ exit
+logout
+[root@rhel8 ~]# useradd test1
+[root@rhel8 ~]# su - test1
+[test1@rhel8 ~]$ mkdir dir{1..10}
+[test1@rhel8 ~]$ ls
+dir1  dir10  dir2  dir3  dir4  dir5  dir6  dir7  dir8  dir9
+[test1@rhel8 ~]$ logout
+[root@rhel8 ~]# userdel test1
+[root@rhel8 ~]# ls
+[root@rhel8 ~]# id test1
+id: ‘test1’: no such user
+[root@rhel8 ~]# ls -ld test1
+ls: cannot access 'test1': No such file or directory
+[root@rhel8 ~]# cd /home/
+[root@rhel8 home]# ls -ld test1
+drwx------. 12 7301 7301 4096 Jan 23 07:12 test1
+[root@rhel8 home]# ls -l bharath/
+total 0
+[root@rhel8 home]# ls -ld bharath/
+drwx------. 2 bharath REDHAT 83 Jan 22 12:14 bharath/
+[root@rhel8 home]# cd test1/
+[root@rhel8 test1]# ls
+dir1  dir10  dir2  dir3  dir4  dir5  dir6  dir7  dir8  dir9
+[root@rhel8 test1]# exit
+logout
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Mon Jan 23 06:19:06 UTC 2023 on pts/0
+[root@rhel8 ~]# userdel test1
+userdel: user 'test1' does not exist
+[root@rhel8 ~]# rm -rf /home/test1/
+[root@rhel8 ~]# rm -rf /var/spool/mail/test1
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# cd /home/
+[root@rhel8 home]# ls -ld test1
+ls: cannot access 'test1': No such file or directory
+[root@rhel8 home]#
+[root@rhel8 home]#
+[root@rhel8 home]# which useradd
+/usr/sbin/useradd
+[root@rhel8 home]# ls -lt /usr/sbin/useradd
+-rwxr-xr-x. 1 root root 151792 Jul 21  2022 /usr/sbin/useradd
+[root@rhel8 home]# chowm /usr/sbin/useradd bharath/
+-bash: chowm: command not found
+[root@rhel8 home]# chown /usr/sbin/useradd bharath/
+chown: invalid user: ‘/usr/sbin/useradd’
+[root@rhel8 home]# chown bharath /usr/sbin/useradd
+[root@rhel8 home]# ls -lt /usr/sbin/useradd
+-rwxr-xr-x. 1 bharath root 151792 Jul 21  2022 /usr/sbin/useradd
+[root@rhel8 home]# su - bharath
+Last login: Mon Jan 23 07:09:15 UTC 2023 on pts/0
+[bharath@rhel8 ~]$ useradd a1
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+[bharath@rhel8 ~]$ logout
+[root@rhel8 home]# cd ..
+[root@rhel8 /]# cd ..
+[root@rhel8 /]# cd /
+[root@rhel8 /]# cd ~
+[root@rhel8 ~]# chown root /usr/sbin/useradd
+[root@rhel8 ~]# ls -ld /usr/sbin/useradd
+-rwxr-xr-x. 1 root root 151792 Jul 21  2022 /usr/sbin/useradd
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -ltr
+total 0
+[root@rhel8 ~]#
+[root@rhel8 ~]# mkdir project
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 2 root root 6 Jan 23 07:24 project/
+[root@rhel8 ~]# chown bharath project/
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 2 bharath root 6 Jan 23 07:24 project/
+[root@rhel8 ~]# chgrp bharath project/
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 2 bharath bharath 6 Jan 23 07:24 project/
+[root@rhel8 ~]# chgrp opsteam project/
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 2 bharath opsteam 6 Jan 23 07:24 project/
+[root@rhel8 ~]# id bharath
+uid=7000(bharath) gid=4046(REDHAT) groups=4046(REDHAT)
+[root@rhel8 ~]# tail -5 /etc/group
+koushik:x:2020:
+manudeep:x:3030:
+david:x:4040:
+opsteam:x:4042:david,koushik
+REDHAT:x:4046:manudeep
+[root@rhel8 ~]# chown koushik:REDHAT project/
+[root@rhel8 ~]# ls -lt project/
+total 0
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 2 koushik REDHAT 6 Jan 23 07:24 project/
+[root@rhel8 ~]# man
+What manual page do you want?
+[root@rhel8 ~]# man man
+[root@rhel8 ~]#
