@@ -1,0 +1,371 @@
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh root@192.168.1.11
+root@192.168.1.11's password:
+Permission denied, please try again.
+root@192.168.1.11's password:
+Permission denied, please try again.
+root@192.168.1.11's password:
+root@192.168.1.11: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh bharathchangala@192.168.1.11
+bharathchangala@192.168.1.11's password:
+Activate the web console with: systemctl enable --now cockpit.socket
+
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:31:24 2023
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$ pwd
+/home/bharathchangala
+[bharathchangala@desktop-ssn6pb4 ~]$ sudo su -
+[sudo] password for bharathchangala:
+[root@desktop-ssn6pb4 ~]# tail -3 /etc/passwd
+bharathchangala:x:1000:1000:Bharath changala:/home/bharathchangala:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/bash
+koushik:x:1002:1002::/home/koushik:/bin/bash
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+ED25519 key fingerprint is SHA256:B5xlrwHWH2pvkf73jEHaDHC8/TyWdvmLO5cwbYm/34U.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.11' (ED25519) to the list of known hosts.
+bharath@192.168.1.11's password:
+Permission denied, please try again.
+bharath@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+[bharath@desktop-ssn6pb4 ~]$
+[bharath@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[root@desktop-ssn6pb4 ~]# tty
+/dev/pts/1
+[root@desktop-ssn6pb4 ~]# ls -a .ssh/
+.  ..  known_hosts  known_hosts.old
+[root@desktop-ssn6pb4 ~]# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:/Ymi2tzvjPqPk1cUbm+Qg+kY6p6pmEXpfCJw5eQQoJQ root@desktop-ssn6pb4
+The key's randomart image is:
++---[RSA 3072]----+
+|.oo              |
+|oE .        .    |
+|. . o      + o   |
+|   * .  ..o B    |
+|. . =  .S+.o +   |
+| o +  . . .o..o  |
+|  . =.. ....o.   |
+|   = =.=o=.      |
+|  o o+Oo=*=      |
++----[SHA256]-----+
+[root@desktop-ssn6pb4 ~]# ls -a .ssh/
+.  ..  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+[root@desktop-ssn6pb4 ~]# vim id_rsa.pub
+[root@desktop-ssn6pb4 ~]# ls -ld
+dr-xr-x---. 4 root root 4096 Jan  4 17:57 .
+[root@desktop-ssn6pb4 ~]# ls -l
+total 4
+-rw-------. 1 root root 910 Jan  4 12:47 anaconda-ks.cfg
+[root@desktop-ssn6pb4 ~]# vim id_rsa.pub
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+bharath@192.168.1.11's password:
+Connection closed by 192.168.1.11 port 22
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+bharath@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:54:28 2023 from 192.168.1.11
+[bharath@desktop-ssn6pb4 ~]$
+[bharath@desktop-ssn6pb4 ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/bharath/.ssh/id_rsa):
+Created directory '/home/bharath/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/bharath/.ssh/id_rsa
+Your public key has been saved in /home/bharath/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:jqwL08InezcxIdeeV4tJFWe5GOUWQqgSRchWx9PQ3rc bharath@desktop-ssn6pb4
+The key's randomart image is:
++---[RSA 3072]----+
+|     . =+.o*+o=. |
+|      =  .+ ==.. |
+|     . o . + +o. |
+|    . + o . +.o .|
+|     o +So + . ..|
+| . . .ooo + .  E |
+|  * o oo..       |
+|   B..o          |
+|  ..oo .         |
++----[SHA256]-----+
+[bharath@desktop-ssn6pb4 ~]$ ls -a .ssh/
+.  ..  id_rsa  id_rsa.pub
+[bharath@desktop-ssn6pb4 ~]$ vim id_rsa.pub
+[bharath@desktop-ssn6pb4 ~]$ ls
+[bharath@desktop-ssn6pb4 ~]$ ls -ld
+drwx------. 4 bharath bharath 127 Jan  4 18:06 .
+[bharath@desktop-ssn6pb4 ~]$ ls -a
+.  ..  .bash_history  .bash_logout  .bash_profile  .bashrc  .mozilla  .ssh  .viminfo
+[bharath@desktop-ssn6pb4 ~]$ cd .ssh/
+[bharath@desktop-ssn6pb4 .ssh]$ ls
+id_rsa  id_rsa.pub
+[bharath@desktop-ssn6pb4 .ssh]$ vim id_rsa.pub
+[bharath@desktop-ssn6pb4 .ssh]$ vim id_rsa
+[bharath@desktop-ssn6pb4 .ssh]$ ssh-copy-id koushik@192.168.1.11
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/bharath/.ssh/id_rsa.pub"
+The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+ED25519 key fingerprint is SHA256:B5xlrwHWH2pvkf73jEHaDHC8/TyWdvmLO5cwbYm/34U.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+koushik@192.168.1.11's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'koushik@192.168.1.11'"
+and check to make sure that only the key(s) you wanted were added.
+
+[bharath@desktop-ssn6pb4 .ssh]$
+[bharath@desktop-ssn6pb4 .ssh]$ ssh koushik@192.168.1.11
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:56:10 2023 from 192.168.1.11
+[koushik@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[bharath@desktop-ssn6pb4 .ssh]$
+
+
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh koushik@192.168.1.11
+koushik@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+[koushik@desktop-ssn6pb4 ~]$ pw
+bash: pw: command not found...
+[koushik@desktop-ssn6pb4 ~]$ pwd
+/home/koushik
+[koushik@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh koushik@192.168.1.11
+koushik@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:50:20 2023 from 192.168.1.6
+[koushik@desktop-ssn6pb4 ~]$ ls -a .ssh
+ls: cannot access '.ssh': No such file or directory
+[koushik@desktop-ssn6pb4 ~]$ ls -a .ssh/
+ls: cannot access '.ssh/': No such file or directory
+[koushik@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh bharathchangala@192.168.1.11
+bharathchangala@192.168.1.11's password:
+Activate the web console with: systemctl enable --now cockpit.socket
+
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:47:43 2023 from 192.168.1.6
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$ su - bharath
+Password:
+su: Authentication failure
+[bharathchangala@desktop-ssn6pb4 ~]$ ssh bharath@192.168.1.11
+The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+ED25519 key fingerprint is SHA256:B5xlrwHWH2pvkf73jEHaDHC8/TyWdvmLO5cwbYm/34U.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.11' (ED25519) to the list of known hosts.
+bharath@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last failed login: Wed Jan  4 17:53:53 IST 2023 on pts/2
+There was 1 failed login attempt since the last successful login.
+Last login: Wed Jan  4 17:49:41 2023 from 192.168.1.11
+[bharath@desktop-ssn6pb4 ~]$ tty
+/dev/pts/3
+[bharath@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[bharathchangala@desktop-ssn6pb4 ~]$ ssh koushik@192.168.1.11
+koushik@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:50:45 2023 from 192.168.1.6
+[koushik@desktop-ssn6pb4 ~]$
+[koushik@desktop-ssn6pb4 ~]$
+[koushik@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[bharathchangala@desktop-ssn6pb4 ~]$ sudo su -
+[sudo] password for bharathchangala:
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]# ssh koushik@192.168.1.11
+koushik@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:55:09 2023 from 192.168.1.11
+[koushik@desktop-ssn6pb4 ~]$
+[koushik@desktop-ssn6pb4 ~]$
+[koushik@desktop-ssn6pb4 ~]$
+
+
+
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh root@192.168.1.11
+root@192.168.1.11's password:
+Permission denied, please try again.
+root@192.168.1.11's password:
+Permission denied, please try again.
+root@192.168.1.11's password:
+root@192.168.1.11: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+
+bhara@DESKTOP-SSN6PB4 MINGW64 ~/OneDrive/Desktop
+$ ssh bharathchangala@192.168.1.11
+bharathchangala@192.168.1.11's password:
+Activate the web console with: systemctl enable --now cockpit.socket
+
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:31:24 2023
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$
+[bharathchangala@desktop-ssn6pb4 ~]$ pwd
+/home/bharathchangala
+[bharathchangala@desktop-ssn6pb4 ~]$ sudo su -
+[sudo] password for bharathchangala:
+[root@desktop-ssn6pb4 ~]# tail -3 /etc/passwd
+bharathchangala:x:1000:1000:Bharath changala:/home/bharathchangala:/bin/bash
+bharath:x:1001:1001::/home/bharath:/bin/bash
+koushik:x:1002:1002::/home/koushik:/bin/bash
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]#
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+ED25519 key fingerprint is SHA256:B5xlrwHWH2pvkf73jEHaDHC8/TyWdvmLO5cwbYm/34U.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.11' (ED25519) to the list of known hosts.
+bharath@192.168.1.11's password:
+Permission denied, please try again.
+bharath@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+[bharath@desktop-ssn6pb4 ~]$
+[bharath@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[root@desktop-ssn6pb4 ~]# tty
+/dev/pts/1
+[root@desktop-ssn6pb4 ~]# ls -a .ssh/
+.  ..  known_hosts  known_hosts.old
+[root@desktop-ssn6pb4 ~]# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:/Ymi2tzvjPqPk1cUbm+Qg+kY6p6pmEXpfCJw5eQQoJQ root@desktop-ssn6pb4
+The key's randomart image is:
++---[RSA 3072]----+
+|.oo              |
+|oE .        .    |
+|. . o      + o   |
+|   * .  ..o B    |
+|. . =  .S+.o +   |
+| o +  . . .o..o  |
+|  . =.. ....o.   |
+|   = =.=o=.      |
+|  o o+Oo=*=      |
++----[SHA256]-----+
+[root@desktop-ssn6pb4 ~]# ls -a .ssh/
+.  ..  id_rsa  id_rsa.pub  known_hosts  known_hosts.old
+[root@desktop-ssn6pb4 ~]# vim id_rsa.pub
+[root@desktop-ssn6pb4 ~]# ls -ld
+dr-xr-x---. 4 root root 4096 Jan  4 17:57 .
+[root@desktop-ssn6pb4 ~]# ls -l
+total 4
+-rw-------. 1 root root 910 Jan  4 12:47 anaconda-ks.cfg
+[root@desktop-ssn6pb4 ~]# vim id_rsa.pub
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+bharath@192.168.1.11's password:
+Connection closed by 192.168.1.11 port 22
+[root@desktop-ssn6pb4 ~]# ssh bharath@192.168.1.11
+bharath@192.168.1.11's password:
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:54:28 2023 from 192.168.1.11
+[bharath@desktop-ssn6pb4 ~]$
+[bharath@desktop-ssn6pb4 ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/bharath/.ssh/id_rsa):
+Created directory '/home/bharath/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/bharath/.ssh/id_rsa
+Your public key has been saved in /home/bharath/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:jqwL08InezcxIdeeV4tJFWe5GOUWQqgSRchWx9PQ3rc bharath@desktop-ssn6pb4
+The key's randomart image is:
++---[RSA 3072]----+
+|     . =+.o*+o=. |
+|      =  .+ ==.. |
+|     . o . + +o. |
+|    . + o . +.o .|
+|     o +So + . ..|
+| . . .ooo + .  E |
+|  * o oo..       |
+|   B..o          |
+|  ..oo .         |
++----[SHA256]-----+
+[bharath@desktop-ssn6pb4 ~]$ ls -a .ssh/
+.  ..  id_rsa  id_rsa.pub
+[bharath@desktop-ssn6pb4 ~]$ vim id_rsa.pub
+[bharath@desktop-ssn6pb4 ~]$ ls
+[bharath@desktop-ssn6pb4 ~]$ ls -ld
+drwx------. 4 bharath bharath 127 Jan  4 18:06 .
+[bharath@desktop-ssn6pb4 ~]$ ls -a
+.  ..  .bash_history  .bash_logout  .bash_profile  .bashrc  .mozilla  .ssh  .viminfo
+[bharath@desktop-ssn6pb4 ~]$ cd .ssh/
+[bharath@desktop-ssn6pb4 .ssh]$ ls
+id_rsa  id_rsa.pub
+[bharath@desktop-ssn6pb4 .ssh]$ vim id_rsa.pub
+[bharath@desktop-ssn6pb4 .ssh]$ vim id_rsa
+[bharath@desktop-ssn6pb4 .ssh]$ ssh-copy-id koushik@192.168.1.11
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/bharath/.ssh/id_rsa.pub"
+The authenticity of host '192.168.1.11 (192.168.1.11)' can't be established.
+ED25519 key fingerprint is SHA256:B5xlrwHWH2pvkf73jEHaDHC8/TyWdvmLO5cwbYm/34U.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+koushik@192.168.1.11's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'koushik@192.168.1.11'"
+and check to make sure that only the key(s) you wanted were added.
+
+[bharath@desktop-ssn6pb4 .ssh]$
+[bharath@desktop-ssn6pb4 .ssh]$ ssh koushik@192.168.1.11
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan  4 17:56:10 2023 from 192.168.1.11
+[koushik@desktop-ssn6pb4 ~]$ logout
+Connection to 192.168.1.11 closed.
+[bharath@desktop-ssn6pb4 .ssh]$
