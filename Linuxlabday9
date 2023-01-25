@@ -1,0 +1,1126 @@
+Microsoft Windows [Version 10.0.19045.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~/devops/provision/vagrant/rhel9/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/rhel8' version '4.2.8' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.30 r148432
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Tue Jan 24 05:43:36 2023 from 10.0.2.2
+[vagrant@rhel8 ~]$
+[vagrant@rhel8 ~]$
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Tue Jan 24 05:44:29 UTC 2023 on pts/1
+Last failed login: Tue Jan 24 05:50:23 UTC 2023 on pts/1
+There was 1 failed login attempt since the last successful login.
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# top
+top - 09:34:53 up 1 min,  1 user,  load average: 0.29, 0.20, 0.08
+Tasks: 120 total,   2 running, 118 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.5 us,  0.5 sy,  0.0 ni, 98.5 id,  0.0 wa,  0.5 hi,  0.0 si,  0.0 st
+MiB Mem :   1812.5 total,   1362.7 free,    185.8 used,    264.0 buff/cache
+MiB Swap:   2104.0 total,   2104.0 free,      0.0 used.   1461.0 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   3203 root      20   0   54332   4284   3620 R   2.9   0.2   0:00.19 top
+    183 root      20   0       0      0      0 I   1.0   0.0   0:00.21 kworker/0:2-events_power_efficient
+      1 root      20   0  174852  13252   8392 S   0.0   0.7   0:02.55 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd
+      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp
+      5 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0-events
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri
+      7 root      20   0       0      0      0 I   0.0   0.0   0:00.02 kworker/0:1-cgroup_destroy
+      8 root      20   0       0      0      0 I   0.0   0.0   0:00.03 kworker/u4:0-events_unbound
+      9 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq
+     10 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_
+     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace
+     12 root      20   0       0      0      0 S   0.0   0.0   0:00.03 ksoftirqd/0
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.08 rcu_sched
+     14 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/0
+     15 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 watchdog/0
+     16 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0
+     17 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/1
+     18 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 watchdog/1
+     19 root      rt   0       0      0      0 S   0.0   0.0   0:00.00 migration/1
+     20 root      20   0       0      0      0 S   0.0   0.0   0:00.02 ksoftirqd/1
+     21 root      20   0       0      0      0 R   0.0   0.0   0:00.06 kworker/1:0-events_power_efficient
+     22 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/1:0H-events_highpri
+     24 root      20   0       0      0      0 I   0.0   0.0   0:00.02 kworker/u4:1-events_unbound
+     25 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kdevtmpfs
+     26 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 netns
+     27 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kauditd
+     28 root      20   0       0      0      0 S   0.0   0.0   0:00.00 khungtaskd
+     29 root      20   0       0      0      0 S   0.0   0.0   0:00.00 oom_reaper
+     30 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 writeback
+     31 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kcompactd0
+     32 root      25   5       0      0      0 S   0.0   0.0   0:00.00 ksmd
+     33 root      39  19       0      0      0 S   0.0   0.0   0:00.02 khugepaged
+     34 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 crypto
+     35 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kintegrityd
+     36 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kblockd
+[root@rhel8 ~]# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  2.1  0.7 174852 13252 ?        Ss   09:33   0:02 /usr/lib/systemd/systemd --switched-root --system --deserialize 17
+root           2  0.0  0.0      0     0 ?        S    09:33   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   09:33   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   09:33   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:0-events]
+root           6  0.0  0.0      0     0 ?        I<   09:33   0:00 [kworker/0:0H-events_highpri]
+root           7  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:1-cgroup_destroy]
+root           8  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/u4:0-events_unbound]
+root           9  0.0  0.0      0     0 ?        I<   09:33   0:00 [mm_percpu_wq]
+root          10  0.0  0.0      0     0 ?        S    09:33   0:00 [rcu_tasks_rude_]
+root          11  0.0  0.0      0     0 ?        S    09:33   0:00 [rcu_tasks_trace]
+root          12  0.0  0.0      0     0 ?        S    09:33   0:00 [ksoftirqd/0]
+root          13  0.0  0.0      0     0 ?        I    09:33   0:00 [rcu_sched]
+root          14  0.0  0.0      0     0 ?        S    09:33   0:00 [migration/0]
+root          15  0.0  0.0      0     0 ?        S    09:33   0:00 [watchdog/0]
+root          16  0.0  0.0      0     0 ?        S    09:33   0:00 [cpuhp/0]
+root          17  0.0  0.0      0     0 ?        S    09:33   0:00 [cpuhp/1]
+root          18  0.0  0.0      0     0 ?        S    09:33   0:00 [watchdog/1]
+root          19  0.0  0.0      0     0 ?        S    09:33   0:00 [migration/1]
+root          20  0.0  0.0      0     0 ?        S    09:33   0:00 [ksoftirqd/1]
+root          21  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:0-events_power_efficient]
+root          22  0.0  0.0      0     0 ?        I<   09:33   0:00 [kworker/1:0H-events_highpri]
+root          24  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/u4:1-events_unbound]
+root          25  0.0  0.0      0     0 ?        S    09:33   0:00 [kdevtmpfs]
+root          26  0.0  0.0      0     0 ?        I<   09:33   0:00 [netns]
+root          27  0.0  0.0      0     0 ?        S    09:33   0:00 [kauditd]
+root          28  0.0  0.0      0     0 ?        S    09:33   0:00 [khungtaskd]
+root          29  0.0  0.0      0     0 ?        S    09:33   0:00 [oom_reaper]
+root          30  0.0  0.0      0     0 ?        I<   09:33   0:00 [writeback]
+root          31  0.0  0.0      0     0 ?        S    09:33   0:00 [kcompactd0]
+root          32  0.0  0.0      0     0 ?        SN   09:33   0:00 [ksmd]
+root          33  0.0  0.0      0     0 ?        SN   09:33   0:00 [khugepaged]
+root          34  0.0  0.0      0     0 ?        I<   09:33   0:00 [crypto]
+root          35  0.0  0.0      0     0 ?        I<   09:33   0:00 [kintegrityd]
+root          36  0.0  0.0      0     0 ?        I<   09:33   0:00 [kblockd]
+root          37  0.0  0.0      0     0 ?        I<   09:33   0:00 [blkcg_punt_bio]
+root          38  0.0  0.0      0     0 ?        I<   09:33   0:00 [tpm_dev_wq]
+root          39  0.0  0.0      0     0 ?        I<   09:33   0:00 [md]
+root          40  0.0  0.0      0     0 ?        I<   09:33   0:00 [edac-poller]
+root          41  0.0  0.0      0     0 ?        S    09:33   0:00 [watchdogd]
+root          42  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:1-events]
+root          43  0.0  0.0      0     0 ?        I<   09:33   0:00 [kworker/0:1H-kblockd]
+root          77  0.0  0.0      0     0 ?        S    09:33   0:00 [kswapd0]
+root         179  0.0  0.0      0     0 ?        I<   09:33   0:00 [kthrotld]
+root         180  0.0  0.0      0     0 ?        I<   09:33   0:00 [acpi_thermal_pm]
+root         181  0.0  0.0      0     0 ?        I<   09:33   0:00 [kmpath_rdacd]
+root         182  0.0  0.0      0     0 ?        I<   09:33   0:00 [kaluad]
+root         183  0.1  0.0      0     0 ?        I    09:33   0:00 [kworker/0:2-events]
+root         184  0.0  0.0      0     0 ?        I<   09:33   0:00 [ipv6_addrconf]
+root         185  0.0  0.0      0     0 ?        I<   09:33   0:00 [kstrp]
+root         298  0.0  0.0      0     0 ?        I<   09:33   0:00 [kworker/1:1H-kblockd]
+root         305  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:3-events]
+root         313  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:4-cgroup_pidlist_destroy]
+root         436  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:2-cgroup_destroy]
+root         459  0.0  0.0      0     0 ?        I<   09:33   0:00 [iprt-VBoxWQueue]
+root         462  0.0  0.0      0     0 ?        I<   09:33   0:00 [ata_sff]
+root         463  0.0  0.0      0     0 ?        S    09:33   0:00 [scsi_eh_0]
+root         464  0.0  0.0      0     0 ?        S    09:33   0:00 [scsi_eh_1]
+root         465  0.0  0.0      0     0 ?        I<   09:33   0:00 [scsi_tmf_0]
+root         467  0.0  0.0      0     0 ?        I<   09:33   0:00 [scsi_tmf_1]
+root         468  0.0  0.0      0     0 ?        S    09:33   0:00 [scsi_eh_2]
+root         469  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/u4:2-events_unbound]
+root         470  0.0  0.0      0     0 ?        I<   09:33   0:00 [scsi_tmf_2]
+root         471  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/u4:3-events_unbound]
+root         472  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/u4:4-events_unbound]
+root         546  0.0  0.0      0     0 ?        I<   09:33   0:00 [kdmflush/253:0]
+root         556  0.0  0.0      0     0 ?        I<   09:33   0:00 [kdmflush/253:1]
+root         570  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:3-events]
+root         581  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfsalloc]
+root         582  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs_mru_cache]
+root         583  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-buf/dm-0]
+root         584  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-conv/dm-0]
+root         585  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-cil/dm-0]
+root         586  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-reclaim/dm-]
+root         587  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-gc/dm-0]
+root         589  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-log/dm-0]
+root         590  0.0  0.0      0     0 ?        S    09:33   0:00 [xfsaild/dm-0]
+root         657  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:4-cgroup_pidlist_destroy]
+root         711  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:5-cgroup_pidlist_destroy]
+root         712  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:6-events]
+root         713  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:7-cgroup_destroy]
+root         714  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/0:8-events]
+root         720  0.2  0.5  85600  9644 ?        Ss   09:33   0:00 /usr/lib/systemd/systemd-udevd
+root         721  0.4  0.3  12232  6548 ?        Ss   09:33   0:00 /usr/sbin/haveged -w 1024 -v 1 --Foreground
+root         722  0.1  0.5  89564 10084 ?        Ss   09:33   0:00 /usr/lib/systemd/systemd-journald
+root         723  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-buf/sda1]
+root         724  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-conv/sda1]
+root         725  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-cil/sda1]
+root         726  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-reclaim/sda]
+root         727  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-gc/sda1]
+root         728  0.0  0.0      0     0 ?        I<   09:33   0:00 [xfs-log/sda1]
+root         729  0.0  0.0      0     0 ?        S    09:33   0:00 [xfsaild/sda1]
+root         799  0.0  0.0      0     0 ?        I    09:33   0:00 [kworker/1:5-events_power_efficient]
+root         803  0.0  0.1  57100  2180 ?        S<sl 09:33   0:00 /sbin/auditd
+dbus         827  0.1  0.2  64804  5520 ?        Ssl  09:33   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfi
+root         832  0.0  0.2 124904  4720 ?        Ssl  09:33   0:00 /usr/sbin/irqbalance --foreground
+root         833  0.0  0.6 183488 11172 ?        Ss   09:33   0:00 /usr/sbin/sssd -i --logger=files
+polkitd      834  0.1  1.4 1622168 26104 ?       Ssl  09:33   0:00 /usr/lib/polkit-1/polkitd --no-debug
+chrony       844  0.0  0.2 140056  4464 ?        S    09:33   0:00 /usr/sbin/chronyd
+root         858  0.2  0.6 192048 12200 ?        S    09:33   0:00 /usr/libexec/sssd/sssd_be --domain implicit_files --uid 0 --gid 0 -
+root         861  1.4  2.3 296016 43268 ?        Ssl  09:33   0:01 /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork --nopi
+root         862  0.1  2.3 198164 44136 ?        S    09:33   0:00 /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --logger=files
+root         878  0.1  0.5  83040  9432 ?        Ss   09:33   0:00 /usr/lib/systemd/systemd-logind
+root         888  0.1  0.9 380728 18316 ?        Ssl  09:33   0:00 /usr/sbin/NetworkManager --no-daemon
+root         899  0.0  0.4  76640  7612 ?        Ss   09:33   0:00 /usr/sbin/sshd -D -u0 -oCiphers=aes256-gcm@openssh.com,chacha20-pol
+root         900  2.0  1.6 484936 29744 ?        Ssl  09:33   0:02 /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+root         905  0.0  0.0  41792   536 ?        Ss   09:33   0:00 /usr/bin/rhsmcertd
+root         916  0.0  0.1  25856  3524 ?        Ss   09:33   0:00 /usr/sbin/crond -n
+root         923  0.0  0.0   6916  1556 tty1     Ss+  09:33   0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root        1000  0.1  0.3 217712  5928 ?        Ssl  09:33   0:00 /usr/sbin/rsyslogd -n
+root        2376  0.0  0.1 326956  3560 ?        Sl   09:33   0:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+root        3134  0.0  0.5 148064  9944 ?        Ss   09:33   0:00 sshd: vagrant [priv]
+vagrant     3139  0.1  0.5  89544  9520 ?        Ss   09:33   0:00 /usr/lib/systemd/systemd --user
+vagrant     3142  0.0  0.2 243628  5176 ?        S    09:33   0:00 (sd-pam)
+vagrant     3148  0.0  0.3 148408  6384 ?        R    09:33   0:00 sshd: vagrant@pts/0
+vagrant     3149  0.0  0.2  15888  4580 pts/0    Ss   09:33   0:00 -bash
+root        3176  0.0  0.4 134360  7724 pts/0    S    09:34   0:00 sudo su -
+root        3178  0.0  0.3 128604  6108 pts/0    S    09:34   0:00 su -
+root        3179  0.0  0.2  15884  4532 pts/0    S    09:34   0:00 -bash
+root        3204  0.0  0.2  47632  3816 pts/0    R+   09:35   0:00 ps aux
+[root@rhel8 ~]# ps lux
+error: conflicting format options
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+[root@rhel8 ~]# ps lax
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0       1       0  20   0 174852 13252 do_epo Ss   ?          0:02 /usr/lib/systemd/systemd --switched-root --system --deseriali
+1     0       2       0  20   0      0     0 -      S    ?          0:00 [kthreadd]
+1     0       3       2   0 -20      0     0 -      I<   ?          0:00 [rcu_gp]
+1     0       4       2   0 -20      0     0 -      I<   ?          0:00 [rcu_par_gp]
+1     0       5       2  20   0      0     0 -      I    ?          0:00 [kworker/0:0-events]
+1     0       6       2   0 -20      0     0 -      I<   ?          0:00 [kworker/0:0H-events_highpri]
+1     0       7       2  20   0      0     0 -      I    ?          0:00 [kworker/0:1-cgroup_destroy]
+1     0       8       2  20   0      0     0 -      R    ?          0:00 [kworker/u4:0-events_unbound]
+1     0       9       2   0 -20      0     0 -      I<   ?          0:00 [mm_percpu_wq]
+1     0      10       2  20   0      0     0 -      S    ?          0:00 [rcu_tasks_rude_]
+1     0      11       2  20   0      0     0 -      S    ?          0:00 [rcu_tasks_trace]
+1     0      12       2  20   0      0     0 -      S    ?          0:00 [ksoftirqd/0]
+1     0      13       2  20   0      0     0 -      I    ?          0:00 [rcu_sched]
+1     0      14       2 -100  -      0     0 -      S    ?          0:00 [migration/0]
+5     0      15       2 -100  -      0     0 -      S    ?          0:00 [watchdog/0]
+1     0      16       2  20   0      0     0 -      S    ?          0:00 [cpuhp/0]
+1     0      17       2  20   0      0     0 -      S    ?          0:00 [cpuhp/1]
+5     0      18       2 -100  -      0     0 -      S    ?          0:00 [watchdog/1]
+1     0      19       2 -100  -      0     0 -      S    ?          0:00 [migration/1]
+1     0      20       2  20   0      0     0 -      S    ?          0:00 [ksoftirqd/1]
+1     0      21       2  20   0      0     0 -      R    ?          0:00 [kworker/1:0-events_power_efficient]
+1     0      22       2   0 -20      0     0 -      I<   ?          0:00 [kworker/1:0H-events_highpri]
+1     0      24       2  20   0      0     0 -      I    ?          0:00 [kworker/u4:1-events_unbound]
+5     0      25       2  20   0      0     0 -      S    ?          0:00 [kdevtmpfs]
+1     0      26       2   0 -20      0     0 -      I<   ?          0:00 [netns]
+1     0      27       2  20   0      0     0 -      S    ?          0:00 [kauditd]
+1     0      28       2  20   0      0     0 -      S    ?          0:00 [khungtaskd]
+1     0      29       2  20   0      0     0 -      S    ?          0:00 [oom_reaper]
+1     0      30       2   0 -20      0     0 -      I<   ?          0:00 [writeback]
+1     0      31       2  20   0      0     0 -      S    ?          0:00 [kcompactd0]
+1     0      32       2  25   5      0     0 -      SN   ?          0:00 [ksmd]
+1     0      33       2  39  19      0     0 -      SN   ?          0:00 [khugepaged]
+1     0      34       2   0 -20      0     0 -      I<   ?          0:00 [crypto]
+1     0      35       2   0 -20      0     0 -      I<   ?          0:00 [kintegrityd]
+1     0      36       2   0 -20      0     0 -      I<   ?          0:00 [kblockd]
+1     0      37       2   0 -20      0     0 -      I<   ?          0:00 [blkcg_punt_bio]
+1     0      38       2   0 -20      0     0 -      I<   ?          0:00 [tpm_dev_wq]
+1     0      39       2   0 -20      0     0 -      I<   ?          0:00 [md]
+1     0      40       2   0 -20      0     0 -      I<   ?          0:00 [edac-poller]
+1     0      41       2 -100  -      0     0 -      S    ?          0:00 [watchdogd]
+1     0      42       2  20   0      0     0 -      I    ?          0:00 [kworker/1:1-events]
+1     0      43       2   0 -20      0     0 -      I<   ?          0:00 [kworker/0:1H-kblockd]
+1     0      77       2  20   0      0     0 -      S    ?          0:00 [kswapd0]
+1     0     179       2   0 -20      0     0 -      I<   ?          0:00 [kthrotld]
+1     0     180       2   0 -20      0     0 -      I<   ?          0:00 [acpi_thermal_pm]
+1     0     181       2   0 -20      0     0 -      I<   ?          0:00 [kmpath_rdacd]
+1     0     182       2   0 -20      0     0 -      I<   ?          0:00 [kaluad]
+1     0     183       2  20   0      0     0 -      I    ?          0:00 [kworker/0:2-events]
+1     0     184       2   0 -20      0     0 -      I<   ?          0:00 [ipv6_addrconf]
+1     0     185       2   0 -20      0     0 -      I<   ?          0:00 [kstrp]
+1     0     298       2   0 -20      0     0 -      I<   ?          0:00 [kworker/1:1H-kblockd]
+1     0     305       2  20   0      0     0 -      I    ?          0:00 [kworker/0:3-events]
+1     0     313       2  20   0      0     0 -      I    ?          0:00 [kworker/0:4-cgroup_pidlist_destroy]
+1     0     436       2  20   0      0     0 -      I    ?          0:00 [kworker/1:2-cgroup_destroy]
+1     0     459       2   0 -20      0     0 -      I<   ?          0:00 [iprt-VBoxWQueue]
+1     0     462       2   0 -20      0     0 -      I<   ?          0:00 [ata_sff]
+1     0     463       2  20   0      0     0 -      S    ?          0:00 [scsi_eh_0]
+1     0     464       2  20   0      0     0 -      S    ?          0:00 [scsi_eh_1]
+1     0     465       2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_0]
+1     0     467       2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_1]
+1     0     468       2  20   0      0     0 -      S    ?          0:00 [scsi_eh_2]
+1     0     469       2  20   0      0     0 -      R    ?          0:00 [kworker/u4:2-events_unbound]
+1     0     470       2   0 -20      0     0 -      I<   ?          0:00 [scsi_tmf_2]
+1     0     471       2  20   0      0     0 -      I    ?          0:00 [kworker/u4:3-events_unbound]
+1     0     472       2  20   0      0     0 -      I    ?          0:00 [kworker/u4:4-events_unbound]
+1     0     546       2   0 -20      0     0 -      I<   ?          0:00 [kdmflush/253:0]
+1     0     556       2   0 -20      0     0 -      I<   ?          0:00 [kdmflush/253:1]
+1     0     570       2  20   0      0     0 -      I    ?          0:00 [kworker/1:3-events]
+1     0     581       2   0 -20      0     0 -      I<   ?          0:00 [xfsalloc]
+1     0     582       2   0 -20      0     0 -      I<   ?          0:00 [xfs_mru_cache]
+1     0     583       2   0 -20      0     0 -      I<   ?          0:00 [xfs-buf/dm-0]
+1     0     584       2   0 -20      0     0 -      I<   ?          0:00 [xfs-conv/dm-0]
+1     0     585       2   0 -20      0     0 -      I<   ?          0:00 [xfs-cil/dm-0]
+1     0     586       2   0 -20      0     0 -      I<   ?          0:00 [xfs-reclaim/dm-]
+1     0     587       2   0 -20      0     0 -      I<   ?          0:00 [xfs-gc/dm-0]
+1     0     589       2   0 -20      0     0 -      I<   ?          0:00 [xfs-log/dm-0]
+1     0     590       2  20   0      0     0 -      S    ?          0:00 [xfsaild/dm-0]
+1     0     657       2  20   0      0     0 -      I    ?          0:00 [kworker/1:4-cgroup_pidlist_destroy]
+1     0     711       2  20   0      0     0 -      I    ?          0:00 [kworker/0:5-cgroup_pidlist_destroy]
+1     0     712       2  20   0      0     0 -      I    ?          0:00 [kworker/0:6-events]
+1     0     713       2  20   0      0     0 -      I    ?          0:00 [kworker/0:7-cgroup_destroy]
+1     0     714       2  20   0      0     0 -      I    ?          0:00 [kworker/0:8-events]
+4     0     720       1  20   0  85600  9644 do_epo Ss   ?          0:00 /usr/lib/systemd/systemd-udevd
+4     0     721       1  20   0  12232  6548 -      Ss   ?          0:00 /usr/sbin/haveged -w 1024 -v 1 --Foreground
+4     0     722       1  20   0  89564 10084 do_epo Ss   ?          0:00 /usr/lib/systemd/systemd-journald
+1     0     723       2   0 -20      0     0 -      I<   ?          0:00 [xfs-buf/sda1]
+1     0     724       2   0 -20      0     0 -      I<   ?          0:00 [xfs-conv/sda1]
+1     0     725       2   0 -20      0     0 -      I<   ?          0:00 [xfs-cil/sda1]
+1     0     726       2   0 -20      0     0 -      I<   ?          0:00 [xfs-reclaim/sda]
+1     0     727       2   0 -20      0     0 -      I<   ?          0:00 [xfs-gc/sda1]
+1     0     728       2   0 -20      0     0 -      I<   ?          0:00 [xfs-log/sda1]
+1     0     729       2  20   0      0     0 kthrea S    ?          0:00 [xfsaild/sda1]
+1     0     799       2  20   0      0     0 -      I    ?          0:00 [kworker/1:5-events_power_efficient]
+5     0     803       1  16  -4  57100  2180 -      S<sl ?          0:00 /sbin/auditd
+4    81     827       1  20   0  64804  5520 do_epo Ssl  ?          0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --n
+4     0     832       1  20   0 124904  4720 -      Ssl  ?          0:00 /usr/sbin/irqbalance --foreground
+4     0     833       1  20   0 183488 11172 -      Ss   ?          0:00 /usr/sbin/sssd -i --logger=files
+4   998     834       1  20   0 1622168 26104 x64_sy Ssl ?          0:00 /usr/lib/polkit-1/polkitd --no-debug
+5   995     844       1  20   0 140056  4464 -      S    ?          0:00 /usr/sbin/chronyd
+4     0     858     833  20   0 192048 12200 -      S    ?          0:00 /usr/libexec/sssd/sssd_be --domain implicit_files --uid 0 --g
+4     0     861       1  20   0 296016 43268 x64_sy Ssl  ?          0:01 /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork
+4     0     862     833  20   0 198164 44136 -      S    ?          0:00 /usr/libexec/sssd/sssd_nss --uid 0 --gid 0 --logger=files
+4     0     878       1  20   0  83040  9432 do_epo Ss   ?          0:00 /usr/lib/systemd/systemd-logind
+4     0     888       1  20   0 380728 18316 x64_sy Ssl  ?          0:00 /usr/sbin/NetworkManager --no-daemon
+4     0     899       1  20   0  76640  7612 core_s Ss   ?          0:00 /usr/sbin/sshd -D -u0 -oCiphers=aes256-gcm@openssh.com,chacha
+4     0     900       1  20   0 484936 29744 -      Ssl  ?          0:02 /usr/libexec/platform-python -Es /usr/sbin/tuned -l -P
+1     0     905       1  20   0  41792   536 -      Ss   ?          0:00 /usr/bin/rhsmcertd
+4     0     916       1  20   0  25856  3524 hrtime Ss   ?          0:00 /usr/sbin/crond -n
+4     0     923       1  20   0   6916  1556 core_s Ss+  tty1       0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
+4     0    1000       1  20   0 217712  5928 -      Ssl  ?          0:00 /usr/sbin/rsyslogd -n
+1     0    2376       1  20   0 326956  3560 -      Sl   ?          0:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+4     0    3134     899  20   0 148064  9944 x64_sy Ss   ?          0:00 sshd: vagrant [priv]
+4  1000    3139       1  20   0  89544  9520 do_epo Ss   ?          0:00 /usr/lib/systemd/systemd --user
+5  1000    3142    3139  20   0 243628  5176 -      S    ?          0:00 (sd-pam)
+5  1000    3148    3134  20   0 148408  6384 -      R    ?          0:00 sshd: vagrant@pts/0
+0  1000    3149    3148  20   0  15888  4580 -      Ss   pts/0      0:00 -bash
+4     0    3176    3149  20   0 134360  7724 x64_sy S    pts/0      0:00 sudo su -
+4     0    3178    3176  20   0 128604  6108 -      S    pts/0      0:00 su -
+4     0    3179    3178  20   0  15884  4532 -      S    pts/0      0:00 -bash
+0     0    3206    3179  20   0  45508  2172 -      R+   pts/0      0:00 ps lax
+[root@rhel8 ~]# ps
+    PID TTY          TIME CMD
+   3176 pts/0    00:00:00 sudo
+   3178 pts/0    00:00:00 su
+   3179 pts/0    00:00:00 bash
+   3207 pts/0    00:00:00 ps
+[root@rhel8 ~]# sleep 100
+^C
+[root@rhel8 ~]#
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan 25 09:33:48 2023 from 10.0.2.2
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Wed Jan 25 09:34:26 UTC 2023 on pts/0
+[root@rhel8 ~]#
+[root@rhel8 ~]# sleep 1000 &
+[1] 3266
+[root@rhel8 ~]# jobs
+[1]+  Running                 sleep 1000 &
+[root@rhel8 ~]# jobs -l
+[1]+  3266 Running                 sleep 1000 &
+[root@rhel8 ~]# fg %1
+sleep 1000
+^Z
+[1]+  Stopped                 sleep 1000
+[root@rhel8 ~]# jobs
+[1]+  Stopped                 sleep 1000
+[root@rhel8 ~]# jobs -l
+[1]+  3266 Stopped                 sleep 1000
+[root@rhel8 ~]# (while true; do echo -n "REDHAT LINUX" >> /tmp/file.txt;sleep 1;done)
+^Z
+[2]+  Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# (while true; do echo -n " REDHAT LINUX" >> /tmp/file.txt;sleep 1;done)
+^Z
+[3]+  Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# jobs -l
+[1]   3266 Stopped                 sleep 1000
+[2]-  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]+  3357 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# bg %3
+[3]+ ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done ) &
+[root@rhel8 ~]# fg %3
+( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+^Z
+[3]+  Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# jobs -l
+[1]   3266 Stopped                 sleep 1000
+[2]-  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]+  3357 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# fg %2
+( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+^Z
+[2]+  Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              2
+On-line CPU(s) list: 0,1
+Thread(s) per core:  1
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               78
+Model name:          Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz
+Stepping:            3
+CPU MHz:             2495.998
+BogoMIPS:            4991.99
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            3072K
+NUMA node0 CPU(s):   0,1
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase bmi1 avx2 bmi2 invpcid rdseed clflushopt md_clear flush_l1d
+[root@rhel8 ~]# jobs -l
+[1]   3266 Stopped                 sleep 1000
+[2]+  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]-  3357 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -18 3357
+[root@rhel8 ~]# jobs -l
+[1]-  3266 Stopped                 sleep 1000
+[2]+  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]   3357 Running                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done ) &
+[root@rhel8 ~]# kill -19 3357
+[root@rhel8 ~]# jobs -l
+[1]   3266 Stopped                 sleep 1000
+[2]-  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]+  3357 Stopped (signal)        ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -9 3357
+[root@rhel8 ~]# jobs -l
+[1]   3266 Stopped                 sleep 1000
+[2]-  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]+  3357 Killed                  ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -9 3266
+[root@rhel8 ~]# jobs -l
+[1]-  3266 Killed                  sleep 1000
+[2]+  3327 Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -18 3327
+[root@rhel8 ~]# kill -19 3327
+
+[2]+  Stopped                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# jobs -l
+[2]+  3327 Stopped (signal)        ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -18 3327
+[root@rhel8 ~]# history
+    1  ls -l /etc/release*
+    2  ls -l /etc/release *
+    3  hostnamectl
+    4  ls -l
+    5  tail /etc/passwd
+    6  exit
+    7  ls -l
+    8  tail /etc/passwd
+    9  useradd dev1
+   10  id dev1
+   11  tail -2 /etc/passwd
+   12  su - dev1
+   13  useradd -u 4040 dev2
+   14  tail -3 /etc/passwd
+   15  useradd -u 3000 -c devteam dev3
+   16  tail -3 /etc/passwd
+   17  usermod -c devteam dev1
+   18  usermod -c devteam dev2
+   19  tail -3 /etc/passwd
+   20  usermod -s /sbin/nologin dev3
+   21  tail -3 /etc/passwd
+   22  id dev3
+   23  su - dev3
+   24  usermod -s /bin/bash
+   25  usermod -s /bin/bash  dev3
+   26  tail -3 /etc/passwd
+   27  su - dev3
+   28  passwd dev1
+   29  su - dev3
+   30  tty
+   31  ssh dev1
+   32  passwd --stdin dev2
+   33  chage -l dev1
+   34  chage -m 10 dev1
+   35  chage -l dev1
+   36  clear
+   37  chage -d 11 dev1
+   38  chage -l dev1
+   39  chage -d Feb 01 2024 dev1
+   40  chage -d Feb 2024 dev1
+   41  chage -d 2024 dev1
+   42  chage -l dev1
+   43  chage -d 20 dev1
+   44  chage -l dev1
+   45  chage -i dev1
+   46  chage -i 2023-03-10 dev1
+   47  chage -E 2023-02-01 dev1
+   48  chage -l dev1
+   49  chage -d 2023-02-01 dev1
+   50  chage -l dev1
+   51  chage -W 30 dev1
+   52  chage -l dev1
+   53  tail -5 /etc/group
+   54  id dev1
+   55  groupadd devteam
+   56  groupadd opsteam
+   57  tail -5 /etc/group
+   58  usermod -g devteam dev1
+   59  tail -5 /etc/passwd
+   60  id dev1
+   61  id dev2
+   62  usermod -g 4041 dev2
+   63  id dev2
+   64  usermod -g 4041 dev3
+   65  id dev2
+   66  clear
+   67  exit
+   68  koushik ssh
+   69  tail -3 /etc/shadow
+   70  tail -4 /etc/shadow
+   71  exit
+   72  ls -l
+   73  ls /etc/passwd
+   74  ls -l /etc/passwd
+   75  useradd dev1
+   76  id
+   77  tail -5 /etc/passwd
+   78  userdel dev1,dev2,dev3
+   79  userdel dev1
+   80  id dev1
+   81  su - dev1
+   82  ls /home/dev1
+   83  ls -l /home/dev1
+   84  rm -rf /home/dev1/
+   85  rm -rf /var/spool/dev1
+   86  useradd dev1
+   87  ls /etc/passwd
+   88  ls -l /etc/passwd
+   89  tail -4 /etc/passwd
+   90  tail -4 /etc/gpasswd
+   91  tail -4 /etc/group
+   92  groupdel dev1
+   93  useradd dev1
+   94  groupdel dev2
+   95  groupdel dev3
+   96  groupdel devteam
+   97  tail -4 /etc/passwd
+   98  userdel dev2
+   99  userdel dev3
+  100  rm -rf /home/dev2
+  101  rm -rf /home/dev3
+  102  useradd dev2
+  103  userdel dev2
+  104  rm -rf /var/spool/dev2
+  105  rm -rf /var/spool/dev3
+  106  tail -4 /etc/passwd
+  107  userdel dev1
+  108  tail -4 /etc/passwd
+  109  tail -4 /etc/group
+  110  groupdel devteam
+  111  groupdel opsteam
+  112  tail -4 /etc/group
+  113  useradd bharath
+  114  tail -3 /etc/group
+  115  useradd -u 2020 koushik
+  116  tail -3 /etc/group
+  117  tail -3 /etc/passwd
+  118  id bharath
+  119  id koushik
+  120  usermod -c cloudteam bharath
+  121  tail -3 /etc/passwd
+  122  usermod -c cloudteam koushik
+  123  tail -3 /etc/passwd
+  124  useradd -u 3030 -c cloudteam manudeep
+  125  tail -3 /etc/passwd
+  126  id manudeep
+  127  usermod -u 1010 manudeep
+  128  tail -3 /etc/passwd
+  129  su - bharath
+  130  su - koushik
+  131  ls -ld /sbin/nologin
+  132  usermod -s /sbin/nologin
+  133  usermod -s /sbin/nologin bharath
+  134  tail -3 /etc/passwd
+  135  su - bharath
+  136  usermod -s /bin/bash
+  137  usermod -s /bin/bash bharath
+  138  tail -3 /etc/passwd
+  139  su - bharath
+  140  chsh -l
+  141  cat /etc/shells
+  142  tail -3 /etc/passwd
+  143  useradd -u 4040 -c devteam -s /sbin/nologin david
+  144  tail -3 /etc/passwd
+  145  su - david
+  146  usermod -s /bin/bash
+  147  usermod -s /bin/bash david
+  148  tail -3 /etc/passwd
+  149  passwd bharath
+  150  su - bharath
+  151  tail -3 /etc/passwd
+  152  id
+  153  id bharath
+  154  passwd --stdin bharath
+  155  echo "1234" | passwd --stdin koushik
+  156  ssh koushik@localhost
+  157  ssh koushik
+  158  ls -l
+  159  tail -5 /etc/passwd
+  160  tail -5 /etc/shadow
+  161  id bharath
+  162  chage -l bharath
+  163  chage --help
+  164  chage -E 2023-05-01
+  165  chage -E 2023-05-01 bharath
+  166  chage -l bharath
+  167  chage -m 2023-02-01 bharath
+  168  chage -m 10 bharath
+  169  chage -l bharath
+  170  chage -I INACTIVE bharath
+  171  chage -I  bharath
+  172  chage -I bharath
+  173  tail -5 /etc/group
+  174  groupadd devteam
+  175  tail -5 /etc/group
+  176  id devteam
+  177  groupadd opsteam
+  178  id bharath
+  179  usermod -g devteam bharath
+  180  id bharath
+  181  usermod -g devteam koushik
+  182  usermod -g opsteam manudeep
+  183  id manudeep
+  184  usermod -g 4042 david
+  185  id david
+  186  tail -5 /etc/group
+  187  usermod -G 4041 bharath
+  188  id bharath
+  189  usermod -G 4042 bharath
+  190  id bharath
+  191  tail -5 /etc/group
+  192  usermod -G 4042 koushik
+  193  tail -5 /etc/group
+  194  id david
+  195  useradd -g opsteam vector
+  196  id vector
+  197  usermod -G 4041 vector
+  198  usermod -G 4041 david
+  199  tail -5 /etc/group
+  200  tail -5 /etc/passwd
+  201  gpasswd -M test1,test2,test3
+  202  useradd test1
+  203  useradd test2
+  204  useradd test3
+  205  gpasswd -M test1,test2,test3
+  206  gpasswd -M test1,test2,test3 opsteam
+  207  history
+  208  199!
+  209  tail -5 /etc/group
+  210  tail -10 /etc/group
+  211  id test1
+  212  gpasswd -d test1 opsteam
+  213  id test1
+  214  tail -10 /etc/group
+  215  gpasswd -a david opsteam
+  216  tail -10 /etc/group
+  217  id bharath
+  218  id koushik
+  219  id manudeep
+  220  usermod -g 4042 bharath
+  221  id bharath
+  222  usermod -G 4041 bharath
+  223  id bharath
+  224  usermod -g opsteam koushik
+  225  id koushik
+  226  id manudeep
+  227  usermod -G 4041 manudeep
+  228  usermod -G 4041 koushik
+  229  tail -5 /etc/group
+  230  gpasswd -A test1 opsteam
+  231  id test1
+  232  tail -5 /etc/group
+  233  gpasswd -A test1 devteam
+  234  tail -5 /etc/shadow
+  235  tail -5 /etc/gshadow
+  236  gpasswd -A test1 REDHAT
+  237  groupadd REDHAT
+  238  gpasswd -A test1 REDHAT
+  239  tail -5 /etc/gshadow
+  240  userdel test1
+  241  ls /home/
+  242  ls /var/spool/mail/
+  243  id test
+  244  id test1
+  245  useradd test1
+  246  ls -ld /etc/skel/
+  247  rm -rf /home/test1/
+  248  rm -rf /var/spool/mail/test1
+  249  useradd test1
+  250  userdel test1
+  251  useradd test1
+  252  userdel test1
+  253  useradd test1
+  254  userdel test1
+  255  rm -rf /home/test1/
+  256  rm -rf /var/spool/mail/test1
+  257  useradd test1
+  258  userdel test1
+  259  rm -rf /home/test1/
+  260  rm -rf /var/spool/mail/test1
+  261  userdel test2
+  262  rm -rf /home/test2
+  263  rm -rf /var/spool/mail/test2
+  264  userdel test3
+  265  id test2
+  266  rm -rf /var/spool/mail/test3
+  267  rm -rf /home/test3
+  268  id test1
+  269  id test3
+  270  tail -5 /etc/passwd
+  271  tail -5 /etc/group
+  272  id david
+  273  id bharath
+  274  id koushik
+  275  id manudeep
+  276  id vector
+  277  groupdel devteam
+  278  id bharath
+  279  usermod -G opsteam koushik
+  280  id koushik
+  281  groupdel opsteam
+  282  usermod -g dev bharath
+  283  tail -5 /etc/group
+  284  usermod -g REDHAT bharath
+  285  id bharath
+  286  groupdel opsteam
+  287  usermod -G REDHAT manudeep
+  288  id manudeep
+  289  useradd 4041 peter
+  290  useradd -u 4041 peter
+  291  groupadd -G 4046 COSS
+  292  groupadd -g 4046 COSS
+  293  usermod -u 1000 bharath
+  294  usermod -u 7000 bharath
+  295  id bharath
+  296  usermod -u 7100 koushik
+  297  usermod -u 7200 manudeep
+  298  usermod -u 7300 david
+  299  tail -5 /etc/passwd
+  300  usermod -c "devteam" david
+  301  usermod -c devteam david
+  302  usermod -c devteam vector
+  303  tail -5 /etc/passwd
+  304  passwd bharath
+  305  su - bharath
+  306  useradd test1
+  307  su - test1
+  308  userdel test1
+  309  ls
+  310  id test1
+  311  ls -ld test1
+  312  cd /home/
+  313  ls -ld test1
+  314  ls -l bharath/
+  315  ls -ld bharath/
+  316  cd test1/
+  317  ls
+  318  exit
+  319  userdel test1
+  320  rm -rf /home/test1/
+  321  rm -rf /var/spool/mail/test1
+  322  cd /home/
+  323  ls -ld test1
+  324  which useradd
+  325  ls -lt /usr/sbin/useradd
+  326  chowm /usr/sbin/useradd bharath/
+  327  chown /usr/sbin/useradd bharath/
+  328  chown bharath /usr/sbin/useradd
+  329  ls -lt /usr/sbin/useradd
+  330  su - bharath
+  331  cd ..
+  332  cd /
+  333  cd ~
+  334  chown root /usr/sbin/useradd
+  335  ls -ld /usr/sbin/useradd
+  336  ls -ltr
+  337  mkdir project
+  338  ls -ld project/
+  339  chown bharath project/
+  340  ls -ld project/
+  341  chgrp bharath project/
+  342  ls -ld project/
+  343  chgrp opsteam project/
+  344  ls -ld project/
+  345  id bharath
+  346  tail -5 /etc/group
+  347  chown koushik:REDHAT project/
+  348  ls -lt project/
+  349  ls -ld project/
+  350  man
+  351  man man
+  352  exit
+  353  tail -5 /etc/passwd
+  354  su - koushik
+  355  passwd --stdin koushik
+  356  su - koushik
+  357  exit
+  358  tail -5 /etc/passwd
+  359  su - bharath
+  360  exit
+  361  sleep 1000 &
+  362  jobs
+  363  jobs -l
+  364  fg %1
+  365  jobs
+  366  jobs -l
+  367  (while true; do echo -n "REDHAT LINUX" >> /tmp/file.txt;sleep 1;done)
+  368  (while true; do echo -n " REDHAT LINUX" >> /tmp/file.txt;sleep 1;done)
+  369  jobs -l
+  370  bg %3
+  371  fg %3
+  372  jobs -l
+  373  fg %2
+  374  lscpu
+  375  jobs -l
+  376  kill -18 3357
+  377  jobs -l
+  378  kill -19 3357
+  379  jobs -l
+  380  kill -9 3357
+  381  jobs -l
+  382  kill -9 3266
+  383  jobs -l
+  384  kill -18 3327
+  385  kill -19 3327
+  386  jobs -l
+  387  kill -18 3327
+  388  history
+[root@rhel8 ~]# !368
+(while true; do echo -n " REDHAT LINUX" >> /tmp/file.txt;sleep 1;done)
+^Z
+[3]+  Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# jobs -l
+[2]-  3327 Running                 ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done ) &
+[3]+  3485 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -9 3327
+[root@rhel8 ~]# jobs -l
+[2]-  3327 Killed                  ( while true; do
+    echo -n "REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[3]+  3485 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -9 3327
+-bash: kill: (3327) - No such process
+[root@rhel8 ~]# jobs -l
+[3]+  3485 Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# kill -18 3485
+[root@rhel8 ~]# jobs -l
+[3]+  3485 Running                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done ) &
+[root@rhel8 ~]# pgrep sleep
+3503
+[root@rhel8 ~]# tail -f /tmp/file.txt
+ REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX REDHAT LINUX^Z
+[4]+  Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# jobs -l
+[3]-  3485 Running                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done ) &
+[4]+  3519 Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# kill -19 3485
+
+[3]+  Stopped                 ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[root@rhel8 ~]# jobs -l
+[3]+  3485 Stopped (signal)        ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[4]-  3519 Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# kill -9 3485
+[root@rhel8 ~]# jobs -l
+[3]+  3485 Killed                  ( while true; do
+    echo -n " REDHAT LINUX" >> /tmp/file.txt; sleep 1;
+done )
+[4]-  3519 Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# jobs -l
+[4]+  3519 Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# kill 3519
+[root@rhel8 ~]# jobs -l
+[4]+  3519 Stopped                 tail -f /tmp/file.txt
+[root@rhel8 ~]# kill -9 3519
+[root@rhel8 ~]# jobs -l
+[4]+  3519 Killed                  tail -f /tmp/file.txt
+[root@rhel8 ~]# jobs -l
+[root@rhel8 ~]# uptime
+ 10:43:04 up  1:10,  3 users,  load average: 0.06, 0.03, 0.01
+[root@rhel8 ~]# lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              2
+On-line CPU(s) list: 0,1
+Thread(s) per core:  1
+Core(s) per socket:  2
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               78
+Model name:          Intel(R) Core(TM) i5-6300U CPU @ 2.40GHz
+Stepping:            3
+CPU MHz:             2495.998
+BogoMIPS:            4991.99
+Hypervisor vendor:   KVM
+Virtualization type: full
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            3072K
+NUMA node0 CPU(s):   0,1
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase bmi1 avx2 bmi2 invpcid rdseed clflushopt md_clear flush_l1d
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:7000:4046:cloudteam:/home/bharath:/bin/bash
+koushik:x:7100:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:7200:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:7300:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042:devteam:/home/vector:/bin/bash
+[root@rhel8 ~]# su - koushik
+Last login: Tue Jan 24 05:51:41 UTC 2023 on pts/1
+[koushik@rhel8 ~]$
+[koushik@rhel8 ~]$
+[koushik@rhel8 ~]$ logout
+[root@rhel8 ~]# su - bharath
+Last login: Wed Jan 25 10:45:45 UTC 2023 on pts/2
+[bharath@rhel8 ~]$ pwd
+/home/bharath
+[bharath@rhel8 ~]$ ls
+student
+[bharath@rhel8 ~]$ cd student/bin
+[bharath@rhel8 bin]$ ls
+instance
+[bharath@rhel8 bin]$ instance network &
+[1] 3678
+-bash: instance: command not found
+[bharath@rhel8 bin]$ sh instance network &
+[2] 3681
+[1]   Exit 127                instance network
+[bharath@rhel8 bin]$ sh instance interface &
+[3] 3687
+[bharath@rhel8 bin]$ sh instance connection &
+[4] 3693
+[bharath@rhel8 bin]$ jobs -l
+[2]   3681 Running                 sh instance network &
+[3]-  3687 Running                 sh instance interface &
+[4]+  3693 Running                 sh instance connection &
+[bharath@rhel8 bin]$ instance bharath
+-bash: instance: command not found
+[bharath@rhel8 bin]$ .instance bharath
+-bash: .instance: command not found
+[bharath@rhel8 bin]$ jobs
+[2]   Running                 sh instance network &
+[3]-  Running                 sh instance interface &
+[4]+  Running                 sh instance connection &
+[bharath@rhel8 bin]$ kill -SIGSTOP 2%
+-bash: kill: 2%: arguments must be process or job IDs
+[bharath@rhel8 bin]$ kill -SIGSTOP %2
+
+[2]+  Stopped                 sh instance network
+[bharath@rhel8 bin]$ jobs
+[2]+  Stopped                 sh instance network
+[3]   Running                 sh instance interface &
+[4]-  Running                 sh instance connection &
+[bharath@rhel8 bin]$ jobs -l
+[2]+  3681 Stopped (signal)        sh instance network
+[3]   3687 Running                 sh instance interface &
+[4]-  3693 Running                 sh instance connection &
+[bharath@rhel8 bin]$ kill -15 3687
+[bharath@rhel8 bin]$ jobs
+[2]+  Stopped                 sh instance network
+[3]   Terminated              sh instance interface
+[4]-  Running                 sh instance connection &
+[bharath@rhel8 bin]$ kill SIGCONT %2
+-bash: kill: SIGCONT: arguments must be process or job IDs
+
+[2]+  Stopped                 sh instance network
+[bharath@rhel8 bin]$ kill -SIGCONT %2
+-bash: kill: (3681) - No such process
+[2]+  Terminated              sh instance network
+[bharath@rhel8 bin]$ jobs
+[4]+  Running                 sh instance connection &
+[bharath@rhel8 bin]$ kill -SIGTERM %4
+[bharath@rhel8 bin]$ jobs
+[4]+  Terminated              sh instance connection
+[bharath@rhel8 bin]$ jobs
+[bharath@rhel8 bin]$ ps -ef | grep tail
+root        3477    3304  0 10:37 pts/2    00:00:00 tail -f /tmp/file.txt
+root        3492    3304  0 10:38 pts/2    00:00:00 tail -f /tmp/file.txt
+bharath     3825    3785  0 11:00 pts/2    00:00:00 tail -f /home/bharath/instance_outfile
+bharath     4032    3641  0 11:10 pts/1    00:00:00 grep --color=auto tail
+[bharath@rhel8 bin]$ pkill -SIGTERM tail
+pkill: killing pid 3477 failed: Operation not permitted
+pkill: killing pid 3492 failed: Operation not permitted
+[bharath@rhel8 bin]$ ps -ef | grep tail
+root        3477    3304  0 10:37 pts/2    00:00:00 tail -f /tmp/file.txt
+root        3492    3304  0 10:38 pts/2    00:00:00 tail -f /tmp/file.txt
+bharath     4039    3641  0 11:11 pts/1    00:00:00 grep --color=auto tail
+[bharath@rhel8 bin]$ kill -9 3477
+-bash: kill: (3477) - Operation not permitted
+[bharath@rhel8 bin]$
+[bharath@rhel8 bin]$ exit
+logout
+[root@rhel8 ~]# exit
+logout
+[vagrant@rhel8 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Wed Jan 25 16:45:56 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+tcsetattr: Input/output error
+Connection to 127.0.0.1 closed by remote host.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Wed Jan 25 16:46:48 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ exit
+exit
+
+C:\WINDOWS\system32>date
+The current date is: 25-01-2023
+Enter the new date: (dd-mm-yy)
