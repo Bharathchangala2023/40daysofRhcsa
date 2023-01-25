@@ -1,0 +1,1857 @@
+Microsoft Windows [Version 10.0.19045.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd  ~/devops/provision/vagrant/rhel9/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/rhel8' version '4.2.8' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.30 r148432
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan 25 09:39:20 2023 from 10.0.2.2
+[vagrant@rhel8 ~]$
+[vagrant@rhel8 ~]$
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Wed Jan 25 09:39:24 UTC 2023 on pts/2
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -l
+total 0
+drwxr-xr-x. 2 koushik REDHAT 6 Jan 23 07:24 project
+[root@rhel8 ~]# ls
+project
+[root@rhel8 ~]# ls -l /proc/
+total 0
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 1
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 10
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 1006
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 11
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 12
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 13
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 14
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 15
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 1565
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 16
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 17
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 18
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 180
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 181
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 182
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 183
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 184
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 185
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 186
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 187
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 19
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 2
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 20
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 21
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 22
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 24
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 25
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 26
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 27
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 28
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 29
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 3
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 30
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 307
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 31
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 3142
+dr-xr-xr-x.  9 vagrant vagrant               0 Jan 25 13:21 3147
+dr-xr-xr-x.  9 vagrant vagrant               0 Jan 25 13:21 3150
+dr-xr-xr-x.  9 vagrant vagrant               0 Jan 25 13:21 3156
+dr-xr-xr-x.  9 vagrant vagrant               0 Jan 25 13:21 3157
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:22 3184
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:22 3186
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:22 3187
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 32
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:22 3214
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 33
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 34
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 35
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 36
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 37
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 38
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 39
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 399
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 4
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 40
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 41
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 42
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 43
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 45
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 464
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 466
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 468
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 470
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 472
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 480
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 481
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 482
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 483
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 484
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 485
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 5
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 556
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 567
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 590
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 592
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 593
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 594
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 595
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 596
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 597
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 599
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 6
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 600
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 7
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 714
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 715
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 726
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 728
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 729
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 730
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 731
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 732
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 733
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 734
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 735
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 736
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 78
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 8
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 805
+dr-xr-xr-x.  9 polkitd polkitd               0 Jan 25 13:21 833
+dr-xr-xr-x.  9 dbus    dbus                  0 Jan 25 13:21 835
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 839
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 840
+dr-xr-xr-x.  9 chrony  chrony                0 Jan 25 13:21 850
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 862
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 865
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 866
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 882
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 892
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 9
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 903
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 905
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 907
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 914
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 922
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 923
+dr-xr-xr-x.  9 root    root                  0 Jan 25 13:21 924
+dr-xr-xr-x.  2 root    root                  0 Jan 25 13:21 acpi
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 buddyinfo
+dr-xr-xr-x.  4 root    root                  0 Jan 25 13:21 bus
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 cgroups
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 cmdline
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 consoles
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 cpuinfo
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 crypto
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 devices
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 diskstats
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 dma
+dr-xr-xr-x.  2 root    root                  0 Jan 25 13:22 driver
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 execdomains
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 fb
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 filesystems
+dr-xr-xr-x.  4 root    root                  0 Jan 25 13:21 fs
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 interrupts
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 iomem
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 ioports
+dr-xr-xr-x. 22 root    root                  0 Jan 25 13:21 irq
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 kallsyms
+-r--------.  1 root    root    140737477890048 Jan 25 13:21 kcore
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 keys
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 key-users
+-r--------.  1 root    root                  0 Jan 25 13:22 kmsg
+-r--------.  1 root    root                  0 Jan 25 13:22 kpagecgroup
+-r--------.  1 root    root                  0 Jan 25 13:22 kpagecount
+-r--------.  1 root    root                  0 Jan 25 13:22 kpageflags
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 loadavg
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 locks
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 mdstat
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 meminfo
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 misc
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 modules
+lrwxrwxrwx.  1 root    root                 11 Jan 25 13:21 mounts -> self/mounts
+-rw-r--r--.  1 root    root                  0 Jan 25 13:21 mtrr
+lrwxrwxrwx.  1 root    root                  8 Jan 25 13:21 net -> self/net
+-r--------.  1 root    root                  0 Jan 25 13:22 pagetypeinfo
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 partitions
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 sched_debug
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 schedstat
+dr-xr-xr-x.  3 root    root                  0 Jan 25 13:21 scsi
+lrwxrwxrwx.  1 root    root                  0 Jan 25 13:21 self -> 3214
+-r--------.  1 root    root                  0 Jan 25 13:22 slabinfo
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 softirqs
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 stat
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 swaps
+dr-xr-xr-x.  1 root    root                  0 Jan 25 13:21 sys
+--w-------.  1 root    root                  0 Jan 25 13:21 sysrq-trigger
+dr-xr-xr-x.  2 root    root                  0 Jan 25 13:22 sysvipc
+lrwxrwxrwx.  1 root    root                  0 Jan 25 13:21 thread-self -> 3214/task/3214
+-r--------.  1 root    root                  0 Jan 25 13:22 timer_list
+dr-xr-xr-x.  4 root    root                  0 Jan 25 13:21 tty
+-r--r--r--.  1 root    root                  0 Jan 25 13:21 uptime
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 version
+-r--------.  1 root    root                  0 Jan 25 13:22 vmallocinfo
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 vmstat
+-r--r--r--.  1 root    root                  0 Jan 25 13:22 zoneinfo
+[root@rhel8 ~]# ls -l /project
+ls: cannot access '/project': No such file or directory
+[root@rhel8 ~]# ls -l
+total 0
+drwxr-xr-x. 2 koushik REDHAT 6 Jan 23 07:24 project
+[root@rhel8 ~]# ls project/
+[root@rhel8 ~]# ls -l project/
+total 0
+[root@rhel8 ~]# rm rf *
+rm: cannot remove 'rf': No such file or directory
+rm: cannot remove 'project': Is a directory
+[root@rhel8 ~]# rmdir *
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -l
+total 0
+[root@rhel8 ~]# touch file.txt
+[root@rhel8 ~]# mkdir dir{1..5]
+[root@rhel8 ~]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 13:24 dir{1..5]
+-rw-r--r--. 1 root root 0 Jan 25 13:24 file.txt
+[root@rhel8 ~]# mkdir dir{1..5}
+[root@rhel8 ~]# ls
+dir1  dir{1..5]  dir2  dir3  dir4  dir5  file.txt
+[root@rhel8 ~]# rmdir dir\{1..5\]/
+[root@rhel8 ~]# ls
+dir1  dir2  dir3  dir4  dir5  file.txt
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir5
+-rw-r--r--. 1 root root 0 Jan 25 13:24 file.txt
+[root@rhel8 ~]# mkdir project
+[root@rhel8 ~]# mv dir1/ project/
+[root@rhel8 ~]# ls -l
+total 0
+drwxr-xr-x. 2 root root  6 Jan 25 13:25 dir2
+drwxr-xr-x. 2 root root  6 Jan 25 13:25 dir3
+drwxr-xr-x. 2 root root  6 Jan 25 13:25 dir4
+drwxr-xr-x. 2 root root  6 Jan 25 13:25 dir5
+-rw-r--r--. 1 root root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 3 root root 18 Jan 25 13:26 project
+[root@rhel8 ~]# mv dir{2..5} project/
+[root@rhel8 ~]# ls -l
+total 0
+-rw-r--r--. 1 root root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 7 root root 66 Jan 25 13:26 project
+[root@rhel8 ~]# ls -l project/
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir5
+[root@rhel8 ~]# ls -ld
+dr-xr-x---. 5 root root 186 Jan 25 13:26 .
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 root root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# tail -5 /etc/passwd
+bharath:x:7000:4046:cloudteam:/home/bharath:/bin/bash
+koushik:x:7100:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:7200:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:7300:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042:devteam:/home/vector:/bin/bash
+[root@rhel8 ~]# ls -l
+total 0
+-rw-r--r--. 1 root root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 7 root root 66 Jan 25 13:26 project
+[root@rhel8 ~]# chown vector project/
+[root@rhel8 ~]# ls -l
+total 0
+-rw-r--r--. 1 root   root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 7 vector root 66 Jan 25 13:26 project
+[root@rhel8 ~]# id vector
+uid=4041(vector) gid=4042(opsteam) groups=4042(opsteam)
+[root@rhel8 ~]# ls -l project/
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir5
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 vector root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# su - vector
+[vector@rhel8 ~]$ pwd
+/home/vector
+[vector@rhel8 ~]$ ls -l
+total 0
+[vector@rhel8 ~]$ cd /project/
+-bash: cd: /project/: No such file or directory
+[vector@rhel8 ~]$ logout
+[root@rhel8 ~]# ls
+file.txt  project
+[root@rhel8 ~]# pwd
+/root
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 vector root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# su - vector
+Last login: Wed Jan 25 13:44:56 UTC 2023 on pts/0
+[vector@rhel8 ~]$ logout
+[root@rhel8 ~]# cd project/
+[root@rhel8 project]# pwd
+/root/project
+[root@rhel8 project]# mkdir /project
+[root@rhel8 project]# cd ..
+[root@rhel8 ~]# mkdir /project
+mkdir: cannot create directory ‘/project’: File exists
+[root@rhel8 ~]# mkdir /project1
+[root@rhel8 ~]# ls
+file.txt  project
+[root@rhel8 ~]# ls -l
+total 0
+-rw-r--r--. 1 root   root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 7 vector root 66 Jan 25 13:26 project
+[root@rhel8 ~]#
+[root@rhel8 ~]#
+[root@rhel8 ~]# useradd kmb
+[root@rhel8 ~]# chown kmb project/
+[root@rhel8 ~]#
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 kmb root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# su - kmb
+[kmb@rhel8 ~]$ cd /project
+[kmb@rhel8 project]$ ls
+[kmb@rhel8 project]$ ls -l
+total 0
+[kmb@rhel8 project]$ logout
+[root@rhel8 ~]# ls -l
+total 0
+-rw-r--r--. 1 root root  0 Jan 25 13:24 file.txt
+drwxr-xr-x. 7 kmb  root 66 Jan 25 13:26 project
+[root@rhel8 ~]# cd project/
+[root@rhel8 project]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 13:25 dir5
+[root@rhel8 project]# cd ..
+[root@rhel8 ~]# su - kmb
+Last login: Wed Jan 25 13:52:29 UTC 2023 on pts/0
+[kmb@rhel8 ~]$ cd /project/
+[kmb@rhel8 project]$ ls -l
+total 0
+[kmb@rhel8 project]$ cd /project
+[kmb@rhel8 project]$ ls
+[kmb@rhel8 project]$ pwd
+/project
+[kmb@rhel8 project]$ cd ..
+[kmb@rhel8 /]$ ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  project  project1  root  run  sbin  srv  sys  tmp  usr  var
+[kmb@rhel8 /]$ cd ~
+[kmb@rhel8 ~]$ ls
+[kmb@rhel8 ~]$ cd /project/
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$
+[kmb@rhel8 project]$ ^C
+[kmb@rhel8 project]$
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Wed Jan 25 13:21:58 2023 from 10.0.2.2
+[vagrant@rhel8 ~]$ sudo su -
+Last login: Wed Jan 25 13:22:09 UTC 2023 on pts/0
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 kmb root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# ls -ld /project/
+drwxr-xr-x. 2 root root 6 Jan 25 13:50 /project/
+[root@rhel8 ~]# cd /project
+[root@rhel8 project]# ls
+[root@rhel8 project]# cd ..
+[root@rhel8 /]# cd /
+[root@rhel8 /]# cd
+[root@rhel8 ~]# cd project/
+[root@rhel8 project]# l
+-bash: l: command not found
+[root@rhel8 project]# ls
+dir1  dir2  dir3  dir4  dir5
+[root@rhel8 project]# ls -ld cd ..
+ls: cannot access 'cd': No such file or directory
+dr-xr-x---. 5 root root 186 Jan 25 13:26 ..
+[root@rhel8 project]# cd ..
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 kmb root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# su - kmb
+Last login: Wed Jan 25 13:53:40 UTC 2023 on pts/0
+[kmb@rhel8 ~]$ cd /project
+[kmb@rhel8 project]$ ls
+[kmb@rhel8 project]$ logout
+[root@rhel8 ~]# id bharath
+uid=7000(bharath) gid=4046(REDHAT) groups=4046(REDHAT)
+[root@rhel8 ~]# chown bharath project/
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 bharath root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# cd project/
+[root@rhel8 project]# ls
+dir1  dir2  dir3  dir4  dir5
+[root@rhel8 project]# cd ..
+[root@rhel8 ~]# su - bharath
+Last login: Wed Jan 25 11:00:15 UTC 2023 on pts/2
+[bharath@rhel8 ~]$ tty
+/dev/pts/1
+[bharath@rhel8 ~]$ ps
+    PID TTY          TIME CMD
+   3622 pts/1    00:00:00 bash
+   3650 pts/1    00:00:00 ps
+[bharath@rhel8 ~]$ cd /project
+[bharath@rhel8 project]$ ls
+[bharath@rhel8 project]$ ls -ld
+drwxr-xr-x. 2 root root 6 Jan 25 13:50 .
+[bharath@rhel8 project]$ ls -l
+total 0
+[bharath@rhel8 project]$ logout
+[root@rhel8 ~]# ls -ld project/
+drwxr-xr-x. 7 bharath root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# chmod a=rwx project/
+[root@rhel8 ~]# ls -ld project/
+drwxrwxrwx. 7 bharath root 66 Jan 25 13:26 project/
+[root@rhel8 ~]# su - bharath
+Last login: Wed Jan 25 14:03:15 UTC 2023 on pts/1
+[bharath@rhel8 ~]$ cd /project
+[bharath@rhel8 project]$ ls
+[bharath@rhel8 project]$ logout
+[root@rhel8 ~]# tail -6 /etc/passwd
+bharath:x:7000:4046:cloudteam:/home/bharath:/bin/bash
+koushik:x:7100:4042:cloudteam:/home/koushik:/bin/bash
+manudeep:x:7200:4042:cloudteam:/home/manudeep:/bin/bash
+david:x:7300:4042:devteam:/home/david:/bin/bash
+vector:x:4041:4042:devteam:/home/vector:/bin/bash
+kmb:x:7301:7301::/home/kmb:/bin/bash
+[root@rhel8 ~]# exit
+logout
+[vagrant@rhel8 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant -f --help
+Usage: vagrant [options] <command> [<args>]
+
+    -h, --help                       Print this help.
+
+Common commands:
+     autocomplete    manages autocomplete installation on host
+     box             manages boxes: installation, removal, etc.
+     cloud           manages everything related to Vagrant Cloud
+     destroy         stops and deletes all traces of the vagrant machine
+     global-status   outputs status Vagrant environments for this user
+     halt            stops the vagrant machine
+     help            shows the help for a subcommand
+     hostmanager     plugin: vagrant-hostmanager: manages the /etc/hosts file within a multi-machine environment
+     init            initializes a new Vagrant environment by creating a Vagrantfile
+     login
+     package         packages a running vagrant environment into a box
+     plugin          manages plugins: install, uninstall, update, etc.
+     port            displays information about guest port mappings
+     powershell      connects to machine via powershell remoting
+     provision       provisions the vagrant machine
+     push            deploys code in this environment to a configured destination
+     rdp             connects to machine via RDP
+     reload          restarts vagrant machine, loads new Vagrantfile configuration
+     resume          resume a suspended vagrant machine
+     serve           start Vagrant server
+     snapshot        manages snapshots: saving, restoring, etc.
+     ssh             connects to machine via SSH
+     ssh-config      outputs OpenSSH valid configuration to connect to the machine
+     status          outputs status of the vagrant machine
+     suspend         suspends the machine
+     up              starts and provisions the vagrant environment
+     upload          upload to machine via communicator
+     validate        validates the Vagrantfile
+     version         prints current and latest Vagrant version
+     winrm           executes commands on a machine via WinRM
+     winrm-config    outputs WinRM configuration to connect to the machine
+
+For help on any individual command run `vagrant COMMAND -h`
+
+Additional subcommands are available, but are either more advanced
+or not commonly used. To see all subcommands, run the command
+`vagrant list-commands`.
+        --[no-]color                 Enable or disable color output
+        --machine-readable           Enable machine readable output
+    -v, --version                    Display Vagrant version
+        --debug                      Enable debug output
+        --timestamp                  Enable timestamps on log output
+        --debug-timestamp            Enable debug output with timestamps
+        --no-tty                     Enable non-interactive output
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant destroy
+    default: Are you sure you want to destroy the 'default' VM? [y/N] y
+==> default: Forcing shutdown of VM...
+tcsetattr: Input/output error
+Connection to 127.0.0.1 closed by remote host.
+==> default: Destroying VM and associated drives...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant status
+Current machine states:
+
+default                   not created (virtualbox)
+
+The environment has not yet been created. Run `vagrant up` to
+create the environment. If a machine is not created, only the
+default provider will be shown. So if a provider is not listed,
+then the machine is not created for that environment.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant init generic/rhel9
+`Vagrantfile` already exists in this directory. Remove it before
+running `vagrant init`.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ ls
+Vagrantfile
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ rm -rf *
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ ls
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant init generic/rhel9
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'generic/rhel9'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'generic/rhel9' version '4.2.8' is up to date...
+==> default: There was a problem while downloading the metadata for your box
+==> default: to check for updates. This is not an error, since it is usually due
+==> default: to temporary network problems. This is just a warning. The problem
+==> default: encountered was:
+==> default:
+==> default: Could not resolve host: vagrantcloud.com
+==> default:
+==> default: If you want to check for box updates, verify your network connection
+==> default: is valid and try again.
+==> default: Setting the name of the VM: rhel9_default_1674655863446_60887
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.40 r154048
+    default: VirtualBox Version: 7.0
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+[vagrant@rhel9 ~]$ ls /etc/release*
+ls: cannot access '/etc/release*': No such file or directory
+[vagrant@rhel9 ~]$ sudo su -
+[root@rhel9 ~]#
+[root@rhel9 ~]#
+[root@rhel9 ~]# ls /etc/release*
+ls: cannot access '/etc/release*': No such file or directory
+[root@rhel9 ~]# ls release*
+ls: cannot access 'release*': No such file or directory
+[root@rhel9 ~]# systemctl
+  UNIT                                                                                     LOAD   ACTIVE SUB       DESCRIPTION       >
+  proc-sys-fs-binfmt_misc.automount                                                        loaded active waiting   Arbitrary Executab>
+  sys-devices-pci0000:00-0000:00:03.0-net-eth0.device                                      loaded active plugged   82540EM Gigabit Et>
+  sys-devices-pci0000:00-0000:00:0d.0-ata3-host2-target2:0:0-2:0:0:0-block-sda-sda1.device loaded active plugged   VBOX_HARDDISK boot
+  sys-devices-pci0000:00-0000:00:0d.0-ata3-host2-target2:0:0-2:0:0:0-block-sda-sda2.device loaded active plugged   VBOX_HARDDISK 2
+  sys-devices-pci0000:00-0000:00:0d.0-ata3-host2-target2:0:0-2:0:0:0-block-sda.device      loaded active plugged   VBOX_HARDDISK
+  sys-devices-platform-serial8250-tty-ttyS0.device                                         loaded active plugged   /sys/devices/platf>
+  sys-devices-platform-serial8250-tty-ttyS1.device                                         loaded active plugged   /sys/devices/platf>
+  sys-devices-platform-serial8250-tty-ttyS2.device                                         loaded active plugged   /sys/devices/platf>
+  sys-devices-platform-serial8250-tty-ttyS3.device                                         loaded active plugged   /sys/devices/platf>
+  sys-devices-virtual-block-dm\x2d0.device                                                 loaded active plugged   /sys/devices/virtu>
+  sys-devices-virtual-block-dm\x2d1.device                                                 loaded active plugged   /sys/devices/virtu>
+  sys-devices-virtual-mem-random.device                                                    loaded active plugged   /sys/devices/virtu>
+  sys-devices-virtual-misc-rfkill.device                                                   loaded active plugged   /sys/devices/virtu>
+  sys-module-configfs.device                                                               loaded active plugged   /sys/module/config>
+  sys-module-fuse.device                                                                   loaded active plugged   /sys/module/fuse
+  sys-subsystem-net-devices-eth0.device                                                    loaded active plugged   82540EM Gigabit Et>
+  -.mount                                                                                  loaded active mounted   Root Mount
+  boot.mount                                                                               loaded active mounted   /boot
+  dev-hugepages.mount                                                                      loaded active mounted   Huge Pages File Sy>
+  dev-mqueue.mount                                                                         loaded active mounted   POSIX Message Queu>
+  run-user-1000.mount                                                                      loaded active mounted   /run/user/1000
+  sys-fs-fuse-connections.mount                                                            loaded active mounted   FUSE Control File >
+  sys-kernel-config.mount                                                                  loaded active mounted   Kernel Configurati>
+  sys-kernel-debug.mount                                                                   loaded active mounted   Kernel Debug File >
+  sys-kernel-tracing.mount                                                                 loaded active mounted   Kernel Trace File >
+  systemd-ask-password-console.path                                                        loaded active waiting   Dispatch Password >
+  systemd-ask-password-wall.path                                                           loaded active waiting   Forward Password R>
+  init.scope                                                                               loaded active running   System and Service>
+  session-4.scope                                                                          loaded active running   Session 4 of User >
+  auditd.service                                                                           loaded active running   Security Auditing >
+  chronyd.service                                                                          loaded active running   NTP client/server
+  crond.service                                                                            loaded active running   Command Scheduler
+  dbus-broker.service                                                                      loaded active running   D-Bus System Messa>
+  dracut-shutdown.service                                                                  loaded active exited    Restore /run/initr>
+  firewalld.service                                                                        loaded active running   firewalld - dynami>
+  getty@tty1.service                                                                       loaded active running   Getty on tty1
+  haveged.service                                                                          loaded active running   Entropy Daemon bas>
+  irqbalance.service                                                                       loaded active running   irqbalance daemon
+  kmod-static-nodes.service                                                                loaded active exited    Create List of Sta>
+  lvm2-monitor.service                                                                     loaded active exited    Monitoring of LVM2>
+  NetworkManager-wait-online.service                                                       loaded active exited    Network Manager Wa>
+  NetworkManager.service                                                                   loaded active running   Network Manager
+  nis-domainname.service                                                                   loaded active exited    Read and set NIS d>
+  polkit.service                                                                           loaded active running   Authorization Mana>
+  rhsmcertd.service                                                                        loaded active running   Enable periodic up>
+  rsyslog.service                                                                          loaded active running   System Logging Ser>
+  sshd.service                                                                             loaded active running   OpenSSH server dae>
+  sysstat.service                                                                          loaded active exited    Resets System Acti>
+  systemd-journal-flush.service                                                            loaded active exited    Flush Journal to P>
+  systemd-journald.service                                                                 loaded active running   Journal Service
+  systemd-logind.service                                                                   loaded active running   User Login Managem>
+  systemd-machine-id-commit.service                                                        loaded active exited    Commit a transient>
+  systemd-network-generator.service                                                        loaded active exited    Generate network u>
+  systemd-random-seed.service                                                              loaded active exited    Load/Save Random S>
+  systemd-remount-fs.service                                                               loaded active exited    Remount Root and K>
+  systemd-sysctl.service                                                                   loaded active exited    Apply Kernel Varia>
+  systemd-tmpfiles-setup-dev.service                                                       loaded active exited    Create Static Devi>
+  systemd-tmpfiles-setup.service                                                           loaded active exited    Create Volatile Fi>
+  systemd-udev-trigger.service                                                             loaded active exited    Coldplug All udev >
+  systemd-udevd.service                                                                    loaded active running   Rule-based Manager>
+  systemd-update-utmp.service                                                              loaded active exited    Record System Boot>
+  systemd-user-sessions.service                                                            loaded active exited    Permit User Sessio>
+  tuned.service                                                                            loaded active running   Dynamic System Tun>
+  user-runtime-dir@1000.service                                                            loaded active exited    User Runtime Direc>
+  user@1000.service                                                                        loaded active running   User Manager for U>
+  vboxadd-service.service                                                                  loaded active running   vboxadd-service.se>
+  vboxadd.service                                                                          loaded active exited    vboxadd.service   >
+  -.slice                                                                                  loaded active active    Root Slice
+  system-getty.slice                                                                       loaded active active    Slice /system/getty
+  system-modprobe.slice                                                                    loaded active active    Slice /system/modp>
+  system-sshd\x2dkeygen.slice                                                              loaded active active    Slice /system/sshd>
+  system-systemd\x2dhibernate\x2dresume.slice                                              loaded active active    Slice /system/syst>
+  system.slice                                                                             loaded active active    System Slice
+  user-1000.slice                                                                          loaded active active    User Slice of UID >
+  user.slice                                                                               loaded active active    User and Session S>
+  dbus.socket                                                                              loaded active running   D-Bus System Messa>
+  dm-event.socket                                                                          loaded active listening Device-mapper even>
+  lvm2-lvmpolld.socket                                                                     loaded active listening LVM2 poll daemon s>
+  sssd-kcm.socket                                                                          loaded active listening SSSD Kerberos Cach>
+  systemd-coredump.socket                                                                  loaded active listening Process Core Dump >
+  systemd-initctl.socket                                                                   loaded active listening initctl Compatibil>
+  systemd-journald-dev-log.socket                                                          loaded active running   Journal Socket (/d>
+  systemd-journald.socket                                                                  loaded active running   Journal Socket
+  systemd-rfkill.socket                                                                    loaded active listening Load/Save RF Kill >
+  systemd-udevd-control.socket                                                             loaded active running   udev Control Socket
+  systemd-udevd-kernel.socket                                                              loaded active running   udev Kernel Socket>
+  dev-mapper-rhel\x2dswap.swap                                                             loaded active active    /dev/mapper/rhel-s>
+  basic.target                                                                             loaded active active    Basic System
+  cryptsetup.target                                                                        loaded active active    Local Encrypted Vo>
+  getty.target                                                                             loaded active active    Login Prompts
+  integritysetup.target                                                                    loaded active active    Local Integrity Pr>
+  local-fs-pre.target                                                                      loaded active active    Preparation for Lo>
+  local-fs.target                                                                          loaded active active    Local File Systems
+  multi-user.target                                                                        loaded active active    Multi-User System
+  network-online.target                                                                    loaded active active    Network is Online
+  network-pre.target                                                                       loaded active active    Preparation for Ne>
+  network.target                                                                           loaded active active    Network
+  nss-user-lookup.target                                                                   loaded active active    User and Group Nam>
+  paths.target                                                                             loaded active active    Path Units
+  slices.target                                                                            loaded active active    Slice Units
+  sockets.target                                                                           loaded active active    Socket Units
+  sshd-keygen.target                                                                       loaded active active    sshd-keygen.target
+  swap.target                                                                              loaded active active    Swaps
+  sysinit.target                                                                           loaded active active    System Initializat>
+  timers.target                                                                            loaded active active    Timer Units
+  veritysetup.target                                                                       loaded active active    Local Verity Prote>
+  dnf-makecache.timer                                                                      loaded active waiting   dnf makecache --ti>
+  logrotate.timer                                                                          loaded active waiting   Daily rotation of >
+  mlocate-updatedb.timer                                                                   loaded active waiting   Updates mlocate da>
+  sysstat-collect.timer                                                                    loaded active waiting   Run system activit>
+  sysstat-summary.timer                                                                    loaded active waiting   Generate summary o>
+  systemd-tmpfiles-clean.timer                                                             loaded active waiting   Daily Cleanup of T>
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+112 loaded units listed. Pass --all to see loaded but inactive units, too.
+To show all installed unit files use 'systemctl list-unit-files'.
+[root@rhel9 ~]#
+[root@rhel9 ~]#
+[root@rhel9 ~]# hostnamectl
+ Static hostname: rhel9.localdomain
+       Icon name: computer-vm
+         Chassis: vm ??
+      Machine ID: b42e31855cea4d578262599cb2c1bea9
+         Boot ID: a6553abfe0ed49c88f90502225025916
+  Virtualization: oracle
+Operating System: Red Hat Enterprise Linux 9.1 (Plow)
+     CPE OS Name: cpe:/o:redhat:enterprise_linux:9::baseos
+          Kernel: Linux 5.14.0-162.6.1.el9_1.x86_64
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+[root@rhel9 ~]#
+[root@rhel9 ~]#
+[root@rhel9 ~]#
+[root@rhel9 ~]# mkdir project
+[root@rhel9 ~]# ls
+project
+[root@rhel9 ~]# cd project/
+[root@rhel9 project]# dir{1..5}
+-bash: dir1: command not found
+[root@rhel9 project]# cd ..
+[root@rhel9 ~]# cd project/
+[root@rhel9 project]# mkdir dir{1..5}
+[root@rhel9 project]# ls
+dir1  dir2  dir3  dir4  dir5
+[root@rhel9 project]# cd ..
+[root@rhel9 ~]# tail -5 /etc/passwd
+chrony:x:997:994::/var/lib/chrony:/sbin/nologin
+systemd-oom:x:992:992:systemd Userspace OOM Killer:/:/usr/sbin/nologin
+vagrant:x:1000:1000::/home/vagrant:/bin/bash
+vboxadd:x:991:1::/var/run/vboxadd:/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/sbin/nologin
+[root@rhel9 ~]# useradd bharath
+[root@rhel9 ~]#
+[root@rhel9 ~]# ls -ld project/
+drwxr-xr-x. 7 root root 66 Jan 25 14:15 project/
+[root@rhel9 ~]# ls l project/
+ls: cannot access 'l': No such file or directory
+project/:
+dir1  dir2  dir3  dir4  dir5
+[root@rhel9 ~]# ls -l project/
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 14:15 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 14:15 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 14:15 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 14:15 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 14:15 dir5
+[root@rhel9 ~]# su - bharath
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# ls -ld project/
+drwxr-xr-x. 7 root root 66 Jan 25 14:15 project/
+[root@rhel9 ~]# chown bharath project/
+[root@rhel9 ~]# ls -ld project/
+drwxr-xr-x. 7 bharath root 66 Jan 25 14:15 project/
+[root@rhel9 ~]# su - bharath
+Last login: Wed Jan 25 14:16:27 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project
+-bash: cd: /project: No such file or directory
+[bharath@rhel9 ~]$ pwd
+/home/bharath
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# ls
+project
+[root@rhel9 ~]# rmdir project/
+rmdir: failed to remove 'project/': Directory not empty
+[root@rhel9 ~]# rmdir * project/
+rmdir: failed to remove 'project': Directory not empty
+rmdir: failed to remove 'project/': Directory not empty
+[root@rhel9 ~]# rm -rf * project/
+[root@rhel9 ~]# ls
+[root@rhel9 ~]# mkdir /project
+[root@rhel9 ~]# ls
+[root@rhel9 ~]# touch /project/file1.txt
+[root@rhel9 ~]# mkdir /project/dir{1..5}
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 7 root root 83 Jan 25 14:23 /project/
+[root@rhel9 ~]# ls -l /project/
+total 0
+drwxr-xr-x. 2 root root 6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root root 6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root root 6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root root 6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root root 6 Jan 25 14:23 dir5
+-rw-r--r--. 1 root root 0 Jan 25 14:23 file1.txt
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 7 root root 83 Jan 25 14:23 /project/
+[root@rhel9 ~]# chown bharath /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 7 bharath root 83 Jan 25 14:23 /project/
+[root@rhel9 ~]# su - bharath
+Last login: Wed Jan 25 14:17:32 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  file1.txt
+[bharath@rhel9 project]$ mkdir rhcsa
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  file1.txt  rhcsa
+[bharath@rhel9 project]$ vim file1.txt
+[bharath@rhel9 project]$ ls -l
+total 0
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir5
+-rw-r--r--. 1 root    root    0 Jan 25 14:23 file1.txt
+drwxr-xr-x. 2 bharath bharath 6 Jan 25 15:46 rhcsa
+[bharath@rhel9 project]$ vim file1.txt
+
+[1]+  Stopped                 vim file1.txt
+[bharath@rhel9 project]$ jobs
+[1]+  Stopped                 vim file1.txt
+[bharath@rhel9 project]$ jobs -l
+[1]+ 11874 Stopped                 vim file1.txt
+[bharath@rhel9 project]$ kill -9 11874
+[1]+  Killed                  vim file1.txt
+[bharath@rhel9 project]$ jobs -l
+[bharath@rhel9 project]$ cd ..
+[bharath@rhel9 /]$ cd
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 bharath root 136 Jan 25 15:47 /project/
+[root@rhel9 ~]# ls -ld /project/file1.txt
+-rw-r--r--. 1 bharath bharath 0 Jan 25 15:47 /project/file1.txt
+[root@rhel9 ~]# chmod u+rw /project/file1.txt
+[root@rhel9 ~]# ls -ld /project/file1.txt
+-rw-r--r--. 1 bharath bharath 0 Jan 25 15:47 /project/file1.txt
+[root@rhel9 ~]# su - bharath
+Last login: Wed Jan 25 14:24:09 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ touch /project/file1.txt
+[bharath@rhel9 ~]$ ls -l /project/
+total 0
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root    6 Jan 25 14:23 dir5
+-rw-r--r--. 1 bharath bharath 0 Jan 25 15:50 file1.txt
+-rw-r--r--. 1 bharath bharath 0 Jan 25 14:23 file1.txt~
+drwxr-xr-x. 2 bharath bharath 6 Jan 25 15:46 rhcsa
+[bharath@rhel9 ~]$ cat /project/file1.txt
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ cat file1.txt
+[bharath@rhel9 project]$ cat > file1.txt
+this is the text file
+[bharath@rhel9 project]$ cat file1.txt
+this is the text file
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 bharath root 136 Jan 25 15:47 /project/
+[root@rhel9 ~]# chmod u-r /project/
+[root@rhel9 ~]# ls -ld /project/
+d-wxr-xr-x. 8 bharath root 136 Jan 25 15:47 /project/
+[root@rhel9 ~]# history
+    1  ls /etc/release*
+    2  ls release*
+    3  systemctl
+    4  hostnamectl
+    5  mkdir project
+    6  ls
+    7  cd project/
+    8* mkdir dir{1..5}
+    9  cd ..
+   10  cd project/
+   11  mkdir dir{1..5}
+   12  ls
+   13  cd ..
+   14  tail -5 /etc/passwd
+   15  useradd bharath
+   16  ls -ld project/
+   17  ls l project/
+   18  ls -l project/
+   19  su - bharath
+   20  ls -ld project/
+   21  chown bharath project/
+   22  ls -ld project/
+   23  su - bharath
+   24  ls
+   25  rmdir project/
+   26  rmdir * project/
+   27  rm -rf * project/
+   28  ls
+   29  mkdir /project
+   30  ls
+   31  touch /project/file1.txt
+   32  mkdir /project/dir{1..5}
+   33  ls -ld /project/
+   34  ls -l /project/
+   35  ls -ld /project/
+   36  chown bharath /project/
+   37  ls -ld /project/
+   38  su - bharath
+   39  ls -ld /project/
+   40  ls -ld /project/file1.txt
+   41  chmod u+rw /project/file1.txt
+   42  ls -ld /project/file1.txt
+   43  su - bharath
+   44  ls -ld /project/
+   45  chmod u-r /project/
+   46  ls -ld /project/
+   47  history
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 15:50:30 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ ls /project/
+ls: cannot open directory '/project/': Permission denied
+[bharath@rhel9 ~]$ touch /project/test1
+[bharath@rhel9 ~]$ ls /project/
+ls: cannot open directory '/project/': Permission denied
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# ls -ld /project/
+d-wxr-xr-x. 8 bharath root 149 Jan 25 15:53 /project/
+[root@rhel9 ~]# chmod u+r,u-x /project/
+[root@rhel9 ~]# ls -ld /project/
+drw-r-xr-x. 8 bharath root 149 Jan 25 15:53 /project/
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 15:53:26 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ ls /project/
+ls: cannot access '/project/dir1': Permission denied
+ls: cannot access '/project/dir2': Permission denied
+ls: cannot access '/project/dir3': Permission denied
+ls: cannot access '/project/dir4': Permission denied
+ls: cannot access '/project/dir5': Permission denied
+ls: cannot access '/project/rhcsa': Permission denied
+ls: cannot access '/project/file1.txt~': Permission denied
+ls: cannot access '/project/file1.txt': Permission denied
+ls: cannot access '/project/test1': Permission denied
+dir1  dir2  dir3  dir4  dir5  file1.txt  file1.txt~  rhcsa  test1
+[bharath@rhel9 ~]$ rm /project/file1.txt~
+rm: cannot remove '/project/file1.txt~': Permission denied
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# ls -l /project/
+total 4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir5
+-rw-r--r--. 1 bharath bharath 22 Jan 25 15:52 file1.txt
+-rw-r--r--. 1 bharath bharath  0 Jan 25 14:23 file1.txt~
+drwxr-xr-x. 2 bharath bharath  6 Jan 25 15:46 rhcsa
+-rw-r--r--. 1 bharath bharath  0 Jan 25 15:53 test1
+[root@rhel9 ~]# rm /project/file1.txt~
+rm: remove regular empty file '/project/file1.txt~'? y
+[root@rhel9 ~]# ls -l /project/
+total 4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir5
+-rw-r--r--. 1 bharath bharath 22 Jan 25 15:52 file1.txt
+drwxr-xr-x. 2 bharath bharath  6 Jan 25 15:46 rhcsa
+-rw-r--r--. 1 bharath bharath  0 Jan 25 15:53 test1
+[root@rhel9 ~]# tree /project/
+-bash: tree: command not found
+[root@rhel9 ~]# yum install tree
+Extra Packages for Enterprise Linux 9 - x86_64                                                        1.9 MB/s |  13 MB     00:06
+Last metadata expiration check: 0:00:06 ago on Wed 25 Jan 2023 03:57:35 PM UTC.
+No match for argument: tree
+Error: Unable to find a match: tree
+[root@rhel9 ~]# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 15:32 ?        00:00:01 /usr/lib/systemd/systemd text --switched-root --system --deserialize 30
+root           2       0  0 15:32 ?        00:00:00 [kthreadd]
+root           3       2  0 15:32 ?        00:00:00 [rcu_gp]
+root           4       2  0 15:32 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 15:32 ?        00:00:00 [netns]
+root           7       2  0 15:32 ?        00:00:00 [kworker/0:0H-events_highpri]
+root           9       2  0 15:32 ?        00:00:00 [kworker/0:1H-kblockd]
+root          10       2  0 15:32 ?        00:00:00 [mm_percpu_wq]
+root          11       2  0 15:32 ?        00:00:00 [kworker/u4:1-flush-253:0]
+root          12       2  0 15:32 ?        00:00:00 [rcu_tasks_kthre]
+root          13       2  0 15:32 ?        00:00:00 [rcu_tasks_rude_]
+root          14       2  0 15:32 ?        00:00:00 [rcu_tasks_trace]
+root          15       2  0 15:32 ?        00:00:00 [ksoftirqd/0]
+root          16       2  0 15:32 ?        00:00:00 [rcu_preempt]
+root          17       2  0 15:32 ?        00:00:00 [migration/0]
+root          19       2  0 15:32 ?        00:00:00 [cpuhp/0]
+root          20       2  0 15:32 ?        00:00:00 [cpuhp/1]
+root          21       2  0 15:32 ?        00:00:00 [migration/1]
+root          22       2  0 15:32 ?        00:00:00 [ksoftirqd/1]
+root          24       2  0 15:32 ?        00:00:00 [kworker/1:0H-events_highpri]
+root          26       2  0 15:32 ?        00:00:00 [kdevtmpfs]
+root          27       2  0 15:32 ?        00:00:00 [inet_frag_wq]
+root          28       2  0 15:32 ?        00:00:00 [kauditd]
+root          29       2  0 15:32 ?        00:00:00 [khungtaskd]
+root          30       2  0 15:32 ?        00:00:00 [oom_reaper]
+root          31       2  0 15:32 ?        00:00:00 [writeback]
+root          32       2  0 15:32 ?        00:00:00 [kcompactd0]
+root          33       2  0 15:32 ?        00:00:00 [ksmd]
+root          34       2  0 15:32 ?        00:00:00 [khugepaged]
+root          35       2  0 15:32 ?        00:00:00 [cryptd]
+root          36       2  0 15:32 ?        00:00:00 [kintegrityd]
+root          37       2  0 15:32 ?        00:00:00 [kblockd]
+root          38       2  0 15:32 ?        00:00:00 [blkcg_punt_bio]
+root          39       2  0 15:32 ?        00:00:00 [tpm_dev_wq]
+root          40       2  0 15:32 ?        00:00:00 [md]
+root          41       2  0 15:32 ?        00:00:00 [edac-poller]
+root          42       2  0 15:32 ?        00:00:00 [watchdogd]
+root          44       2  0 15:32 ?        00:00:00 [kswapd0]
+root          50       2  0 15:32 ?        00:00:00 [kthrotld]
+root          51       2  0 15:32 ?        00:00:00 [kworker/0:2-inet_frag_wq]
+root          56       2  0 15:32 ?        00:00:00 [acpi_thermal_pm]
+root          57       2  0 15:32 ?        00:00:00 [kmpath_rdacd]
+root          58       2  0 15:32 ?        00:00:00 [kaluad]
+root          59       2  0 15:32 ?        00:00:00 [kworker/1:1H-events_highpri]
+root          60       2  0 15:32 ?        00:00:00 [mld]
+root          61       2  0 15:32 ?        00:00:00 [ipv6_addrconf]
+root          62       2  0 15:32 ?        00:00:00 [kstrp]
+root          74       2  0 15:32 ?        00:00:00 [zswap-shrink]
+root          76       2  0 15:32 ?        00:00:00 [kworker/u4:3-events_unbound]
+root         193       2  0 15:32 ?        00:00:00 [kworker/u5:0]
+root         381       2  0 15:32 ?        00:00:00 [iprt-VBoxWQueue]
+root         386       2  0 15:32 ?        00:00:00 [ata_sff]
+root         387       2  0 15:32 ?        00:00:00 [scsi_eh_0]
+root         388       2  0 15:32 ?        00:00:00 [scsi_tmf_0]
+root         391       2  0 15:32 ?        00:00:00 [scsi_eh_1]
+root         392       2  0 15:32 ?        00:00:00 [scsi_eh_2]
+root         393       2  0 15:32 ?        00:00:00 [scsi_tmf_1]
+root         394       2  0 15:32 ?        00:00:00 [scsi_tmf_2]
+root         463       2  0 15:32 ?        00:00:00 [kdmflush/253:0]
+root         472       2  0 15:32 ?        00:00:00 [kdmflush/253:1]
+root         490       2  0 15:32 ?        00:00:00 [xfsalloc]
+root         491       2  0 15:32 ?        00:00:00 [xfs_mru_cache]
+root         492       2  0 15:32 ?        00:00:00 [xfs-buf/dm-0]
+root         493       2  0 15:32 ?        00:00:00 [xfs-conv/dm-0]
+root         494       2  0 15:32 ?        00:00:00 [xfs-cil/dm-0]
+root         495       2  0 15:32 ?        00:00:00 [xfs-reclaim/dm-]
+root         496       2  0 15:32 ?        00:00:00 [xfs-gc/dm-0]
+root         497       2  0 15:32 ?        00:00:00 [xfs-log/dm-0]
+root         498       2  0 15:32 ?        00:00:00 [xfsaild/dm-0]
+root         605       2  0 15:32 ?        00:00:00 [xfs-buf/sda1]
+root         606       2  0 15:32 ?        00:00:00 [xfs-conv/sda1]
+root         607       2  0 15:32 ?        00:00:00 [xfs-cil/sda1]
+root         608       2  0 15:32 ?        00:00:00 [xfs-reclaim/sda]
+root         609       2  0 15:32 ?        00:00:00 [xfs-gc/sda1]
+root         610       2  0 15:32 ?        00:00:00 [xfs-log/sda1]
+root         611       2  0 15:32 ?        00:00:00 [xfsaild/sda1]
+root         612       1  0 15:32 ?        00:00:00 /usr/sbin/haveged -w 1024 -v 1 --Foreground -v 64
+root         613       1  0 15:32 ?        00:00:00 /usr/lib/systemd/systemd-journald
+root         614       1  0 15:32 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root         667       1  0 15:32 ?        00:00:00 /sbin/auditd
+dbus         695       1  0 15:32 ?        00:00:00 /usr/bin/dbus-broker-launch --scope system --audit
+dbus         696     695  0 15:32 ?        00:00:00 dbus-broker --log 4 --controller 9 --machine-id b42e31855cea4d578262599cb2c1bea9 -
+root         699       1  0 15:32 ?        00:00:00 /usr/sbin/irqbalance --foreground
+polkitd      700       1  0 15:32 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug
+root         701       1  0 15:32 ?        00:00:00 /usr/sbin/rsyslogd -n
+root         721       1  0 15:32 ?        00:00:00 /usr/lib/systemd/systemd-logind
+chrony       725       1  0 15:32 ?        00:00:00 /usr/sbin/chronyd -F 2
+root         748       1  0 15:32 ?        00:00:00 /usr/bin/python3 -s /usr/sbin/firewalld --nofork --nopid
+root         803       1  0 15:32 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root         834       1  0 15:32 ?        00:00:00 /usr/bin/rhsmcertd
+root         837       1  0 15:32 ?        00:00:00 /usr/bin/python3 -Es /usr/sbin/tuned -l -P
+root         840       1  0 15:32 ?        00:00:00 /usr/sbin/crond -n
+root         843       1  0 15:32 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
+root         926       1  0 15:32 ?        00:00:00 sshd: /usr/sbin/sshd -D -u0 [listener] 0 of 10-100 startups
+root        7982     926  0 15:33 ?        00:00:00 sshd: vagrant [priv]
+vagrant     7986       1  0 15:33 ?        00:00:00 /usr/lib/systemd/systemd --user
+vagrant     7988    7986  0 15:33 ?        00:00:00 (sd-pam)
+vagrant     7995    7982  0 15:33 ?        00:00:00 sshd: vagrant@pts/0
+vagrant     7996    7995  0 15:33 pts/0    00:00:00 -bash
+root       11576       1  0 15:34 ?        00:00:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+root       11592    7996  0 15:34 pts/0    00:00:00 sudo su -
+root       11594   11592  0 15:34 pts/0    00:00:00 su -
+root       11595   11594  0 15:34 pts/0    00:00:00 -bash
+root       11796       2  0 15:44 ?        00:00:00 [kworker/0:1-events_power_efficient]
+root       11841       2  0 15:45 ?        00:00:00 [kworker/u4:0-events_unbound]
+root       11845       2  0 15:45 ?        00:00:00 [kworker/1:1-events]
+root       11931       2  0 15:50 ?        00:00:00 [kworker/1:0-cgroup_destroy]
+root       11932       2  0 15:50 ?        00:00:00 [kworker/0:0-events]
+root       11999       2  0 15:53 ?        00:00:00 [kworker/u4:2-events_unbound]
+root       12040       2  0 15:55 ?        00:00:00 [kworker/0:3-events_power_efficient]
+root       12080   11595  0 15:57 pts/0    00:00:00 ps -ef
+[root@rhel9 ~]# apt-install tree
+-bash: apt-install: command not found
+[root@rhel9 ~]# ls -ld /project/
+drw-r-xr-x. 8 bharath root 131 Jan 25 15:56 /project/
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 15:54:49 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+-bash: cd: /project/: Permission denied
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# chmod u+x /project/
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:00:28 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ mkdir abc
+[bharath@rhel9 project]$ ls
+abc  dir1  dir2  dir3  dir4  dir5  file1.txt  rhcsa  test1
+[bharath@rhel9 project]$ rmdir abc
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  file1.txt  rhcsa  test1
+[bharath@rhel9 project]$
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:01:02 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ ls
+[bharath@rhel9 ~]$ ls /project/
+dir1  dir2  dir3  dir4  dir5  file1.txt  rhcsa  test1
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  file1.txt  rhcsa  test1
+[bharath@rhel9 project]$ cat file1.txt
+this is the text file
+[bharath@rhel9 project]$ vim file1.txt
+[bharath@rhel9 project]$ rm file1.txt
+[bharath@rhel9 project]$ ls -ld test1
+-rw-r--r--. 1 bharath bharath 0 Jan 25 15:53 test1
+[bharath@rhel9 project]$ vim test1
+[bharath@rhel9 project]$ cat test1
+this is the test file
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/test1
+-rw-r--r--. 1 bharath bharath 22 Jan 25 16:05 /project/test1
+[root@rhel9 ~]# chmod u-r,u+x /project/test1
+[root@rhel9 ~]# ls -ld /project/test1
+--wxr--r--. 1 bharath bharath 22 Jan 25 16:05 /project/test1
+[root@rhel9 ~]# chmod u-x /project/test1
+[root@rhel9 ~]# ls -ld /project/test1
+--w-r--r--. 1 bharath bharath 22 Jan 25 16:05 /project/test1
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:04:00 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[bharath@rhel9 project]$ cat test1
+cat: test1: Permission denied
+[bharath@rhel9 project]$ vim test1
+
+[No write since last change]
+
+Press ENTER or type command to continue
+[No write since last change]
+
+Press ENTER or type command to continue
+[bharath@rhel9 project]$ cat test1
+cat: test1: Permission denied
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/test1
+--w-r--r--. 1 bharath bharath 22 Jan 25 16:05 /project/test1
+[root@rhel9 ~]# chmod u+r /project/test1
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:09:19 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ cat test1
+this is the test file
+[bharath@rhel9 project]$ vim test1
+
+[No write since last change]
+
+Press ENTER or type command to continue
+[bharath@rhel9 project]$ cat test1
+this is the test file
+
+
+abhabscwqw
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/test1
+-rw-r--r--. 1 bharath bharath 35 Jan 25 16:12 /project/test1
+[root@rhel9 ~]# chmod u-w /project/test1
+[root@rhel9 ~]# ls -ld /project/test1
+-r--r--r--. 1 bharath bharath 35 Jan 25 16:12 /project/test1
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:11:15 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ cat test1
+this is the test file
+
+
+abhabscwqw
+[bharath@rhel9 project]$ vim test1
+[bharath@rhel9 project]$ cat test1
+this is the test file
+
+
+abhabscwqw
+
+
+12345
+
+[bharath@rhel9 project]$ vim test1
+[bharath@rhel9 project]$ cat test1
+this is the test file
+
+12345678976543211345678645321
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/test1
+-r--r--r--. 1 bharath bharath 53 Jan 25 16:15 /project/test1
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:12:47 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cat /project/test1
+this is the test file
+
+12345678976543211345678645321
+[bharath@rhel9 ~]$ ls -ld /project/test1
+-r--r--r--. 1 bharath bharath 53 Jan 25 16:15 /project/test1
+[bharath@rhel9 ~]$ cat >> test1
+save the earth
+[bharath@rhel9 ~]$ ls
+test1
+[bharath@rhel9 ~]$ cat >> /project/test1
+-bash: /project/test1: Permission denied
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# tail -5 /etc/passwd
+systemd-oom:x:992:992:systemd Userspace OOM Killer:/:/usr/sbin/nologin
+vagrant:x:1000:1000::/home/vagrant:/bin/bash
+vboxadd:x:991:1::/var/run/vboxadd:/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/sbin/nologin
+bharath:x:1001:1001::/home/bharath:/bin/bash
+[root@rhel9 ~]# id bharath
+uid=1001(bharath) gid=1001(bharath) groups=1001(bharath)
+[root@rhel9 ~]# groupadd redhat
+[root@rhel9 ~]# tail -5 /etc/group
+vboxsf:x:991:
+polkitd:x:990:
+slocate:x:21:
+bharath:x:1001:
+redhat:x:1002:
+[root@rhel9 ~]# usermod -g redhat bharath
+[root@rhel9 ~]# id bharath
+uid=1001(bharath) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# useradd -g 1002 -c "devops" manudeep
+[root@rhel9 ~]# tail -5 /etc/passwd
+vagrant:x:1000:1000::/home/vagrant:/bin/bash
+vboxadd:x:991:1::/var/run/vboxadd:/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/sbin/nologin
+bharath:x:1001:1002::/home/bharath:/bin/bash
+manudeep:x:1002:1002:devops:/home/manudeep:/bin/bash
+[root@rhel9 ~]# usermod -c devops bharath
+[root@rhel9 ~]# tail -5 /etc/passwd
+vagrant:x:1000:1000::/home/vagrant:/bin/bash
+vboxadd:x:991:1::/var/run/vboxadd:/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/sbin/nologin
+bharath:x:1001:1002:devops:/home/bharath:/bin/bash
+manudeep:x:1002:1002:devops:/home/manudeep:/bin/bash
+[root@rhel9 ~]# tail -5 /etc/group
+vboxsf:x:991:
+polkitd:x:990:
+slocate:x:21:
+bharath:x:1001:
+redhat:x:1002:
+[root@rhel9 ~]# id manudeep
+uid=1002(manudeep) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# gpasswd -a bharath redhat
+Adding user bharath to group redhat
+[root@rhel9 ~]# tail -5 /etc/group
+vboxsf:x:991:
+polkitd:x:990:
+slocate:x:21:
+bharath:x:1001:
+redhat:x:1002:bharath
+[root@rhel9 ~]# id bharath
+uid=1001(bharath) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# gpasswd -a manudeep redhat
+Adding user manudeep to group redhat
+[root@rhel9 ~]# id manudeep
+uid=1002(manudeep) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# tail -5 /etc/group
+vboxsf:x:991:
+polkitd:x:990:
+slocate:x:21:
+bharath:x:1001:
+redhat:x:1002:bharath,manudeep
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 bharath root 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# chgrp redhat /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 bharath redhat 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# chown root /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 root redhat 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# !38
+su - bharath
+Last login: Wed Jan 25 16:16:01 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[bharath@rhel9 project]$ mkdir one
+mkdir: cannot create directory ‘one’: Permission denied
+[bharath@rhel9 project]$ cat test1
+this is the test file
+
+12345678976543211345678645321
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# su - manudeep
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[manudeep@rhel9 project]$ mkdir one
+mkdir: cannot create directory ‘one’: Permission denied
+[manudeep@rhel9 project]$ cat test1
+this is the test file
+
+12345678976543211345678645321
+[manudeep@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/
+drwxr-xr-x. 8 root redhat 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# chmod g+w,g-x /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxrw-r-x. 8 root redhat 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# history
+    1  ls /etc/release*
+    2  ls release*
+    3  systemctl
+    4  hostnamectl
+    5  mkdir project
+    6  ls
+    7  cd project/
+    8* mkdir dir{1..5}
+    9  cd ..
+   10  cd project/
+   11  mkdir dir{1..5}
+   12  ls
+   13  cd ..
+   14  tail -5 /etc/passwd
+   15  useradd bharath
+   16  ls -ld project/
+   17  ls l project/
+   18  ls -l project/
+   19  su - bharath
+   20  ls -ld project/
+   21  chown bharath project/
+   22  ls -ld project/
+   23  su - bharath
+   24  ls
+   25  rmdir project/
+   26  rmdir * project/
+   27  rm -rf * project/
+   28  ls
+   29  mkdir /project
+   30  ls
+   31  touch /project/file1.txt
+   32  mkdir /project/dir{1..5}
+   33  ls -ld /project/
+   34  ls -l /project/
+   35  ls -ld /project/
+   36  chown bharath /project/
+   37  ls -ld /project/
+   38  su - bharath
+   39  ls -ld /project/
+   40  ls -ld /project/file1.txt
+   41  chmod u+rw /project/file1.txt
+   42  ls -ld /project/file1.txt
+   43  su - bharath
+   44  ls -ld /project/
+   45  chmod u-r /project/
+   46  ls -ld /project/
+   47  history
+   48  su - bharath
+   49  ls -ld /project/
+   50  chmod u+r,u-x /project/
+   51  ls -ld /project/
+   52  su - bharath
+   53  ls -l /project/
+   54  rm /project/file1.txt~
+   55  ls -l /project/
+   56  tree /project/
+   57  yum install tree
+   58  ps -ef
+   59  apt-install tree
+   60  ls -ld /project/
+   61  su - bharath
+   62  chmod u+x /project/
+   63  su - bharath
+   64  ls -ld /project/test1
+   65  chmod u-r,u+x /project/test1
+   66  ls -ld /project/test1
+   67  chmod u-x /project/test1
+   68  ls -ld /project/test1
+   69  su - bharath
+   70  ls -ld /project/test1
+   71  chmod u+r /project/test1
+   72  su - bharath
+   73  ls -ld /project/test1
+   74  chmod u-w /project/test1
+   75  ls -ld /project/test1
+   76  su - bharath
+   77  ls -ld /project/test1
+   78  su - bharath
+   79  tail -5 /etc/passwd
+   80  id bharath
+   81  groupadd redhat
+   82  tail -5 /etc/group
+   83  usermod -g redhat bharath
+   84  id bharath
+   85  useradd -g 1002 -c "devops" manudeep
+   86  tail -5 /etc/passwd
+   87  usermod -c devops bharath
+   88  tail -5 /etc/passwd
+   89  tail -5 /etc/group
+   90  id manudeep
+   91  gpasswd -a bharath redhat
+   92  tail -5 /etc/group
+   93  id bharath
+   94  gpasswd -a manudeep redhat
+   95  id manudeep
+   96  tail -5 /etc/group
+   97  ls -ld /project/
+   98  chgrp redhat /project/
+   99  ls -ld /project/
+  100  chown root /project/
+  101  ls -ld /project/
+  102  su - bharath
+  103  su - manudeep
+  104  ls -ld /project/
+  105  chmod g+w,g-x /project/
+  106  ls -ld /project/
+  107  history
+[root@rhel9 ~]# !103
+su - manudeep
+Last login: Wed Jan 25 16:33:52 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+-bash: cd: /project/: Permission denied
+[manudeep@rhel9 ~]$ ls
+[manudeep@rhel9 ~]$ ls /project/
+ls: cannot access '/project/dir1': Permission denied
+ls: cannot access '/project/dir2': Permission denied
+ls: cannot access '/project/dir3': Permission denied
+ls: cannot access '/project/dir4': Permission denied
+ls: cannot access '/project/dir5': Permission denied
+ls: cannot access '/project/rhcsa': Permission denied
+ls: cannot access '/project/test1': Permission denied
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[manudeep@rhel9 ~]$ mkdir one
+[manudeep@rhel9 ~]$ ls /project/
+ls: cannot access '/project/dir1': Permission denied
+ls: cannot access '/project/dir2': Permission denied
+ls: cannot access '/project/dir3': Permission denied
+ls: cannot access '/project/dir4': Permission denied
+ls: cannot access '/project/dir5': Permission denied
+ls: cannot access '/project/rhcsa': Permission denied
+ls: cannot access '/project/test1': Permission denied
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[manudeep@rhel9 ~]$ mkdir test2
+[manudeep@rhel9 ~]$ ls /project/
+ls: cannot access '/project/dir1': Permission denied
+ls: cannot access '/project/dir2': Permission denied
+ls: cannot access '/project/dir3': Permission denied
+ls: cannot access '/project/dir4': Permission denied
+ls: cannot access '/project/dir5': Permission denied
+ls: cannot access '/project/rhcsa': Permission denied
+ls: cannot access '/project/test1': Permission denied
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]# ls -ld /project/
+drwxrw-r-x. 8 root redhat 114 Jan 25 16:15 /project/
+[root@rhel9 ~]# chmod g+x,g-r /project/
+[root@rhel9 ~]# !103
+su - manudeep
+Last login: Wed Jan 25 16:35:55 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls
+ls: cannot open directory '.': Permission denied
+[manudeep@rhel9 project]$ touch test2
+[manudeep@rhel9 project]$ ls
+ls: cannot open directory '.': Permission denied
+[manudeep@rhel9 project]$
+[manudeep@rhel9 project]$ logout
+[root@rhel9 ~]# ls -ld /project/
+drwx-wxr-x. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod g+r /project/
+[root@rhel9 ~]# su - manudeep
+Last login: Wed Jan 25 16:38:48 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ ls
+one  test2
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]# chmod 247 /project/
+[root@rhel9 ~]# ls -ld /project/
+d-w-r--rwx. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod 642 /project/
+[root@rhel9 ~]# ls -ld /project/
+drw-r---w-. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod 000 /project/
+[root@rhel9 ~]# ls -ld /project/
+d---------. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod 777 /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxrwxrwx. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod 524 /project/
+[root@rhel9 ~]# ls -ld /project/
+dr-x-w-r--. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# exit
+logout
+[vagrant@rhel9 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant list box
+Usage: vagrant [options] <command> [<args>]
+
+    -h, --help                       Print this help.
+
+Common commands:
+     autocomplete    manages autocomplete installation on host
+     box             manages boxes: installation, removal, etc.
+     cloud           manages everything related to Vagrant Cloud
+     destroy         stops and deletes all traces of the vagrant machine
+     global-status   outputs status Vagrant environments for this user
+     halt            stops the vagrant machine
+     help            shows the help for a subcommand
+     hostmanager     plugin: vagrant-hostmanager: manages the /etc/hosts file within a multi-machine environment
+     init            initializes a new Vagrant environment by creating a Vagrantfile
+     login
+     package         packages a running vagrant environment into a box
+     plugin          manages plugins: install, uninstall, update, etc.
+     port            displays information about guest port mappings
+     powershell      connects to machine via powershell remoting
+     provision       provisions the vagrant machine
+     push            deploys code in this environment to a configured destination
+     rdp             connects to machine via RDP
+     reload          restarts vagrant machine, loads new Vagrantfile configuration
+     resume          resume a suspended vagrant machine
+     serve           start Vagrant server
+     snapshot        manages snapshots: saving, restoring, etc.
+     ssh             connects to machine via SSH
+     ssh-config      outputs OpenSSH valid configuration to connect to the machine
+     status          outputs status of the vagrant machine
+     suspend         suspends the machine
+     up              starts and provisions the vagrant environment
+     upload          upload to machine via communicator
+     validate        validates the Vagrantfile
+     version         prints current and latest Vagrant version
+     winrm           executes commands on a machine via WinRM
+     winrm-config    outputs WinRM configuration to connect to the machine
+
+For help on any individual command run `vagrant COMMAND -h`
+
+Additional subcommands are available, but are either more advanced
+or not commonly used. To see all subcommands, run the command
+`vagrant list-commands`.
+        --[no-]color                 Enable or disable color output
+        --machine-readable           Enable machine readable output
+    -v, --version                    Display Vagrant version
+        --debug                      Enable debug output
+        --timestamp                  Enable timestamps on log output
+        --debug-timestamp            Enable debug output with timestamps
+        --no-tty                     Enable non-interactive output
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant box list
+centos/7           (virtualbox, 2004.01)
+generic/rhel8      (virtualbox, 4.2.8)
+generic/rhel9      (virtualbox, 4.2.8)
+generic/ubuntu1804 (virtualbox, 4.2.8)
+ubuntu/xenial64    (virtualbox, 20211001.0.0)
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant box --help
+Usage: vagrant box <subcommand> [<args>]
+
+Available subcommands:
+     add
+     list
+     outdated
+     prune
+     remove
+     repackage
+     update
+
+For help on any individual subcommand run `vagrant box <subcommand> -h`
+        --[no-]color                 Enable or disable color output
+        --machine-readable           Enable machine readable output
+    -v, --version                    Display Vagrant version
+        --debug                      Enable debug output
+        --timestamp                  Enable timestamps on log output
+        --debug-timestamp            Enable debug output with timestamps
+        --no-tty                     Enable non-interactive output
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant box remove generic/rhel8
+Removing box 'generic/rhel8' (v4.2.8) with provider 'virtualbox'...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant box list
+centos/7           (virtualbox, 2004.01)
+generic/rhel9      (virtualbox, 4.2.8)
+generic/ubuntu1804 (virtualbox, 4.2.8)
+ubuntu/xenial64    (virtualbox, 20211001.0.0)
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/rhel9' version '4.2.8' is up to date...
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.40 r154048
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Last login: Wed Jan 25 14:12:31 2023 from 10.0.2.2
+[vagrant@rhel9 ~]$ hostnamectl
+ Static hostname: rhel9.localdomain
+       Icon name: computer-vm
+         Chassis: vm ??
+      Machine ID: b42e31855cea4d578262599cb2c1bea9
+         Boot ID: 670528ff283a4010b117acccd6b10b77
+  Virtualization: oracle
+Operating System: Red Hat Enterprise Linux 9.1 (Plow)
+     CPE OS Name: cpe:/o:redhat:enterprise_linux:9::baseos
+          Kernel: Linux 5.14.0-162.6.1.el9_1.x86_64
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+[vagrant@rhel9 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant box list
+centos/7           (virtualbox, 2004.01)
+generic/rhel9      (virtualbox, 4.2.8)
+generic/ubuntu1804 (virtualbox, 4.2.8)
+ubuntu/xenial64    (virtualbox, 20211001.0.0)
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Wed Jan 25 22:39:03 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ exit
+exit
+
+C:\WINDOWS\system32>
