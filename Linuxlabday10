@@ -1,0 +1,796 @@
+Microsoft Windows [Version 10.0.19045.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd  ~/devops/provision/vagrant/rhel9/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Checking if box 'generic/rhel9' version '4.2.8' is up to date...
+==> default: A newer version of the box 'generic/rhel9' for provider 'virtualbox' is
+==> default: available! You currently have version '4.2.8'. The latest is version
+==> default: '4.2.10'. Run `vagrant box update` to update.
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 6.1.40 r154048
+    default: VirtualBox Version: 7.0
+==> default: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==> default: flag to force provisioning. Provisioners marked to run always will still run.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Last login: Wed Jan 25 17:07:58 2023 from 10.0.2.2
+[vagrant@rhel9 ~]$
+[vagrant@rhel9 ~]$
+[vagrant@rhel9 ~]$ sudo su -
+Last login: Wed Jan 25 14:13:03 UTC 2023 on pts/0
+[root@rhel9 ~]# umask
+0022
+[root@rhel9 ~]# tail -5 /etc/passwd
+vagrant:x:1000:1000::/home/vagrant:/bin/bash
+vboxadd:x:991:1::/var/run/vboxadd:/sbin/nologin
+polkitd:x:990:990:User for polkitd:/:/sbin/nologin
+bharath:x:1001:1002:devops:/home/bharath:/bin/bash
+manudeep:x:1002:1002:devops:/home/manudeep:/bin/bash
+[root@rhel9 ~]# su - bharath
+Last login: Wed Jan 25 16:33:12 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ umask
+0022
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# vim /etc/bash_profile
+[root@rhel9 ~]# vim /etc/profile
+
+[1]+  Stopped                 vim /etc/profile
+[root@rhel9 ~]# jobs -l
+[1]+ 11138 Stopped                 vim /etc/profile
+[root@rhel9 ~]# kill -9 11138
+[root@rhel9 ~]# umask
+0022
+[1]+  Killed                  vim /etc/profile
+[root@rhel9 ~]# umask
+0022
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# umask
+0022
+[root@rhel9 ~]# source /etc/profile
+[root@rhel9 ~]# umask
+0033
+[root@rhel9 ~]# mkdir dir
+[root@rhel9 ~]# ls -ld dir/
+drwxr--r--. 2 root root 6 Jan 26 06:13 dir/
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 05:31:01 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ umaks
+-bash: umaks: command not found
+[bharath@rhel9 ~]$ umask
+0033
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# umask
+0033
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 06:14:34 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ umask
+0000
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Wed Jan 25 16:40:32 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ umask
+0000
+[manudeep@rhel9 ~]$ vim .bashrc
+[manudeep@rhel9 ~]$ umask
+0000
+[manudeep@rhel9 ~]$ source .bashrc
+[manudeep@rhel9 ~]$ umask
+0777
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# vim /etc/bashrc
+[root@rhel9 ~]# source /etc/profile
+[root@rhel9 ~]# source /etc/bashrc
+[root@rhel9 ~]# umask
+0333
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 06:18:34 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ umask
+0333
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Thu Jan 26 06:19:46 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ umaks
+-bash: umaks: command not found
+[manudeep@rhel9 ~]$ umask
+0777
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]#
+[root@rhel9 ~]# ls -l /project/
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+drwxr-xr-x. 2 bharath  bharath  6 Jan 25 15:46 rhcsa
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+-rw-r--r--. 1 manudeep redhat   0 Jan 25 16:39 test2
+[root@rhel9 ~]# ls -ld /project/
+dr-x-w-r--. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# chmod 777 /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxrwxrwx. 8 root redhat 127 Jan 25 16:39 /project/
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 06:28:23 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls
+dir1  dir2  dir3  dir4  dir5  rhcsa  test1  test2
+[bharath@rhel9 project]$ ls -ld
+drwxrwxrwx. 8 root redhat 127 Jan 25 16:39 .
+[bharath@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+drwxr-xr-x. 2 bharath  bharath  6 Jan 25 15:46 rhcsa
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+-rw-r--r--. 1 manudeep redhat   0 Jan 25 16:39 test2
+[bharath@rhel9 project]$ rm -rf rhcsa/
+[bharath@rhel9 project]$ rm -rf test2
+[bharath@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir5
+-r--r--r--. 1 bharath bharath 53 Jan 25 16:15 test1
+[bharath@rhel9 project]$ touch one
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Thu Jan 26 06:28:39 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root    root     6 Jan 25 14:23 dir5
+-r--r--r--. 1 bharath redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath bharath 53 Jan 25 16:15 test1
+[manudeep@rhel9 project]$ touch two
+[manudeep@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+----------. 1 manudeep redhat   0 Jan 26 06:47 two
+[manudeep@rhel9 project]$ mkdir kmb
+[manudeep@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+----------. 1 manudeep redhat   0 Jan 26 06:47 two
+[manudeep@rhel9 project]$ logout
+[root@rhel9 ~]# useradd koushik
+[root@rhel9 ~]# id koushik
+uid=1003(koushik) gid=1003(koushik) groups=1003(koushik)
+[root@rhel9 ~]# id bharath
+uid=1001(bharath) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# id manudeep
+uid=1002(manudeep) gid=1002(redhat) groups=1002(redhat)
+[root@rhel9 ~]# tail -5 /etc/group
+polkitd:x:990:
+slocate:x:21:
+bharath:x:1001:
+redhat:x:1002:bharath,manudeep
+koushik:x:1003:
+[root@rhel9 ~]# su - koushik
+[koushik@rhel9 ~]$ cd /project/
+[koushik@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+----------. 1 manudeep redhat   0 Jan 26 06:47 two
+[koushik@rhel9 project]$ rm -rf two
+[koushik@rhel9 project]$ logout
+[root@rhel9 ~]# chmod o+t /project/
+[root@rhel9 ~]# su -kou
+su: invalid option -- 'k'
+Try 'su --help' for more information.
+[root@rhel9 ~]# su - koushik
+Last login: Thu Jan 26 06:49:42 UTC 2023 on pts/0
+[koushik@rhel9 ~]$ cd /project/
+[koushik@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[koushik@rhel9 project]$ rm -rf kmb/
+rm: cannot remove 'kmb/': Operation not permitted
+[koushik@rhel9 project]$
+[koushik@rhel9 project]$ logout
+[root@rhel9 ~]# getfacl /project/
+getfacl: Removing leading '/' from absolute path names
+# file: project/
+# owner: root
+# group: redhat
+# flags: --t
+user::rwx
+group::rwx
+other::rwx
+
+[root@rhel9 ~]# ls -l /project/
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[root@rhel9 ~]# su - koushik
+Last login: Thu Jan 26 06:50:33 UTC 2023 on pts/0
+[koushik@rhel9 ~]$ cd /project/
+[koushik@rhel9 project]$ mkdir hulk
+[koushik@rhel9 project]$ ls -ld hulk/
+dr--r--r--. 2 koushik koushik 6 Jan 26 06:58 hulk/
+[koushik@rhel9 project]$ chmod 755 hulk/
+[koushik@rhel9 project]$ ls -ld hulk/
+drwxr-xr-x. 2 koushik koushik 6 Jan 26 06:58 hulk/
+[koushik@rhel9 project]$ logout
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 06:46:10 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+drwxr-xr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[bharath@rhel9 project]$ cd hulk/
+[bharath@rhel9 hulk]$ ls -ld /project/
+drwxrwxrwt. 9 root redhat 135 Jan 26 06:58 /project/
+[bharath@rhel9 hulk]$ mkdir cccc
+mkdir: cannot create directory ‘cccc’: Permission denied
+[bharath@rhel9 hulk]$ cd
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]# su - koushik
+Last login: Thu Jan 26 06:57:46 UTC 2023 on pts/0
+[koushik@rhel9 ~]$ cd /project/
+[koushik@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir1
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir2
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir3
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir4
+drwxr-xr-x. 2 root     root     6 Jan 25 14:23 dir5
+drwxr-xr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[koushik@rhel9 project]$ rm -rf dir{1..5}
+rm: cannot remove 'dir1': Operation not permitted
+rm: cannot remove 'dir2': Operation not permitted
+rm: cannot remove 'dir3': Operation not permitted
+rm: cannot remove 'dir4': Operation not permitted
+rm: cannot remove 'dir5': Operation not permitted
+[koushik@rhel9 project]$ logout
+[root@rhel9 ~]# rm -rf dir{1..5}
+[root@rhel9 ~]# ls
+dir
+[root@rhel9 ~]# rm -rf /project/dir{1..5}
+[root@rhel9 ~]# su - koushik
+Last login: Thu Jan 26 07:02:43 UTC 2023 on pts/0
+[koushik@rhel9 ~]$ cd /project/
+[koushik@rhel9 project]$ ls -l
+total 4
+drwxr-xr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[koushik@rhel9 project]$ chmod g+w hulk/
+[koushik@rhel9 project]$ ls -l
+total 4
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[koushik@rhel9 project]$ logout
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 06:59:29 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ cd hulk/
+[bharath@rhel9 hulk]$ touch file1
+touch: cannot touch 'file1': Permission denied
+[bharath@rhel9 hulk]$ logout
+[root@rhel9 ~]# useradd nani
+[root@rhel9 ~]# ls -ld /project/
+drwxrwxrwt. 4 root redhat 75 Jan 26 07:04 /project/
+[root@rhel9 ~]# su - n
+su: user n does not exist or the user entry does not contain all the required fields
+[root@rhel9 ~]# su - nani
+[nani@rhel9 ~]$ cd /project/
+[nani@rhel9 project]$ ls -l
+total 4
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[nani@rhel9 project]$ mkdir ironman
+[nani@rhel9 project]$ ls -l
+total 4
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[nani@rhel9 project]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Thu Jan 26 06:47:29 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls -l
+total 4
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[manudeep@rhel9 project]$ cd ironman/
+-bash: cd: ironman/: Permission denied
+[manudeep@rhel9 project]$ cd
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]# chmod g+s /project/
+[root@rhel9 ~]# ls -ld /project/
+drwxrwsrwt. 5 root redhat 90 Jan 26 07:07 /project/
+[root@rhel9 ~]# getfacl /project/
+getfacl: Removing leading '/' from absolute path names
+# file: project/
+# owner: root
+# group: redhat
+# flags: -st
+user::rwx
+group::rwx
+other::rwx
+
+[root@rhel9 ~]# su - nani
+Last login: Thu Jan 26 07:06:56 UTC 2023 on pts/0
+[nani@rhel9 ~]$ cd /project/
+[nani@rhel9 project]$ ls -l
+total 4
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[nani@rhel9 project]$ touch file1
+[nani@rhel9 project]$ ls -l
+total 4
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[nani@rhel9 project]$ logout
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 07:05:08 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ cd /project/
+[bharath@rhel9 project]$ ls -l
+total 4
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+[bharath@rhel9 project]$ cat >> file1
+-bash: file1: Permission denied
+[bharath@rhel9 project]$ cd ironman/
+-bash: cd: ironman/: Permission denied
+[bharath@rhel9 project]$ ls -ld /project/
+drwxrwsrwt. 5 root redhat 103 Jan 26 07:13 /project/
+[bharath@rhel9 project]$ chmod 777 hulk/
+chmod: changing permissions of 'hulk/': Operation not permitted
+[bharath@rhel9 project]$ logout
+[root@rhel9 ~]# su - nani
+Last login: Thu Jan 26 07:12:50 UTC 2023 on pts/0
+[nani@rhel9 ~]$ cd /project/
+[nani@rhel9 project]$ mkdir vision
+[nani@rhel9 project]$ ls -l
+total 4
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+dr--r-Sr--. 2 nani     redhat   6 Jan 26 07:15 vision
+[nani@rhel9 project]$ logiut
+-bash: logiut: command not found
+[nani@rhel9 project]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Thu Jan 26 07:07:59 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls -l
+total 4
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+dr--r-Sr--. 2 nani     redhat   6 Jan 26 07:15 vision
+[manudeep@rhel9 project]$ cd vision/
+-bash: cd: vision/: Permission denied
+[manudeep@rhel9 project]$ logout
+[root@rhel9 ~]# su - nani
+Last login: Thu Jan 26 07:15:37 UTC 2023 on pts/0
+[nani@rhel9 ~]$ vim .bashrc
+[nani@rhel9 ~]$ ls -l
+total 0
+[nani@rhel9 ~]$ cd /project/
+[nani@rhel9 project]$ ls -l
+total 4
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+dr--r-Sr--. 2 nani     redhat   6 Jan 26 07:15 vision
+[nani@rhel9 project]$ umask
+0333
+[nani@rhel9 project]$ cd
+[nani@rhel9 ~]$ umask
+0333
+[nani@rhel9 ~]$ source .bashrc
+[nani@rhel9 ~]$ umask
+0000
+[nani@rhel9 ~]$ mkdir file
+[nani@rhel9 ~]$ ls -ld file/
+drwxrwxrwx. 2 nani nani 6 Jan 26 07:18 file/
+[nani@rhel9 ~]$ cd /project/
+[nani@rhel9 project]$ mkdir file1
+mkdir: cannot create directory ‘file1’: File exists
+[nani@rhel9 project]$ mkdir file
+[nani@rhel9 project]$ ls -l
+total 4
+drwxrwsrwx. 2 nani     redhat   6 Jan 26 07:18 file
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+dr--r-Sr--. 2 nani     redhat   6 Jan 26 07:15 vision
+[nani@rhel9 project]$ logout
+[root@rhel9 ~]# su - manudeep
+Last login: Thu Jan 26 07:16:16 UTC 2023 on pts/0
+[manudeep@rhel9 ~]$ cd /project/
+[manudeep@rhel9 project]$ ls -l
+total 4
+drwxrwsrwx. 2 nani     redhat   6 Jan 26 07:18 file
+-r--r--r--. 1 nani     redhat   0 Jan 26 07:13 file1
+drwxrwxr-x. 2 koushik  koushik  6 Jan 26 06:58 hulk
+dr--r--r--. 2 nani     nani     6 Jan 26 07:07 ironman
+d---------. 2 manudeep redhat   6 Jan 26 06:48 kmb
+-r--r--r--. 1 bharath  redhat   0 Jan 26 06:47 one
+-r--r--r--. 1 bharath  bharath 53 Jan 25 16:15 test1
+dr--r-Sr--. 2 nani     redhat   6 Jan 26 07:15 vision
+[manudeep@rhel9 project]$ cd file/
+[manudeep@rhel9 file]$ cd
+[manudeep@rhel9 ~]$ logout
+[root@rhel9 ~]# umask
+0333
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# vim /etc/bashrc
+[root@rhel9 ~]# source /etc/profile
+[root@rhel9 ~]# source /etc/bashrc
+[root@rhel9 ~]# umask
+0022
+[root@rhel9 ~]# su - bharath
+Last login: Thu Jan 26 07:13:19 UTC 2023 on pts/0
+[bharath@rhel9 ~]$ umask
+0022
+[bharath@rhel9 ~]$ logout
+[root@rhel9 ~]#
+[root@rhel9 ~]#
+[root@rhel9 ~]# useradd student
+[root@rhel9 ~]# mkdir /home/techdocs
+[root@rhel9 ~]# ls -l
+total 0
+drwxr--r--. 2 root root 6 Jan 26 06:13 dir
+[root@rhel9 ~]# ls -l /home/techdocs/
+total 0
+[root@rhel9 ~]# ls -ld /home/techdocs/
+drwxr-xr-x. 2 root root 6 Jan 26 10:47 /home/techdocs/
+[root@rhel9 ~]# chown :techdocs /home/techdocs/
+chown: invalid group: ‘:techdocs’
+[root@rhel9 ~]# groupadd techdocs
+[root@rhel9 ~]# chown techdocs /home/techdocs/
+chown: invalid user: ‘techdocs’
+[root@rhel9 ~]# chown :techdocs /home/techdocs/
+[root@rhel9 ~]# ls -ld /home/techdocs/
+drwxr-xr-x. 2 root techdocs 6 Jan 26 10:47 /home/techdocs/
+[root@rhel9 ~]# useradd tech1
+[root@rhel9 ~]# su - tech1
+[tech1@rhel9 ~]$ touch /home/techdocs/techdoc1.txt
+touch: cannot touch '/home/techdocs/techdoc1.txt': Permission denied
+[tech1@rhel9 ~]$ ls -ld /home/techdocs/
+drwxr-xr-x. 2 root techdocs 6 Jan 26 10:47 /home/techdocs/
+[tech1@rhel9 ~]$ logout
+[root@rhel9 ~]# chmod 2770 /home/techdocs/
+[root@rhel9 ~]# ls -ld /home/techdocs/
+drwxrws---. 2 root techdocs 6 Jan 26 10:47 /home/techdocs/
+[root@rhel9 ~]# getfacl /home/techdocs/
+getfacl: Removing leading '/' from absolute path names
+# file: home/techdocs/
+# owner: root
+# group: techdocs
+# flags: -s-
+user::rwx
+group::rwx
+other::---
+
+[root@rhel9 ~]# su - tech1
+Last login: Thu Jan 26 10:51:30 UTC 2023 on pts/0
+[tech1@rhel9 ~]$ touch /home/techdocs/techdocs1.txt
+touch: cannot touch '/home/techdocs/techdocs1.txt': Permission denied
+[tech1@rhel9 ~]$ logout
+[root@rhel9 ~]# gpasswd techdocs tech1
+Usage: gpasswd [option] GROUP
+
+Options:
+  -a, --add USER                add USER to GROUP
+  -d, --delete USER             remove USER from GROUP
+  -h, --help                    display this help message and exit
+  -Q, --root CHROOT_DIR         directory to chroot into
+  -r, --delete-password         remove the GROUP's password
+  -R, --restrict                restrict access to GROUP to its members
+  -M, --members USER,...        set the list of members of GROUP
+  -A, --administrators ADMIN,...
+                                set the list of administrators for GROUP
+Except for the -A and -M options, the options cannot be combined.
+[root@rhel9 ~]# gpasswd -a tech1 techdocs
+Adding user tech1 to group techdocs
+[root@rhel9 ~]# tail -3 /etc/group
+student:x:1005:
+techdocs:x:1006:tech1
+tech1:x:1007:
+[root@rhel9 ~]# su - tech1
+Last login: Thu Jan 26 10:55:40 UTC 2023 on pts/0
+[tech1@rhel9 ~]$ touch /home/techdocs/techdocs1.txt
+[tech1@rhel9 ~]$ ls -ld /home/techdocs/
+drwxrws---. 2 root techdocs 27 Jan 26 10:58 /home/techdocs/
+[tech1@rhel9 ~]$ ls -l /home/techdocs/
+total 0
+-rw-r--r--. 1 tech1 techdocs 0 Jan 26 10:58 techdocs1.txt
+[tech1@rhel9 ~]$ exit
+logout
+[root@rhel9 ~]# gpasswd -a student techdocs
+Adding user student to group techdocs
+[root@rhel9 ~]# tail -3 /etc/group
+student:x:1005:
+techdocs:x:1006:tech1,student
+tech1:x:1007:
+[root@rhel9 ~]# useradd database1
+[root@rhel9 ~]# su - student
+[student@rhel9 ~]$ cd /home/techdocs/
+[student@rhel9 techdocs]$ ls
+techdocs1.txt
+[student@rhel9 techdocs]$ echo "This is the test file" > techdocs1.txt
+-bash: techdocs1.txt: Permission denied
+[student@rhel9 techdocs]$ ls -ld techdocs1.txt
+-rw-r--r--. 1 tech1 techdocs 0 Jan 26 10:58 techdocs1.txt
+[student@rhel9 techdocs]$ logout
+[root@rhel9 ~]# ls -ld /home/techdocs/
+drwxrws---. 2 root techdocs 27 Jan 26 10:58 /home/techdocs/
+[root@rhel9 ~]# tail -3 /etc/group
+techdocs:x:1006:tech1,student
+tech1:x:1007:
+database1:x:1008:
+[root@rhel9 ~]# chmod g+w /home/techdocs/techdocs1.txt
+[root@rhel9 ~]# ls -ld /home/techdocs/techdocs1.txt
+-rw-rw-r--. 1 tech1 techdocs 0 Jan 26 10:58 /home/techdocs/techdocs1.txt
+[root@rhel9 ~]# id student
+uid=1005(student) gid=1005(student) groups=1005(student),1006(techdocs)
+[root@rhel9 ~]# usermod -g techdocs student
+[root@rhel9 ~]# id student
+uid=1005(student) gid=1006(techdocs) groups=1006(techdocs)
+[root@rhel9 ~]# su - student
+Last login: Thu Jan 26 11:11:56 UTC 2023 on pts/0
+[student@rhel9 ~]$ cd /home/techdocs/
+[student@rhel9 techdocs]$ echo "this is the test file" > techdocs1.txt
+[student@rhel9 techdocs]$ ls
+techdocs1.txt
+[student@rhel9 techdocs]$ cat techdocs1.txt
+this is the test file
+[student@rhel9 techdocs]$ logout
+[root@rhel9 ~]# su - da
+daemon     database1
+[root@rhel9 ~]# su - database1
+[database1@rhel9 ~]$ cd /home/techdocs/
+-bash: cd: /home/techdocs/: Permission denied
+[database1@rhel9 ~]$ ls -l /home/techdocs/
+ls: cannot open directory '/home/techdocs/': Permission denied
+[database1@rhel9 ~]$ exit
+logout
+[root@rhel9 ~]# cat /etc/profile
+# /etc/profile
+
+# System wide environment and startup programs, for login setup
+# Functions and aliases go in /etc/bashrc
+
+# It's NOT a good idea to change this file unless you know what you
+# are doing. It's much better to create a custom.sh shell script in
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+
+pathmunge () {
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            if [ "$2" = "after" ] ; then
+                PATH=$PATH:$1
+            else
+                PATH=$1:$PATH
+            fi
+    esac
+}
+
+
+if [ -x /usr/bin/id ]; then
+    if [ -z "$EUID" ]; then
+        # ksh workaround
+        EUID=`/usr/bin/id -u`
+        UID=`/usr/bin/id -ru`
+    fi
+    USER="`/usr/bin/id -un`"
+    LOGNAME=$USER
+    MAIL="/var/spool/mail/$USER"
+fi
+
+# Path manipulation
+if [ "$EUID" = "0" ]; then
+    pathmunge /usr/sbin
+    pathmunge /usr/local/sbin
+else
+    pathmunge /usr/local/sbin after
+    pathmunge /usr/sbin after
+fi
+
+HOSTNAME=$(/usr/bin/hostnamectl --transient 2>/dev/null) || \
+HOSTNAME=$(/usr/bin/hostname 2>/dev/null) || \
+HOSTNAME=$(/usr/bin/uname -n)
+
+HISTSIZE=1000
+if [ "$HISTCONTROL" = "ignorespace" ] ; then
+    export HISTCONTROL=ignoreboth
+else
+    export HISTCONTROL=ignoredups
+fi
+
+export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+
+for i in /etc/profile.d/*.sh /etc/profile.d/sh.local ; do
+    if [ -r "$i" ]; then
+        if [ "${-#*i}" != "$-" ]; then
+            . "$i"
+          umask 022
+        else
+          umask 022
+            . "$i" >/dev/null
+        fi
+    fi
+done
+
+unset i
+unset -f pathmunge
+
+if [ -n "${BASH_VERSION-}" ] ; then
+        if [ -f /etc/bashrc ] ; then
+                # Bash login shells run only /etc/profile
+                # Bash non-login shells run only /etc/bashrc
+                # Check for double sourcing is done in /etc/bashrc.
+                . /etc/bashrc
+       fi
+fi
+[root@rhel9 ~]# vim /etc/pro
+profile    profile.d/ protocols
+[root@rhel9 ~]# vim /etc/profile
+[root@rhel9 ~]# vim /etc/bashrc
+[root@rhel9 ~]# source /etc/profile
+[root@rhel9 ~]# source /etc/bashrc
+[root@rhel9 ~]# umask
+0007
+[root@rhel9 ~]# su - student
+Last login: Thu Jan 26 11:18:26 UTC 2023 on pts/0
+[student@rhel9 ~]$ logout
+[root@rhel9 ~]# su - database1
+Last login: Thu Jan 26 11:19:37 UTC 2023 on pts/0
+[database1@rhel9 ~]$ cd /home/techdocs/
+-bash: cd: /home/techdocs/: Permission denied
+[database1@rhel9 ~]$ ls -ld /home/techdocs/
+drwxrws---. 2 root techdocs 27 Jan 26 10:58 /home/techdocs/
+[database1@rhel9 ~]$
+[database1@rhel9 ~]$ exit
+logout
+[root@rhel9 ~]# exit
+logout
+[vagrant@rhel9 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Thu Jan 26 17:01:27 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ exit
+exit
+
+C:\WINDOWS\system32>
