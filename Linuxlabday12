@@ -1,0 +1,1910 @@
+Microsoft Windows [Version 10.0.19045.2486]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\WINDOWS\system32>bash
+
+bhara@DESKTOP-SSN6PB4  /c/WINDOWS/system32
+$ cd ~/devops/provision/vagrant/rhel9/
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh
+Last login: Tue Jan 31 06:15:27 2023 from 10.0.2.2
+[vagrant@rhel9 ~]$ sudo su -
+Last login: Tue Jan 31 06:15:33 UTC 2023 on pts/0
+[root@rhel9 ~]# ls
+backup.tar.bz2  backup.tar.gz  dir  output_of_bzip
+[root@rhel9 ~]# rm -rf *
+[root@rhel9 ~]# ls
+[root@rhel9 ~]#
+[root@rhel9 ~]# mkdir backup
+[root@rhel9 ~]# tar -czf backup/etc.tar.gz /etc
+tar: Removing leading `/' from member names
+[root@rhel9 ~]# ls -l backup/
+total 4272
+-rw-rw----. 1 root root 4370733 Jan 31 09:24 etc.tar.gz
+[root@rhel9 ~]# du -sh backup/etc.tar.gz
+4.2M    backup/etc.tar.gz
+[root@rhel9 ~]# du -sh /etc/
+20M     /etc/
+[root@rhel9 ~]# tar -tcf backup/etc.tar.gz
+tar: You may not specify more than one '-Acdtrux', '--delete' or  '--test-label' option
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 ~]# tar -tf backup/etc.tar.gz
+etc/
+etc/mtab
+etc/fstab
+etc/crypttab
+etc/lvm/
+etc/lvm/devices/
+etc/lvm/devices/system.devices
+etc/lvm/archive/
+etc/lvm/archive/rhel_00000-188046221.vg
+etc/lvm/backup/
+etc/lvm/backup/rhel
+etc/lvm/cache/
+etc/lvm/lvm.conf
+etc/lvm/lvmlocal.conf
+etc/lvm/profile/
+etc/lvm/profile/cache-mq.profile
+etc/lvm/profile/cache-smq.profile
+etc/lvm/profile/command_profile_template.profile
+etc/lvm/profile/lvmdbusd.profile
+etc/lvm/profile/metadata_profile_template.profile
+etc/lvm/profile/thin-generic.profile
+etc/lvm/profile/thin-performance.profile
+etc/lvm/profile/vdo-small.profile
+etc/resolv.conf
+etc/dnf/
+etc/dnf/modules.d/
+etc/dnf/protected.d/
+etc/dnf/protected.d/redhat-release.conf
+etc/dnf/protected.d/dnf.conf
+etc/dnf/protected.d/systemd.conf
+etc/dnf/protected.d/grub2-tools-minimal.conf
+etc/dnf/protected.d/yum.conf
+etc/dnf/protected.d/grub2-pc.conf
+etc/dnf/protected.d/sudo.conf
+etc/dnf/aliases.d/
+etc/dnf/dnf.conf
+etc/dnf/modules.defaults.d/
+etc/dnf/plugins/
+etc/dnf/plugins/copr.conf
+etc/dnf/plugins/copr.d/
+etc/dnf/plugins/debuginfo-install.conf
+etc/dnf/plugins/product-id.conf
+etc/dnf/plugins/subscription-manager.conf
+etc/dnf/vars/
+etc/crypto-policies/
+etc/crypto-policies/back-ends/
+etc/crypto-policies/back-ends/bind.config
+etc/crypto-policies/back-ends/gnutls.config
+etc/crypto-policies/back-ends/java.config
+etc/crypto-policies/back-ends/javasystem.config
+etc/crypto-policies/back-ends/krb5.config
+etc/crypto-policies/back-ends/libreswan.config
+etc/crypto-policies/back-ends/libssh.config
+etc/crypto-policies/back-ends/nss.config
+etc/crypto-policies/back-ends/openssh.config
+etc/crypto-policies/back-ends/opensshserver.config
+etc/crypto-policies/back-ends/openssl.config
+etc/crypto-policies/back-ends/opensslcnf.config
+etc/crypto-policies/local.d/
+etc/crypto-policies/local.d/nss-p11-kit.config
+etc/crypto-policies/policies/
+etc/crypto-policies/policies/modules/
+etc/crypto-policies/state/
+etc/crypto-policies/state/current
+etc/crypto-policies/state/CURRENT.pol
+etc/crypto-policies/config
+etc/rhsm/
+etc/rhsm/ca/
+etc/rhsm/ca/redhat-entitlement-authority.pem
+etc/rhsm/ca/redhat-uep.pem
+etc/rhsm/facts/
+etc/rhsm/pluginconf.d/
+etc/rhsm/rhsm.conf
+etc/rhsm/syspurpose/
+etc/rhsm/syspurpose/valid_fields.json
+etc/rhsm/syspurpose/syspurpose.json
+etc/pki/
+etc/pki/swid/
+etc/pki/swid/CA/
+etc/pki/swid/CA/redhat.com/
+etc/pki/swid/CA/redhat.com/redhatcodesignca.cert
+etc/pki/product-default/
+etc/pki/product-default/479.pem
+etc/pki/rpm-gpg/
+etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-beta
+etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-9
+etc/pki/tls/
+etc/pki/tls/certs/
+etc/pki/tls/certs/ca-bundle.crt
+etc/pki/tls/certs/ca-bundle.trust.crt
+etc/pki/tls/ct_log_list.cnf
+etc/pki/tls/misc/
+etc/pki/tls/openssl.cnf
+etc/pki/tls/private/
+etc/pki/tls/cert.pem
+etc/pki/ca-trust/
+etc/pki/ca-trust/extracted/
+etc/pki/ca-trust/extracted/edk2/
+etc/pki/ca-trust/extracted/edk2/README
+etc/pki/ca-trust/extracted/edk2/cacerts.bin
+etc/pki/ca-trust/extracted/README
+etc/pki/ca-trust/extracted/java/
+etc/pki/ca-trust/extracted/java/README
+etc/pki/ca-trust/extracted/java/cacerts
+etc/pki/ca-trust/extracted/openssl/
+etc/pki/ca-trust/extracted/openssl/README
+etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt
+etc/pki/ca-trust/extracted/pem/
+etc/pki/ca-trust/extracted/pem/README
+etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem
+etc/pki/ca-trust/extracted/pem/objsign-ca-bundle.pem
+etc/pki/ca-trust/README
+etc/pki/ca-trust/ca-legacy.conf
+etc/pki/ca-trust/source/
+etc/pki/ca-trust/source/README
+etc/pki/ca-trust/source/anchors/
+etc/pki/ca-trust/source/blocklist/
+etc/pki/ca-trust/source/ca-bundle.legacy.crt
+etc/pki/java/
+etc/pki/java/cacerts
+etc/pki/rsyslog/
+etc/pki/consumer/
+etc/pki/consumer/key.pem
+etc/pki/consumer/cert.pem
+etc/pki/entitlement/
+etc/pki/entitlement/6365703521839888925-key.pem
+etc/pki/entitlement/6365703521839888925.pem
+etc/pki/product/
+etc/pki/nssdb/
+etc/pki/nssdb/cert9.db
+etc/pki/nssdb/key4.db
+etc/pki/nssdb/pkcs11.txt
+etc/swid/
+etc/swid/swidtags.d/
+etc/swid/swidtags.d/redhat.com
+etc/ssh/
+etc/ssh/moduli
+etc/ssh/ssh_config
+etc/ssh/ssh_config.d/
+etc/ssh/ssh_config.d/50-redhat.conf
+etc/ssh/sshd_config
+etc/ssh/sshd_config.d/
+etc/ssh/sshd_config.d/50-redhat.conf
+etc/ssh/ssh_host_ecdsa_key
+etc/ssh/ssh_host_ecdsa_key.pub
+etc/ssh/ssh_host_ed25519_key
+etc/ssh/ssh_host_ed25519_key.pub
+etc/ssh/ssh_host_rsa_key
+etc/ssh/ssh_host_rsa_key.pub
+etc/virc
+etc/issue
+etc/issue.d/
+etc/crontab
+etc/issue.net
+etc/authselect/
+etc/authselect/custom/
+etc/authselect/user-nsswitch.conf
+etc/authselect/system-auth
+etc/authselect/password-auth
+etc/authselect/fingerprint-auth
+etc/authselect/smartcard-auth
+etc/authselect/postlogin
+etc/authselect/nsswitch.conf
+etc/authselect/dconf-db
+etc/authselect/dconf-locks
+etc/authselect/authselect.conf
+etc/os-release
+etc/DIR_COLORS.lightbgcolor
+etc/redhat-release
+etc/cron.daily/
+etc/pcp/
+etc/pcp/derived/
+etc/pcp/derived/cpu-util.conf
+etc/pcp/derived/iostat.conf
+etc/pcp/derived/mssql.conf
+etc/pcp/derived/proc.conf
+etc/system-release
+etc/cron.deny
+etc/system-release-cpe
+etc/yum.repos.d/
+etc/yum.repos.d/redhat.repo
+etc/yum.repos.d/epel-testing.repo
+etc/yum.repos.d/epel.repo
+etc/logrotate.conf
+etc/aliases
+etc/oddjob/
+etc/bashrc
+etc/oddjobd.conf
+etc/csh.cshrc
+etc/oddjobd.conf.d/
+etc/oddjobd.conf.d/oddjobd-introspection.conf
+etc/oddjobd.conf.d/oddjobd-mkhomedir.conf
+etc/csh.login
+etc/cifs-utils/
+etc/cifs-utils/idmap-plugin
+etc/environment
+etc/openldap/
+etc/openldap/certs/
+etc/openldap/ldap.conf
+etc/ethertypes
+etc/kernel/
+etc/kernel/install.d/
+etc/kernel/cmdline
+etc/kernel/postinst.d/
+etc/kernel/postinst.d/vboxadd
+etc/kernel/prerm.d/
+etc/kernel/prerm.d/vboxadd
+etc/exports
+etc/modules-load.d/
+etc/filesystems
+etc/udev/
+etc/udev/hwdb.d/
+etc/udev/rules.d/
+etc/udev/rules.d/60-scheduler.rules
+etc/udev/rules.d/60-vboxadd.rules
+etc/udev/udev.conf
+etc/udev/hwdb.bin
+etc/group
+etc/NetworkManager/
+etc/NetworkManager/NetworkManager.conf
+etc/NetworkManager/conf.d/
+etc/NetworkManager/dispatcher.d/
+etc/NetworkManager/dispatcher.d/no-wait.d/
+etc/NetworkManager/dispatcher.d/pre-down.d/
+etc/NetworkManager/dispatcher.d/pre-up.d/
+etc/NetworkManager/dnsmasq-shared.d/
+etc/NetworkManager/dnsmasq.d/
+etc/NetworkManager/system-connections/
+etc/NetworkManager/system-connections/eth0.nmconnection
+etc/gshadow
+etc/dracut.conf
+etc/host.conf
+etc/tpm2-tss/
+etc/tpm2-tss/fapi-config.json
+etc/tpm2-tss/fapi-profiles/
+etc/tpm2-tss/fapi-profiles/P_ECCP256SHA256.json
+etc/tpm2-tss/fapi-profiles/P_RSA2048SHA256.json
+etc/hosts
+etc/dracut.conf.d/
+etc/inputrc
+etc/libuser.conf
+etc/motd
+etc/motd.d/
+etc/gnupg/
+etc/networks
+etc/rpm/
+etc/passwd
+etc/sestatus.conf
+etc/printcap
+etc/rsyslog.conf
+etc/profile
+etc/profile.d/
+etc/profile.d/csh.local
+etc/profile.d/lang.csh
+etc/profile.d/lang.sh
+etc/profile.d/sh.local
+etc/profile.d/which2.csh
+etc/profile.d/which2.sh
+etc/profile.d/colorgrep.csh
+etc/profile.d/colorgrep.sh
+etc/profile.d/colorxzgrep.csh
+etc/profile.d/colorxzgrep.sh
+etc/profile.d/gawk.csh
+etc/profile.d/gawk.sh
+etc/profile.d/less.csh
+etc/profile.d/less.sh
+etc/profile.d/colorls.csh
+etc/profile.d/colorls.sh
+etc/profile.d/colorzgrep.csh
+etc/profile.d/colorzgrep.sh
+etc/profile.d/debuginfod.csh
+etc/profile.d/debuginfod.sh
+etc/profile.d/colorsysstat.csh
+etc/profile.d/colorsysstat.sh
+etc/profile.d/bash_completion.sh
+etc/profile.d/vim.csh
+etc/profile.d/vim.sh
+etc/profile.d/histsize.sh
+etc/rsyslog.d/
+etc/protocols
+etc/yum/
+etc/yum/pluginconf.d
+etc/yum/protected.d
+etc/yum/vars
+etc/services
+etc/grub2.cfg
+etc/shadow
+etc/yum.conf
+etc/shells
+etc/kdump/
+etc/kdump/post.d/
+etc/kdump/pre.d/
+etc/subgid
+etc/kdump.conf
+etc/subuid
+etc/X11/
+etc/X11/applnk/
+etc/X11/fontpath.d/
+etc/X11/xinit/
+etc/X11/xinit/xinitrc.d/
+etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+etc/X11/xinit/xinput.d/
+etc/X11/xorg.conf.d/
+etc/X11/xorg.conf.d/00-keyboard.conf
+etc/bash_completion.d/
+etc/bash_completion.d/authselect-completion.sh
+etc/bash_completion.d/redefine_filedir
+etc/opt/
+etc/pm/
+etc/pm/config.d/
+etc/pm/power.d/
+etc/pm/sleep.d/
+etc/rwtab.d/
+etc/rwtab.d/logrotate
+etc/rwtab.d/sssd
+etc/skel/
+etc/skel/.bash_logout
+etc/skel/.bash_profile
+etc/skel/.bashrc
+etc/statetab.d/
+etc/sysconfig/
+etc/sysconfig/nftables.conf
+etc/sysconfig/crond
+etc/sysconfig/run-parts
+etc/sysconfig/network-scripts/
+etc/sysconfig/network-scripts/readme-ifcfg-rh.txt
+etc/sysconfig/selinux
+etc/sysconfig/rsyslog
+etc/sysconfig/kdump
+etc/sysconfig/sshd
+etc/sysconfig/chronyd
+etc/sysconfig/firewalld
+etc/sysconfig/man-db
+etc/sysconfig/irqbalance
+etc/sysconfig/cpupower
+etc/sysconfig/kernel
+etc/sysconfig/authconfig
+etc/sysconfig/anaconda
+etc/sysconfig/network
+etc/sysconfig/sysstat
+etc/sysconfig/sysstat.ioconf
+etc/sysconfig/htcacheclean
+etc/xdg/
+etc/xdg/autostart/
+etc/xdg/systemd/
+etc/xdg/systemd/user
+etc/terminfo/
+etc/sssd/
+etc/sssd/conf.d/
+etc/sssd/pki/
+etc/ld.so.conf
+etc/ld.so.conf.d/
+etc/sysctl.d/
+etc/sysctl.d/99-sysctl.conf
+etc/sysctl.d/50-random.conf
+etc/tmpfiles.d/
+etc/cron.d/
+etc/cron.d/0hourly
+etc/chrony.keys
+etc/rpc
+etc/man_db.conf
+etc/ld.so.cache
+etc/popt.d/
+etc/libnl/
+etc/libnl/classid
+etc/libnl/pktloc
+etc/alternatives/
+etc/alternatives/libnssckbi.so.x86_64
+etc/alternatives/soelim
+etc/alternatives/soelim.1.gz
+etc/alternatives/iptables
+etc/alternatives/ip6tables
+etc/alternatives/iptables-restore
+etc/alternatives/iptables-save
+etc/alternatives/ip6tables-restore
+etc/alternatives/ip6tables-save
+etc/alternatives/ebtables
+etc/alternatives/ebtables-save
+etc/alternatives/ebtables-restore
+etc/alternatives/ebtables-man
+etc/alternatives/arptables
+etc/alternatives/arptables-save
+etc/alternatives/arptables-restore
+etc/alternatives/arptables-man
+etc/alternatives/arptables-save-man
+etc/alternatives/arptables-restore-man
+etc/alternatives/arptables-helper
+etc/alternatives/cifs-idmap-plugin
+etc/alternatives/man
+etc/alternatives/apropos
+etc/alternatives/whatis
+etc/alternatives/man.1.gz
+etc/alternatives/apropos.1.gz
+etc/alternatives/whatis.1.gz
+etc/alternatives/ld
+etc/alternatives/man.7.gz
+etc/alternatives/whois
+etc/alternatives/whois-man
+etc/cron.monthly/
+etc/libaudit.conf
+etc/pkcs11/
+etc/pkcs11/modules/
+etc/selinux/
+etc/selinux/semanage.conf
+etc/selinux/config
+etc/selinux/targeted/
+etc/selinux/targeted/.policy.sha512
+etc/selinux/targeted/booleans.subs_dist
+etc/selinux/targeted/contexts/
+etc/selinux/targeted/contexts/customizable_types
+etc/selinux/targeted/contexts/dbus_contexts
+etc/selinux/targeted/contexts/default_contexts
+etc/selinux/targeted/contexts/default_type
+etc/selinux/targeted/contexts/failsafe_context
+etc/selinux/targeted/contexts/files/
+etc/selinux/targeted/contexts/files/file_contexts
+etc/selinux/targeted/contexts/files/file_contexts.homedirs
+etc/selinux/targeted/contexts/files/file_contexts.local
+etc/selinux/targeted/contexts/files/file_contexts.subs
+etc/selinux/targeted/contexts/files/file_contexts.subs_dist
+etc/selinux/targeted/contexts/files/media
+etc/selinux/targeted/contexts/initrc_context
+etc/selinux/targeted/contexts/lxc_contexts
+etc/selinux/targeted/contexts/openssh_contexts
+etc/selinux/targeted/contexts/removable_context
+etc/selinux/targeted/contexts/securetty_types
+etc/selinux/targeted/contexts/sepgsql_contexts
+etc/selinux/targeted/contexts/snapperd_contexts
+etc/selinux/targeted/contexts/systemd_contexts
+etc/selinux/targeted/contexts/userhelper_context
+etc/selinux/targeted/contexts/users/
+etc/selinux/targeted/contexts/users/guest_u
+etc/selinux/targeted/contexts/users/root
+etc/selinux/targeted/contexts/users/staff_u
+etc/selinux/targeted/contexts/users/sysadm_u
+etc/selinux/targeted/contexts/users/unconfined_u
+etc/selinux/targeted/contexts/users/user_u
+etc/selinux/targeted/contexts/users/xguest_u
+etc/selinux/targeted/contexts/virtual_domain_context
+etc/selinux/targeted/contexts/virtual_image_context
+etc/selinux/targeted/contexts/x_contexts
+etc/selinux/targeted/logins/
+etc/selinux/targeted/policy/
+etc/selinux/targeted/policy/policy.33
+etc/selinux/targeted/setrans.conf
+etc/selinux/targeted/seusers
+etc/gcrypt/
+etc/sudoers
+etc/xattr.conf
+etc/default/
+etc/default/useradd
+etc/default/grub
+etc/sudo-ldap.conf
+etc/login.defs
+etc/sudo.conf
+etc/magic
+etc/iproute2/
+etc/iproute2/bpf_pinning
+etc/iproute2/ematch_map
+etc/iproute2/group
+etc/iproute2/nl_protos
+etc/iproute2/rt_dsfield
+etc/iproute2/rt_protos
+etc/iproute2/rt_realms
+etc/iproute2/rt_scopes
+etc/iproute2/rt_tables
+etc/audit/
+etc/audit/audit-stop.rules
+etc/audit/auditd.conf
+etc/audit/plugins.d/
+etc/audit/plugins.d/af_unix.conf
+etc/audit/rules.d/
+etc/audit/rules.d/audit.rules
+etc/audit/audit.rules
+etc/GREP_COLORS
+etc/.pwd.lock
+etc/logrotate.d/
+etc/logrotate.d/dnf
+etc/logrotate.d/btmp
+etc/logrotate.d/wtmp
+etc/logrotate.d/rsyslog
+etc/logrotate.d/sssd
+etc/logrotate.d/subscription-manager
+etc/logrotate.d/chrony
+etc/logrotate.d/firewalld
+etc/logrotate.d/kvm_stat
+etc/logrotate.d/httpd
+etc/ssl/
+etc/ssl/cert.pem
+etc/ssl/certs
+etc/ssl/ct_log_list.cnf
+etc/ssl/openssl.cnf
+etc/cron.hourly/
+etc/cron.hourly/0anacron
+etc/sudoers.d/
+etc/sudoers.d/vagrant
+etc/group-
+etc/gshadow-
+etc/libibverbs.d/
+etc/libibverbs.d/bnxt_re.driver
+etc/libibverbs.d/cxgb4.driver
+etc/libibverbs.d/efa.driver
+etc/libibverbs.d/hfi1verbs.driver
+etc/libibverbs.d/hns.driver
+etc/libibverbs.d/irdma.driver
+etc/libibverbs.d/mlx4.driver
+etc/libibverbs.d/mlx5.driver
+etc/libibverbs.d/qedr.driver
+etc/libibverbs.d/rxe.driver
+etc/libibverbs.d/siw.driver
+etc/libibverbs.d/vmw_pvrdma.driver
+etc/groff/
+etc/groff/site-font/
+etc/groff/site-tmac/
+etc/groff/site-tmac/man.local
+etc/groff/site-tmac/mdoc.local
+etc/nftables/
+etc/nftables/main.nft
+etc/nftables/nat.nft
+etc/nftables/osf/
+etc/nftables/osf/pf.os
+etc/nftables/router.nft
+etc/libssh/
+etc/libssh/libssh_client.config
+etc/libssh/libssh_server.config
+etc/libreport/
+etc/libreport/events/
+etc/libreport/events.d/
+etc/libreport/events.d/collect_dnf.conf
+etc/libreport/plugins/
+etc/libreport/workflows.d/
+etc/fonts/
+etc/fonts/conf.d/
+etc/fonts/conf.d/20-unhint-small-dejavu-sans.conf
+etc/fonts/conf.d/57-dejavu-sans-fonts.conf
+etc/DIR_COLORS
+etc/nsswitch.conf.bak
+etc/nsswitch.conf
+etc/gss/
+etc/gss/mech.d/
+etc/dhcp/
+etc/dhcp/dhclient.d/
+etc/dhcp/dhclient.d/chrony.sh
+etc/krb5.conf
+etc/krb5.conf.d/
+etc/krb5.conf.d/crypto-policies
+etc/krb5.conf.d/kcm_default_ccache
+etc/depmod.d/
+etc/depmod.d/dist.conf
+etc/depmod.d/vboxvideo-upstream.conf
+etc/modprobe.d/
+etc/modprobe.d/firewalld-sysctls.conf
+etc/modprobe.d/floppy.conf
+etc/modprobe.d/tuned.conf
+etc/sasl2/
+etc/dbus-1/
+etc/dbus-1/system.d/
+etc/dbus-1/system.d/teamd.conf
+etc/dbus-1/system.d/oddjob.conf
+etc/dbus-1/system.d/oddjob-mkhomedir.conf
+etc/dbus-1/system.d/com.redhat.RHSM1.Facts.conf
+etc/dbus-1/system.d/com.redhat.RHSM1.conf
+etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf
+etc/dbus-1/system.d/com.redhat.tuned.conf
+etc/dbus-1/session.conf
+etc/dbus-1/session.d/
+etc/dbus-1/system.conf
+etc/security/
+etc/security/pwquality.conf
+etc/security/pwquality.conf.d/
+etc/security/access.conf
+etc/security/chroot.conf
+etc/security/console.apps/
+etc/security/console.apps/config-util
+etc/security/console.apps/subscription-manager
+etc/security/console.handlers
+etc/security/console.perms
+etc/security/console.perms.d/
+etc/security/faillock.conf
+etc/security/group.conf
+etc/security/limits.conf
+etc/security/limits.d/
+etc/security/namespace.conf
+etc/security/namespace.d/
+etc/security/namespace.init
+etc/security/opasswd
+etc/security/pam_env.conf
+etc/security/sepermit.conf
+etc/security/time.conf
+etc/pam.d/
+etc/pam.d/config-util
+etc/pam.d/other
+etc/pam.d/login
+etc/pam.d/remote
+etc/pam.d/runuser
+etc/pam.d/runuser-l
+etc/pam.d/su
+etc/pam.d/su-l
+etc/pam.d/systemd-user
+etc/pam.d/crond
+etc/pam.d/vlock
+etc/pam.d/passwd
+etc/pam.d/sssd-shadowutils
+etc/pam.d/subscription-manager
+etc/pam.d/sudo
+etc/pam.d/sudo-i
+etc/pam.d/sshd
+etc/pam.d/system-auth
+etc/pam.d/password-auth
+etc/pam.d/fingerprint-auth
+etc/pam.d/smartcard-auth
+etc/pam.d/postlogin
+etc/pam.d/polkit-1
+etc/firewalld/
+etc/firewalld/firewalld.conf
+etc/firewalld/helpers/
+etc/firewalld/icmptypes/
+etc/firewalld/ipsets/
+etc/firewalld/lockdown-whitelist.xml
+etc/firewalld/policies/
+etc/firewalld/services/
+etc/firewalld/zones/
+etc/firewalld/zones/public.xml
+etc/firewalld/zones/public.xml.old
+etc/adjtime
+etc/grub.d/
+etc/grub.d/00_header
+etc/grub.d/01_users
+etc/grub.d/08_fallback_counting
+etc/grub.d/10_linux
+etc/grub.d/10_reset_boot_success
+etc/grub.d/12_menu_auto_hide
+etc/grub.d/14_menu_show_once
+etc/grub.d/20_linux_xen
+etc/grub.d/20_ppc_terminfo
+etc/grub.d/30_os-prober
+etc/grub.d/30_uefi-firmware
+etc/grub.d/40_custom
+etc/grub.d/41_custom
+etc/grub.d/README
+etc/grub.d/00_tuned
+etc/binfmt.d/
+etc/chrony.conf
+etc/inittab
+etc/rc.d/
+etc/rc.d/init.d/
+etc/rc.d/init.d/README
+etc/rc.d/rc.local
+etc/rc.local
+etc/systemd/
+etc/systemd/coredump.conf
+etc/systemd/journald.conf
+etc/systemd/logind.conf
+etc/systemd/system/
+etc/systemd/system/sysinit.target.wants/
+etc/systemd/system/sysinit.target.wants/nis-domainname.service
+etc/systemd/system/sysinit.target.wants/systemd-network-generator.service
+etc/systemd/system/sysinit.target.wants/selinux-autorelabel-mark.service
+etc/systemd/system/sysinit.target.wants/lvm2-monitor.service
+etc/systemd/system/sysinit.target.wants/lvm2-lvmpolld.socket
+etc/systemd/system/sysinit.target.wants/haveged.service
+etc/systemd/system/getty.target.wants/
+etc/systemd/system/getty.target.wants/getty@tty1.service
+etc/systemd/system/ctrl-alt-del.target
+etc/systemd/system/multi-user.target.wants/
+etc/systemd/system/multi-user.target.wants/crond.service
+etc/systemd/system/multi-user.target.wants/NetworkManager.service
+etc/systemd/system/multi-user.target.wants/rsyslog.service
+etc/systemd/system/multi-user.target.wants/sssd.service
+etc/systemd/system/multi-user.target.wants/rhsmcertd.service
+etc/systemd/system/multi-user.target.wants/auditd.service
+etc/systemd/system/multi-user.target.wants/chronyd.service
+etc/systemd/system/multi-user.target.wants/firewalld.service
+etc/systemd/system/multi-user.target.wants/irqbalance.service
+etc/systemd/system/multi-user.target.wants/sysstat.service
+etc/systemd/system/multi-user.target.wants/vboxadd.service
+etc/systemd/system/multi-user.target.wants/vboxadd-service.service
+etc/systemd/system/multi-user.target.wants/tuned.service
+etc/systemd/system/multi-user.target.wants/sshd.service
+etc/systemd/system/sockets.target.wants/
+etc/systemd/system/sockets.target.wants/dbus.socket
+etc/systemd/system/sockets.target.wants/dm-event.socket
+etc/systemd/system/sockets.target.wants/sssd-kcm.socket
+etc/systemd/system/dbus.service
+etc/systemd/system/timers.target.wants/
+etc/systemd/system/timers.target.wants/logrotate.timer
+etc/systemd/system/timers.target.wants/dnf-makecache.timer
+etc/systemd/system/timers.target.wants/mlocate-updatedb.timer
+etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+etc/systemd/system/network-online.target.wants/
+etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
+etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
+etc/systemd/system/default.target
+etc/systemd/system/sysstat.service.wants/
+etc/systemd/system/sysstat.service.wants/sysstat-collect.timer
+etc/systemd/system/sysstat.service.wants/sysstat-summary.timer
+etc/systemd/system/mlocate-updatedb.timer.d/
+etc/systemd/system/mlocate-updatedb.timer.d/override.conf
+etc/systemd/system.conf
+etc/systemd/user/
+etc/systemd/user/timers.target.wants/
+etc/systemd/user/timers.target.wants/systemd-tmpfiles-clean.timer
+etc/systemd/user/basic.target.wants/
+etc/systemd/user/basic.target.wants/systemd-tmpfiles-setup.service
+etc/systemd/user/sockets.target.wants/
+etc/systemd/user/sockets.target.wants/dbus.socket
+etc/systemd/user/dbus.service
+etc/systemd/user.conf
+etc/systemd/pstore.conf
+etc/systemd/sleep.conf
+etc/anacrontab
+etc/mke2fs.conf
+etc/passwd-
+etc/shadow-
+etc/sysctl.conf
+etc/machine-id
+etc/cron.weekly/
+etc/makedumpfile.conf.sample
+etc/dconf/
+etc/dconf/db/
+etc/dconf/db/distro.d/
+etc/dconf/db/distro.d/locks/
+etc/dconf/db/distro.d/locks/20-authselect
+etc/dconf/db/distro.d/20-authselect
+etc/locale.conf
+etc/vconsole.conf
+etc/hostname
+etc/subuid-
+etc/subgid-
+etc/.updated
+etc/vimrc
+etc/pcp.conf
+etc/bindresvport.blacklist
+etc/netconfig
+etc/pkgconfig/
+etc/pkgconfig/personality.d/
+etc/trusted-key.key
+etc/whois.conf
+etc/wgetrc
+etc/rsyncd.conf
+etc/vagrant_box_build_time
+etc/polkit-1/
+etc/polkit-1/rules.d/
+etc/polkit-1/rules.d/50-default.rules
+etc/polkit-1/rules.d/49-polkit-pkla-compat.rules
+etc/polkit-1/localauthority/
+etc/polkit-1/localauthority/10-vendor.d/
+etc/polkit-1/localauthority/20-org.d/
+etc/polkit-1/localauthority/30-site.d/
+etc/polkit-1/localauthority/50-local.d/
+etc/polkit-1/localauthority/90-mandatory.d/
+etc/polkit-1/localauthority.conf.d/
+etc/tuned/
+etc/tuned/active_profile
+etc/tuned/bootcmdline
+etc/tuned/post_loaded_profile
+etc/tuned/profile_mode
+etc/tuned/recommend.d/
+etc/tuned/tuned-main.conf
+etc/updatedb.conf
+etc/.profile.swp
+etc/mailcap
+etc/mime.types
+etc/httpd/
+etc/httpd/conf.d/
+etc/httpd/conf.d/README
+etc/httpd/conf.d/autoindex.conf
+etc/httpd/conf.d/userdir.conf
+etc/httpd/conf.d/welcome.conf
+etc/httpd/conf/
+etc/httpd/conf/httpd.conf
+etc/httpd/conf/magic
+etc/httpd/conf.modules.d/
+etc/httpd/conf.modules.d/00-base.conf
+etc/httpd/conf.modules.d/00-dav.conf
+etc/httpd/conf.modules.d/00-mpm.conf
+etc/httpd/conf.modules.d/00-optional.conf
+etc/httpd/conf.modules.d/00-proxy.conf
+etc/httpd/conf.modules.d/01-cgi.conf
+etc/httpd/conf.modules.d/README
+etc/httpd/conf.modules.d/10-h2.conf
+etc/httpd/conf.modules.d/10-proxy_h2.conf
+etc/httpd/conf.modules.d/00-lua.conf
+etc/httpd/conf.modules.d/00-brotli.conf
+etc/httpd/conf.modules.d/00-systemd.conf
+etc/httpd/logs
+etc/httpd/modules
+etc/httpd/run
+etc/httpd/state
+[root@rhel9 ~]# time tar -cZf backup/etc.tar.gz /etc
+tar: Removing leading `/' from member names
+/bin/sh: line 1: compress: command not found
+tar: backup/etc.tar.gz: Wrote only 4096 of 10240 bytes
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+
+real    0m0.008s
+user    0m0.003s
+sys     0m0.005s
+[root@rhel9 ~]# ls
+backup
+[root@rhel9 ~]# cd backup/
+[root@rhel9 backup]# ls
+etc.tar.gz
+[root@rhel9 backup]# time tar -cZf backup/etc.tar.gZ /etc
+tar: Removing leading `/' from member namestar (child): backup/etc.tar.gZ: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+
+tar: backup/etc.tar.gZ: Cannot write: Broken pipe
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+
+real    0m0.007s
+user    0m0.002s
+sys     0m0.002s
+[root@rhel9 backup]# cd
+[root@rhel9 ~]# cd backup/
+[root@rhel9 backup]# rm -rf *
+[root@rhel9 backup]# ls
+[root@rhel9 backup]# time tar -cZf backup/etc.tar.gZ /etc
+tar: Removing leading `/' from member names
+tar (child): backup/etc.tar.gZ: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: backup/etc.tar.gZ: Cannot write: Broken pipe
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+
+real    0m0.006s
+user    0m0.003s
+sys     0m0.002s
+[root@rhel9 backup]# time tar -cZf backup/etc_backup.tar.gZ /etc
+tar: Removing leading `/' from member names
+tar (child): backup/etc_backup.tar.gZ: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: backup/etc_backup.tar.gZ: Cannot write: Broken pipe
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+
+real    0m0.005s
+user    0m0.000s
+sys     0m0.005s
+[root@rhel9 backup]# cd
+[root@rhel9 ~]# time tar -cZf backup/etc_backup.tar.gZ /etc
+tar: Removing leading `/' from member names
+/bin/sh: line 1: compress: command not found
+tar: backup/etc_backup.tar.gZ: Wrote only 4096 of 10240 bytes
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+
+real    0m0.006s
+user    0m0.000s
+sys     0m0.006s
+[root@rhel9 ~]# ls
+backup
+[root@rhel9 ~]# ls -l backup/
+total 0
+-rw-rw----. 1 root root 0 Jan 31 09:35 etc_backup.tar.gZ
+[root@rhel9 ~]# du -sh backup/etc_backup.tar.gZ
+0       backup/etc_backup.tar.gZ
+[root@rhel9 ~]# du -sh /home/
+148K    /home/
+[root@rhel9 ~]# du -sh /var/
+176M    /var/
+[root@rhel9 ~]# time tar -cZf backup/var.tar.Z /var/
+tar: Removing leading `/' from member names
+/bin/sh: line 1: compress: command not found
+tar: backup/var.tar.Z: Cannot write: Broken pipe
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+
+real    0m0.010s
+user    0m0.003s
+sys     0m0.005s
+[root@rhel9 ~]# yum install --com
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant ssh^C
+Last login: Tue Jan 31 09:12:46 2023 from 10.0.2.2
+[vagrant@rhel9 ~]$ sudo su -
+Last login: Tue Jan 31 09:19:31 UTC 2023 on pts/0
+[root@rhel9 ~]# sl
+-bash: sl: command not found
+[root@rhel9 ~]# ls
+backup
+[root@rhel9 ~]# ls -l backup/
+total 0
+-rw-rw----. 1 root root 0 Jan 31 09:35 etc_backup.tar.gZ
+-rw-rw----. 1 root root 0 Jan 31 09:38 var.tar.Z
+[root@rhel9 ~]# du -sh backup/var.tar.Z
+0       backup/var.tar.Z
+[root@rhel9 ~]# time tar -cZf backup.tar.Z /usr/
+tar: Removing leading `/' from member names
+/bin/sh: line 1: compress: command not found
+tar: backup.tar.Z: Cannot write: Broken pipe
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+
+real    0m0.010s
+user    0m0.002s
+sys     0m0.005s
+[root@rhel9 ~]# time tar -czf backup.tar.gz /usr/
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+
+real    1m11.459s
+user    1m4.276s
+sys     0m4.987s
+[root@rhel9 ~]# du -sh backup.tar.gz
+640M    backup.tar.gz
+[root@rhel9 ~]# time tar -cjf backup.tar.bz2 /usr/
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+
+real    2m50.661s
+user    2m32.371s
+sys     0m5.709s
+[root@rhel9 ~]# ls
+backup  backup.tar.bz2  backup.tar.gz  backup.tar.Z
+[root@rhel9 ~]# gzip -l backup.tar.gz
+         compressed        uncompressed  ratio uncompressed_name
+          670578597          1278238720  47.5% backup.tar
+[root@rhel9 ~]# bzip2 -l backup.tar.bz2
+bzip2: Bad flag `-l'
+bzip2, a block-sorting file compressor.  Version 1.0.8, 13-Jul-2019.
+
+   usage: bzip2 [flags and input files in any order]
+
+   -h --help           print this message
+   -d --decompress     force decompression
+   -z --compress       force compression
+   -k --keep           keep (don't delete) input files
+   -f --force          overwrite existing output files
+   -t --test           test compressed file integrity
+   -c --stdout         output to standard out
+   -q --quiet          suppress noncritical error messages
+   -v --verbose        be verbose (a 2nd -v gives more)
+   -L --license        display software version & license
+   -V --version        display software version & license
+   -s --small          use less memory (at most 2500k)
+   -1 .. -9            set block size to 100k .. 900k
+   --fast              alias for -1
+   --best              alias for -9
+
+   If invoked as `bzip2', default action is to compress.
+              as `bunzip2',  default action is to decompress.
+              as `bzcat', default action is to decompress to stdout.
+
+   If no file names are given, bzip2 compresses or decompresses
+   from standard input to standard output.  You can combine
+   short flags, so `-v -4' means the same as -v4 or -4v, &c.
+
+[root@rhel9 ~]# sftp root@10.0.2.15
+root@10.0.2.15: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Connection closed.
+Connection closed
+[root@rhel9 ~]# sftp>help
+usage: sftp [-46AaCfNpqrv] [-B buffer_size] [-b batchfile] [-c cipher]
+          [-D sftp_server_path] [-F ssh_config] [-i identity_file]
+          [-J destination] [-l limit] [-o ssh_option] [-P port]
+          [-R num_requests] [-S program] [-s subsystem | sftp_server]
+          destination
+[root@rhel9 ~]# tar cf backup1.tar /usr/
+tar: Removing leading `/' from member names
+tar: Removing leading `/' from hard link targets
+[root@rhel9 ~]# ls
+backup  backup1.tar  backup.tar.bz2  backup.tar.gz  backup.tar.Z  help
+[root@rhel9 ~]# du -sh /usr/
+1.3G    /usr/
+[root@rhel9 ~]# du -sh backup1.tar
+1.2G    backup1.tar
+[root@rhel9 ~]# mv backup1.tar backup
+[root@rhel9 ~]# ls
+backup  backup.tar.bz2  backup.tar.gz  backup.tar.Z  help
+[root@rhel9 ~]# tar -cjf backup/backup1.tar.bz2
+tar: Cowardly refusing to create an empty archive
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 ~]# cd backup/
+[root@rhel9 backup]# ls
+backup1.tar  etc_backup.tar.gZ  var.tar.Z
+[root@rhel9 backup]# rm -rf etc_backup.tar.gZ var.tar.Z
+[root@rhel9 backup]# ls
+backup1.tar
+[root@rhel9 backup]# tar -jf backup1.tar
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 backup]# tar -jf backup1.tar backup1.tar.bz2
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 backup]# tar -jf backup1.tar /usr
+/usrA  /usrc  /usrd  /usrr  /usrt  /usru  /usrx
+[root@rhel9 backup]# tar -jf backup1.tar /usr
+/usrA  /usrc  /usrd  /usrr  /usrt  /usru  /usrx
+[root@rhel9 backup]# tar -jf backup1.tar /usr
+/usrA  /usrc  /usrd  /usrr  /usrt  /usru  /usrx
+[root@rhel9 backup]# tar -jf backup1.tar /usr
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 backup]# tar -jf backup1.tar /et
+/etA  /etc  /etd  /etr  /ett  /etu  /etx
+[root@rhel9 backup]# tar -jf backup1.tar /et
+/etA  /etc  /etd  /etr  /ett  /etu  /etx
+[root@rhel9 backup]# tar -jf backup1.tar /etc
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 backup]# tar -jf backup1.tar.bz2 /etc
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+[root@rhel9 backup]# cd
+[root@rhel9 ~]# ls
+backup  backup.tar.bz2  backup.tar.gz  backup.tar.Z  help
+[root@rhel9 ~]# rm -rf *
+[root@rhel9 ~]# ls
+[root@rhel9 ~]# vim backupscript.sh
+[root@rhel9 ~]# ls
+backupscript.sh
+[root@rhel9 ~]# ls -ld backupscript.sh
+-rw-rw----. 1 root root 135 Jan 31 10:23 backupscript.sh
+[root@rhel9 ~]# chmod +x backupscript.sh
+[root@rhel9 ~]# ls
+backupscript.sh
+[root@rhel9 ~]# sh backupscript.sh
+Creating the backup for the /etc
+tar: Removing leading `/' from member names
+/etc/
+/etc/mtab
+/etc/fstab
+/etc/crypttab
+/etc/lvm/
+/etc/lvm/devices/
+/etc/lvm/devices/system.devices
+/etc/lvm/archive/
+/etc/lvm/archive/rhel_00000-188046221.vg
+/etc/lvm/backup/
+/etc/lvm/backup/rhel
+/etc/lvm/cache/
+/etc/lvm/lvm.conf
+/etc/lvm/lvmlocal.conf
+/etc/lvm/profile/
+/etc/lvm/profile/cache-mq.profile
+/etc/lvm/profile/cache-smq.profile
+/etc/lvm/profile/command_profile_template.profile
+/etc/lvm/profile/lvmdbusd.profile
+/etc/lvm/profile/metadata_profile_template.profile
+/etc/lvm/profile/thin-generic.profile
+/etc/lvm/profile/thin-performance.profile
+/etc/lvm/profile/vdo-small.profile
+/etc/resolv.conf
+/etc/dnf/
+/etc/dnf/modules.d/
+/etc/dnf/protected.d/
+/etc/dnf/protected.d/redhat-release.conf
+/etc/dnf/protected.d/dnf.conf
+/etc/dnf/protected.d/systemd.conf
+/etc/dnf/protected.d/grub2-tools-minimal.conf
+/etc/dnf/protected.d/yum.conf
+/etc/dnf/protected.d/grub2-pc.conf
+/etc/dnf/protected.d/sudo.conf
+/etc/dnf/aliases.d/
+/etc/dnf/dnf.conf
+/etc/dnf/modules.defaults.d/
+/etc/dnf/plugins/
+/etc/dnf/plugins/copr.conf
+/etc/dnf/plugins/copr.d/
+/etc/dnf/plugins/debuginfo-install.conf
+/etc/dnf/plugins/product-id.conf
+/etc/dnf/plugins/subscription-manager.conf
+/etc/dnf/vars/
+/etc/crypto-policies/
+/etc/crypto-policies/back-ends/
+/etc/crypto-policies/back-ends/bind.config
+/etc/crypto-policies/back-ends/gnutls.config
+/etc/crypto-policies/back-ends/java.config
+/etc/crypto-policies/back-ends/javasystem.config
+/etc/crypto-policies/back-ends/krb5.config
+/etc/crypto-policies/back-ends/libreswan.config
+/etc/crypto-policies/back-ends/libssh.config
+/etc/crypto-policies/back-ends/nss.config
+/etc/crypto-policies/back-ends/openssh.config
+/etc/crypto-policies/back-ends/opensshserver.config
+/etc/crypto-policies/back-ends/openssl.config
+/etc/crypto-policies/back-ends/opensslcnf.config
+/etc/crypto-policies/local.d/
+/etc/crypto-policies/local.d/nss-p11-kit.config
+/etc/crypto-policies/policies/
+/etc/crypto-policies/policies/modules/
+/etc/crypto-policies/state/
+/etc/crypto-policies/state/current
+/etc/crypto-policies/state/CURRENT.pol
+/etc/crypto-policies/config
+/etc/rhsm/
+/etc/rhsm/ca/
+/etc/rhsm/ca/redhat-entitlement-authority.pem
+/etc/rhsm/ca/redhat-uep.pem
+/etc/rhsm/facts/
+/etc/rhsm/pluginconf.d/
+/etc/rhsm/rhsm.conf
+/etc/rhsm/syspurpose/
+/etc/rhsm/syspurpose/valid_fields.json
+/etc/rhsm/syspurpose/syspurpose.json
+/etc/pki/
+/etc/pki/swid/
+/etc/pki/swid/CA/
+/etc/pki/swid/CA/redhat.com/
+/etc/pki/swid/CA/redhat.com/redhatcodesignca.cert
+/etc/pki/product-default/
+/etc/pki/product-default/479.pem
+/etc/pki/rpm-gpg/
+/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-beta
+/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-9
+/etc/pki/tls/
+/etc/pki/tls/certs/
+/etc/pki/tls/certs/ca-bundle.crt
+/etc/pki/tls/certs/ca-bundle.trust.crt
+/etc/pki/tls/ct_log_list.cnf
+/etc/pki/tls/misc/
+/etc/pki/tls/openssl.cnf
+/etc/pki/tls/private/
+/etc/pki/tls/cert.pem
+/etc/pki/ca-trust/
+/etc/pki/ca-trust/extracted/
+/etc/pki/ca-trust/extracted/edk2/
+/etc/pki/ca-trust/extracted/edk2/README
+/etc/pki/ca-trust/extracted/edk2/cacerts.bin
+/etc/pki/ca-trust/extracted/README
+/etc/pki/ca-trust/extracted/java/
+/etc/pki/ca-trust/extracted/java/README
+/etc/pki/ca-trust/extracted/java/cacerts
+/etc/pki/ca-trust/extracted/openssl/
+/etc/pki/ca-trust/extracted/openssl/README
+/etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt
+/etc/pki/ca-trust/extracted/pem/
+/etc/pki/ca-trust/extracted/pem/README
+/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+/etc/pki/ca-trust/extracted/pem/email-ca-bundle.pem
+/etc/pki/ca-trust/extracted/pem/objsign-ca-bundle.pem
+/etc/pki/ca-trust/README
+/etc/pki/ca-trust/ca-legacy.conf
+/etc/pki/ca-trust/source/
+/etc/pki/ca-trust/source/README
+/etc/pki/ca-trust/source/anchors/
+/etc/pki/ca-trust/source/blocklist/
+/etc/pki/ca-trust/source/ca-bundle.legacy.crt
+/etc/pki/java/
+/etc/pki/java/cacerts
+/etc/pki/rsyslog/
+/etc/pki/consumer/
+/etc/pki/consumer/key.pem
+/etc/pki/consumer/cert.pem
+/etc/pki/entitlement/
+/etc/pki/entitlement/6365703521839888925-key.pem
+/etc/pki/entitlement/6365703521839888925.pem
+/etc/pki/product/
+/etc/pki/nssdb/
+/etc/pki/nssdb/cert9.db
+/etc/pki/nssdb/key4.db
+/etc/pki/nssdb/pkcs11.txt
+/etc/swid/
+/etc/swid/swidtags.d/
+/etc/swid/swidtags.d/redhat.com
+/etc/ssh/
+/etc/ssh/moduli
+/etc/ssh/ssh_config
+/etc/ssh/ssh_config.d/
+/etc/ssh/ssh_config.d/50-redhat.conf
+/etc/ssh/sshd_config
+/etc/ssh/sshd_config.d/
+/etc/ssh/sshd_config.d/50-redhat.conf
+/etc/ssh/ssh_host_ecdsa_key
+/etc/ssh/ssh_host_ecdsa_key.pub
+/etc/ssh/ssh_host_ed25519_key
+/etc/ssh/ssh_host_ed25519_key.pub
+/etc/ssh/ssh_host_rsa_key
+/etc/ssh/ssh_host_rsa_key.pub
+/etc/virc
+/etc/issue
+/etc/issue.d/
+/etc/crontab
+/etc/issue.net
+/etc/authselect/
+/etc/authselect/custom/
+/etc/authselect/user-nsswitch.conf
+/etc/authselect/system-auth
+/etc/authselect/password-auth
+/etc/authselect/fingerprint-auth
+/etc/authselect/smartcard-auth
+/etc/authselect/postlogin
+/etc/authselect/nsswitch.conf
+/etc/authselect/dconf-db
+/etc/authselect/dconf-locks
+/etc/authselect/authselect.conf
+/etc/os-release
+/etc/DIR_COLORS.lightbgcolor
+/etc/redhat-release
+/etc/cron.daily/
+/etc/pcp/
+/etc/pcp/derived/
+/etc/pcp/derived/cpu-util.conf
+/etc/pcp/derived/iostat.conf
+/etc/pcp/derived/mssql.conf
+/etc/pcp/derived/proc.conf
+/etc/system-release
+/etc/cron.deny
+/etc/system-release-cpe
+/etc/yum.repos.d/
+/etc/yum.repos.d/redhat.repo
+/etc/yum.repos.d/epel-testing.repo
+/etc/yum.repos.d/epel.repo
+/etc/logrotate.conf
+/etc/aliases
+/etc/oddjob/
+/etc/bashrc
+/etc/oddjobd.conf
+/etc/csh.cshrc
+/etc/oddjobd.conf.d/
+/etc/oddjobd.conf.d/oddjobd-introspection.conf
+/etc/oddjobd.conf.d/oddjobd-mkhomedir.conf
+/etc/csh.login
+/etc/cifs-utils/
+/etc/cifs-utils/idmap-plugin
+/etc/environment
+/etc/openldap/
+/etc/openldap/certs/
+/etc/openldap/ldap.conf
+/etc/ethertypes
+/etc/kernel/
+/etc/kernel/install.d/
+/etc/kernel/cmdline
+/etc/kernel/postinst.d/
+/etc/kernel/postinst.d/vboxadd
+/etc/kernel/prerm.d/
+/etc/kernel/prerm.d/vboxadd
+/etc/exports
+/etc/modules-load.d/
+/etc/filesystems
+/etc/udev/
+/etc/udev/hwdb.d/
+/etc/udev/rules.d/
+/etc/udev/rules.d/60-scheduler.rules
+/etc/udev/rules.d/60-vboxadd.rules
+/etc/udev/udev.conf
+/etc/udev/hwdb.bin
+/etc/group
+/etc/NetworkManager/
+/etc/NetworkManager/NetworkManager.conf
+/etc/NetworkManager/conf.d/
+/etc/NetworkManager/dispatcher.d/
+/etc/NetworkManager/dispatcher.d/no-wait.d/
+/etc/NetworkManager/dispatcher.d/pre-down.d/
+/etc/NetworkManager/dispatcher.d/pre-up.d/
+/etc/NetworkManager/dnsmasq-shared.d/
+/etc/NetworkManager/dnsmasq.d/
+/etc/NetworkManager/system-connections/
+/etc/NetworkManager/system-connections/eth0.nmconnection
+/etc/gshadow
+/etc/dracut.conf
+/etc/host.conf
+/etc/tpm2-tss/
+/etc/tpm2-tss/fapi-config.json
+/etc/tpm2-tss/fapi-profiles/
+/etc/tpm2-tss/fapi-profiles/P_ECCP256SHA256.json
+/etc/tpm2-tss/fapi-profiles/P_RSA2048SHA256.json
+/etc/hosts
+/etc/dracut.conf.d/
+/etc/inputrc
+/etc/libuser.conf
+/etc/motd
+/etc/motd.d/
+/etc/gnupg/
+/etc/networks
+/etc/rpm/
+/etc/passwd
+/etc/sestatus.conf
+/etc/printcap
+/etc/rsyslog.conf
+/etc/profile
+/etc/profile.d/
+/etc/profile.d/csh.local
+/etc/profile.d/lang.csh
+/etc/profile.d/lang.sh
+/etc/profile.d/sh.local
+/etc/profile.d/which2.csh
+/etc/profile.d/which2.sh
+/etc/profile.d/colorgrep.csh
+/etc/profile.d/colorgrep.sh
+/etc/profile.d/colorxzgrep.csh
+/etc/profile.d/colorxzgrep.sh
+/etc/profile.d/gawk.csh
+/etc/profile.d/gawk.sh
+/etc/profile.d/less.csh
+/etc/profile.d/less.sh
+/etc/profile.d/colorls.csh
+/etc/profile.d/colorls.sh
+/etc/profile.d/colorzgrep.csh
+/etc/profile.d/colorzgrep.sh
+/etc/profile.d/debuginfod.csh
+/etc/profile.d/debuginfod.sh
+/etc/profile.d/colorsysstat.csh
+/etc/profile.d/colorsysstat.sh
+/etc/profile.d/bash_completion.sh
+/etc/profile.d/vim.csh
+/etc/profile.d/vim.sh
+/etc/profile.d/histsize.sh
+/etc/rsyslog.d/
+/etc/protocols
+/etc/yum/
+/etc/yum/pluginconf.d
+/etc/yum/protected.d
+/etc/yum/vars
+/etc/services
+/etc/grub2.cfg
+/etc/shadow
+/etc/yum.conf
+/etc/shells
+/etc/kdump/
+/etc/kdump/post.d/
+/etc/kdump/pre.d/
+/etc/subgid
+/etc/kdump.conf
+/etc/subuid
+/etc/X11/
+/etc/X11/applnk/
+/etc/X11/fontpath.d/
+/etc/X11/xinit/
+/etc/X11/xinit/xinitrc.d/
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+/etc/X11/xinit/xinput.d/
+/etc/X11/xorg.conf.d/
+/etc/X11/xorg.conf.d/00-keyboard.conf
+/etc/bash_completion.d/
+/etc/bash_completion.d/authselect-completion.sh
+/etc/bash_completion.d/redefine_filedir
+/etc/opt/
+/etc/pm/
+/etc/pm/config.d/
+/etc/pm/power.d/
+/etc/pm/sleep.d/
+/etc/rwtab.d/
+/etc/rwtab.d/logrotate
+/etc/rwtab.d/sssd
+/etc/skel/
+/etc/skel/.bash_logout
+/etc/skel/.bash_profile
+/etc/skel/.bashrc
+/etc/statetab.d/
+/etc/sysconfig/
+/etc/sysconfig/nftables.conf
+/etc/sysconfig/crond
+/etc/sysconfig/run-parts
+/etc/sysconfig/network-scripts/
+/etc/sysconfig/network-scripts/readme-ifcfg-rh.txt
+/etc/sysconfig/selinux
+/etc/sysconfig/rsyslog
+/etc/sysconfig/kdump
+/etc/sysconfig/sshd
+/etc/sysconfig/chronyd
+/etc/sysconfig/firewalld
+/etc/sysconfig/man-db
+/etc/sysconfig/irqbalance
+/etc/sysconfig/cpupower
+/etc/sysconfig/kernel
+/etc/sysconfig/authconfig
+/etc/sysconfig/anaconda
+/etc/sysconfig/network
+/etc/sysconfig/sysstat
+/etc/sysconfig/sysstat.ioconf
+/etc/sysconfig/htcacheclean
+/etc/xdg/
+/etc/xdg/autostart/
+/etc/xdg/systemd/
+/etc/xdg/systemd/user
+/etc/terminfo/
+/etc/sssd/
+/etc/sssd/conf.d/
+/etc/sssd/pki/
+/etc/ld.so.conf
+/etc/ld.so.conf.d/
+/etc/sysctl.d/
+/etc/sysctl.d/99-sysctl.conf
+/etc/sysctl.d/50-random.conf
+/etc/tmpfiles.d/
+/etc/cron.d/
+/etc/cron.d/0hourly
+/etc/chrony.keys
+/etc/rpc
+/etc/man_db.conf
+/etc/ld.so.cache
+/etc/popt.d/
+/etc/libnl/
+/etc/libnl/classid
+/etc/libnl/pktloc
+/etc/alternatives/
+/etc/alternatives/libnssckbi.so.x86_64
+/etc/alternatives/soelim
+/etc/alternatives/soelim.1.gz
+/etc/alternatives/iptables
+/etc/alternatives/ip6tables
+/etc/alternatives/iptables-restore
+/etc/alternatives/iptables-save
+/etc/alternatives/ip6tables-restore
+/etc/alternatives/ip6tables-save
+/etc/alternatives/ebtables
+/etc/alternatives/ebtables-save
+/etc/alternatives/ebtables-restore
+/etc/alternatives/ebtables-man
+/etc/alternatives/arptables
+/etc/alternatives/arptables-save
+/etc/alternatives/arptables-restore
+/etc/alternatives/arptables-man
+/etc/alternatives/arptables-save-man
+/etc/alternatives/arptables-restore-man
+/etc/alternatives/arptables-helper
+/etc/alternatives/cifs-idmap-plugin
+/etc/alternatives/man
+/etc/alternatives/apropos
+/etc/alternatives/whatis
+/etc/alternatives/man.1.gz
+/etc/alternatives/apropos.1.gz
+/etc/alternatives/whatis.1.gz
+/etc/alternatives/ld
+/etc/alternatives/man.7.gz
+/etc/alternatives/whois
+/etc/alternatives/whois-man
+/etc/cron.monthly/
+/etc/libaudit.conf
+/etc/pkcs11/
+/etc/pkcs11/modules/
+/etc/selinux/
+/etc/selinux/semanage.conf
+/etc/selinux/config
+/etc/selinux/targeted/
+/etc/selinux/targeted/.policy.sha512
+/etc/selinux/targeted/booleans.subs_dist
+/etc/selinux/targeted/contexts/
+/etc/selinux/targeted/contexts/customizable_types
+/etc/selinux/targeted/contexts/dbus_contexts
+/etc/selinux/targeted/contexts/default_contexts
+/etc/selinux/targeted/contexts/default_type
+/etc/selinux/targeted/contexts/failsafe_context
+/etc/selinux/targeted/contexts/files/
+/etc/selinux/targeted/contexts/files/file_contexts
+/etc/selinux/targeted/contexts/files/file_contexts.homedirs
+/etc/selinux/targeted/contexts/files/file_contexts.local
+/etc/selinux/targeted/contexts/files/file_contexts.subs
+/etc/selinux/targeted/contexts/files/file_contexts.subs_dist
+/etc/selinux/targeted/contexts/files/media
+/etc/selinux/targeted/contexts/initrc_context
+/etc/selinux/targeted/contexts/lxc_contexts
+/etc/selinux/targeted/contexts/openssh_contexts
+/etc/selinux/targeted/contexts/removable_context
+/etc/selinux/targeted/contexts/securetty_types
+/etc/selinux/targeted/contexts/sepgsql_contexts
+/etc/selinux/targeted/contexts/snapperd_contexts
+/etc/selinux/targeted/contexts/systemd_contexts
+/etc/selinux/targeted/contexts/userhelper_context
+/etc/selinux/targeted/contexts/users/
+/etc/selinux/targeted/contexts/users/guest_u
+/etc/selinux/targeted/contexts/users/root
+/etc/selinux/targeted/contexts/users/staff_u
+/etc/selinux/targeted/contexts/users/sysadm_u
+/etc/selinux/targeted/contexts/users/unconfined_u
+/etc/selinux/targeted/contexts/users/user_u
+/etc/selinux/targeted/contexts/users/xguest_u
+/etc/selinux/targeted/contexts/virtual_domain_context
+/etc/selinux/targeted/contexts/virtual_image_context
+/etc/selinux/targeted/contexts/x_contexts
+/etc/selinux/targeted/logins/
+/etc/selinux/targeted/policy/
+/etc/selinux/targeted/policy/policy.33
+/etc/selinux/targeted/setrans.conf
+/etc/selinux/targeted/seusers
+/etc/gcrypt/
+/etc/sudoers
+/etc/xattr.conf
+/etc/default/
+/etc/default/useradd
+/etc/default/grub
+/etc/sudo-ldap.conf
+/etc/login.defs
+/etc/sudo.conf
+/etc/magic
+/etc/iproute2/
+/etc/iproute2/bpf_pinning
+/etc/iproute2/ematch_map
+/etc/iproute2/group
+/etc/iproute2/nl_protos
+/etc/iproute2/rt_dsfield
+/etc/iproute2/rt_protos
+/etc/iproute2/rt_realms
+/etc/iproute2/rt_scopes
+/etc/iproute2/rt_tables
+/etc/audit/
+/etc/audit/audit-stop.rules
+/etc/audit/auditd.conf
+/etc/audit/plugins.d/
+/etc/audit/plugins.d/af_unix.conf
+/etc/audit/rules.d/
+/etc/audit/rules.d/audit.rules
+/etc/audit/audit.rules
+/etc/GREP_COLORS
+/etc/.pwd.lock
+/etc/logrotate.d/
+/etc/logrotate.d/dnf
+/etc/logrotate.d/btmp
+/etc/logrotate.d/wtmp
+/etc/logrotate.d/rsyslog
+/etc/logrotate.d/sssd
+/etc/logrotate.d/subscription-manager
+/etc/logrotate.d/chrony
+/etc/logrotate.d/firewalld
+/etc/logrotate.d/kvm_stat
+/etc/logrotate.d/httpd
+/etc/ssl/
+/etc/ssl/cert.pem
+/etc/ssl/certs
+/etc/ssl/ct_log_list.cnf
+/etc/ssl/openssl.cnf
+/etc/cron.hourly/
+/etc/cron.hourly/0anacron
+/etc/sudoers.d/
+/etc/sudoers.d/vagrant
+/etc/group-
+/etc/gshadow-
+/etc/libibverbs.d/
+/etc/libibverbs.d/bnxt_re.driver
+/etc/libibverbs.d/cxgb4.driver
+/etc/libibverbs.d/efa.driver
+/etc/libibverbs.d/hfi1verbs.driver
+/etc/libibverbs.d/hns.driver
+/etc/libibverbs.d/irdma.driver
+/etc/libibverbs.d/mlx4.driver
+/etc/libibverbs.d/mlx5.driver
+/etc/libibverbs.d/qedr.driver
+/etc/libibverbs.d/rxe.driver
+/etc/libibverbs.d/siw.driver
+/etc/libibverbs.d/vmw_pvrdma.driver
+/etc/groff/
+/etc/groff/site-font/
+/etc/groff/site-tmac/
+/etc/groff/site-tmac/man.local
+/etc/groff/site-tmac/mdoc.local
+/etc/nftables/
+/etc/nftables/main.nft
+/etc/nftables/nat.nft
+/etc/nftables/osf/
+/etc/nftables/osf/pf.os
+/etc/nftables/router.nft
+/etc/libssh/
+/etc/libssh/libssh_client.config
+/etc/libssh/libssh_server.config
+/etc/libreport/
+/etc/libreport/events/
+/etc/libreport/events.d/
+/etc/libreport/events.d/collect_dnf.conf
+/etc/libreport/plugins/
+/etc/libreport/workflows.d/
+/etc/fonts/
+/etc/fonts/conf.d/
+/etc/fonts/conf.d/20-unhint-small-dejavu-sans.conf
+/etc/fonts/conf.d/57-dejavu-sans-fonts.conf
+/etc/DIR_COLORS
+/etc/nsswitch.conf.bak
+/etc/nsswitch.conf
+/etc/gss/
+/etc/gss/mech.d/
+/etc/dhcp/
+/etc/dhcp/dhclient.d/
+/etc/dhcp/dhclient.d/chrony.sh
+/etc/krb5.conf
+/etc/krb5.conf.d/
+/etc/krb5.conf.d/crypto-policies
+/etc/krb5.conf.d/kcm_default_ccache
+/etc/depmod.d/
+/etc/depmod.d/dist.conf
+/etc/depmod.d/vboxvideo-upstream.conf
+/etc/modprobe.d/
+/etc/modprobe.d/firewalld-sysctls.conf
+/etc/modprobe.d/floppy.conf
+/etc/modprobe.d/tuned.conf
+/etc/sasl2/
+/etc/dbus-1/
+/etc/dbus-1/system.d/
+/etc/dbus-1/system.d/teamd.conf
+/etc/dbus-1/system.d/oddjob.conf
+/etc/dbus-1/system.d/oddjob-mkhomedir.conf
+/etc/dbus-1/system.d/com.redhat.RHSM1.Facts.conf
+/etc/dbus-1/system.d/com.redhat.RHSM1.conf
+/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf
+/etc/dbus-1/system.d/com.redhat.tuned.conf
+/etc/dbus-1/session.conf
+/etc/dbus-1/session.d/
+/etc/dbus-1/system.conf
+/etc/security/
+/etc/security/pwquality.conf
+/etc/security/pwquality.conf.d/
+/etc/security/access.conf
+/etc/security/chroot.conf
+/etc/security/console.apps/
+/etc/security/console.apps/config-util
+/etc/security/console.apps/subscription-manager
+/etc/security/console.handlers
+/etc/security/console.perms
+/etc/security/console.perms.d/
+/etc/security/faillock.conf
+/etc/security/group.conf
+/etc/security/limits.conf
+/etc/security/limits.d/
+/etc/security/namespace.conf
+/etc/security/namespace.d/
+/etc/security/namespace.init
+/etc/security/opasswd
+/etc/security/pam_env.conf
+/etc/security/sepermit.conf
+/etc/security/time.conf
+/etc/pam.d/
+/etc/pam.d/config-util
+/etc/pam.d/other
+/etc/pam.d/login
+/etc/pam.d/remote
+/etc/pam.d/runuser
+/etc/pam.d/runuser-l
+/etc/pam.d/su
+/etc/pam.d/su-l
+/etc/pam.d/systemd-user
+/etc/pam.d/crond
+/etc/pam.d/vlock
+/etc/pam.d/passwd
+/etc/pam.d/sssd-shadowutils
+/etc/pam.d/subscription-manager
+/etc/pam.d/sudo
+/etc/pam.d/sudo-i
+/etc/pam.d/sshd
+/etc/pam.d/system-auth
+/etc/pam.d/password-auth
+/etc/pam.d/fingerprint-auth
+/etc/pam.d/smartcard-auth
+/etc/pam.d/postlogin
+/etc/pam.d/polkit-1
+/etc/firewalld/
+/etc/firewalld/firewalld.conf
+/etc/firewalld/helpers/
+/etc/firewalld/icmptypes/
+/etc/firewalld/ipsets/
+/etc/firewalld/lockdown-whitelist.xml
+/etc/firewalld/policies/
+/etc/firewalld/services/
+/etc/firewalld/zones/
+/etc/firewalld/zones/public.xml
+/etc/firewalld/zones/public.xml.old
+/etc/adjtime
+/etc/grub.d/
+/etc/grub.d/00_header
+/etc/grub.d/01_users
+/etc/grub.d/08_fallback_counting
+/etc/grub.d/10_linux
+/etc/grub.d/10_reset_boot_success
+/etc/grub.d/12_menu_auto_hide
+/etc/grub.d/14_menu_show_once
+/etc/grub.d/20_linux_xen
+/etc/grub.d/20_ppc_terminfo
+/etc/grub.d/30_os-prober
+/etc/grub.d/30_uefi-firmware
+/etc/grub.d/40_custom
+/etc/grub.d/41_custom
+/etc/grub.d/README
+/etc/grub.d/00_tuned
+/etc/binfmt.d/
+/etc/chrony.conf
+/etc/inittab
+/etc/rc.d/
+/etc/rc.d/init.d/
+/etc/rc.d/init.d/README
+/etc/rc.d/rc.local
+/etc/rc.local
+/etc/systemd/
+/etc/systemd/coredump.conf
+/etc/systemd/journald.conf
+/etc/systemd/logind.conf
+/etc/systemd/system/
+/etc/systemd/system/sysinit.target.wants/
+/etc/systemd/system/sysinit.target.wants/nis-domainname.service
+/etc/systemd/system/sysinit.target.wants/systemd-network-generator.service
+/etc/systemd/system/sysinit.target.wants/selinux-autorelabel-mark.service
+/etc/systemd/system/sysinit.target.wants/lvm2-monitor.service
+/etc/systemd/system/sysinit.target.wants/lvm2-lvmpolld.socket
+/etc/systemd/system/sysinit.target.wants/haveged.service
+/etc/systemd/system/getty.target.wants/
+/etc/systemd/system/getty.target.wants/getty@tty1.service
+/etc/systemd/system/ctrl-alt-del.target
+/etc/systemd/system/multi-user.target.wants/
+/etc/systemd/system/multi-user.target.wants/crond.service
+/etc/systemd/system/multi-user.target.wants/NetworkManager.service
+/etc/systemd/system/multi-user.target.wants/rsyslog.service
+/etc/systemd/system/multi-user.target.wants/sssd.service
+/etc/systemd/system/multi-user.target.wants/rhsmcertd.service
+/etc/systemd/system/multi-user.target.wants/auditd.service
+/etc/systemd/system/multi-user.target.wants/chronyd.service
+/etc/systemd/system/multi-user.target.wants/firewalld.service
+/etc/systemd/system/multi-user.target.wants/irqbalance.service
+/etc/systemd/system/multi-user.target.wants/sysstat.service
+/etc/systemd/system/multi-user.target.wants/vboxadd.service
+/etc/systemd/system/multi-user.target.wants/vboxadd-service.service
+/etc/systemd/system/multi-user.target.wants/tuned.service
+/etc/systemd/system/multi-user.target.wants/sshd.service
+/etc/systemd/system/sockets.target.wants/
+/etc/systemd/system/sockets.target.wants/dbus.socket
+/etc/systemd/system/sockets.target.wants/dm-event.socket
+/etc/systemd/system/sockets.target.wants/sssd-kcm.socket
+/etc/systemd/system/dbus.service
+/etc/systemd/system/timers.target.wants/
+/etc/systemd/system/timers.target.wants/logrotate.timer
+/etc/systemd/system/timers.target.wants/dnf-makecache.timer
+/etc/systemd/system/timers.target.wants/mlocate-updatedb.timer
+/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+/etc/systemd/system/network-online.target.wants/
+/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
+/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
+/etc/systemd/system/default.target
+/etc/systemd/system/sysstat.service.wants/
+/etc/systemd/system/sysstat.service.wants/sysstat-collect.timer
+/etc/systemd/system/sysstat.service.wants/sysstat-summary.timer
+/etc/systemd/system/mlocate-updatedb.timer.d/
+/etc/systemd/system/mlocate-updatedb.timer.d/override.conf
+/etc/systemd/system.conf
+/etc/systemd/user/
+/etc/systemd/user/timers.target.wants/
+/etc/systemd/user/timers.target.wants/systemd-tmpfiles-clean.timer
+/etc/systemd/user/basic.target.wants/
+/etc/systemd/user/basic.target.wants/systemd-tmpfiles-setup.service
+/etc/systemd/user/sockets.target.wants/
+/etc/systemd/user/sockets.target.wants/dbus.socket
+/etc/systemd/user/dbus.service
+/etc/systemd/user.conf
+/etc/systemd/pstore.conf
+/etc/systemd/sleep.conf
+/etc/anacrontab
+/etc/mke2fs.conf
+/etc/passwd-
+/etc/shadow-
+/etc/sysctl.conf
+/etc/machine-id
+/etc/cron.weekly/
+/etc/makedumpfile.conf.sample
+/etc/dconf/
+/etc/dconf/db/
+/etc/dconf/db/distro.d/
+/etc/dconf/db/distro.d/locks/
+/etc/dconf/db/distro.d/locks/20-authselect
+/etc/dconf/db/distro.d/20-authselect
+/etc/locale.conf
+/etc/vconsole.conf
+/etc/hostname
+/etc/subuid-
+/etc/subgid-
+/etc/.updated
+/etc/vimrc
+/etc/pcp.conf
+/etc/bindresvport.blacklist
+/etc/netconfig
+/etc/pkgconfig/
+/etc/pkgconfig/personality.d/
+/etc/trusted-key.key
+/etc/whois.conf
+/etc/wgetrc
+/etc/rsyncd.conf
+/etc/vagrant_box_build_time
+/etc/polkit-1/
+/etc/polkit-1/rules.d/
+/etc/polkit-1/rules.d/50-default.rules
+/etc/polkit-1/rules.d/49-polkit-pkla-compat.rules
+/etc/polkit-1/localauthority/
+/etc/polkit-1/localauthority/10-vendor.d/
+/etc/polkit-1/localauthority/20-org.d/
+/etc/polkit-1/localauthority/30-site.d/
+/etc/polkit-1/localauthority/50-local.d/
+/etc/polkit-1/localauthority/90-mandatory.d/
+/etc/polkit-1/localauthority.conf.d/
+/etc/tuned/
+/etc/tuned/active_profile
+/etc/tuned/bootcmdline
+/etc/tuned/post_loaded_profile
+/etc/tuned/profile_mode
+/etc/tuned/recommend.d/
+/etc/tuned/tuned-main.conf
+/etc/updatedb.conf
+/etc/.profile.swp
+/etc/mailcap
+/etc/mime.types
+/etc/httpd/
+/etc/httpd/conf.d/
+/etc/httpd/conf.d/README
+/etc/httpd/conf.d/autoindex.conf
+/etc/httpd/conf.d/userdir.conf
+/etc/httpd/conf.d/welcome.conf
+/etc/httpd/conf/
+/etc/httpd/conf/httpd.conf
+/etc/httpd/conf/magic
+/etc/httpd/conf.modules.d/
+/etc/httpd/conf.modules.d/00-base.conf
+/etc/httpd/conf.modules.d/00-dav.conf
+/etc/httpd/conf.modules.d/00-mpm.conf
+/etc/httpd/conf.modules.d/00-optional.conf
+/etc/httpd/conf.modules.d/00-proxy.conf
+/etc/httpd/conf.modules.d/01-cgi.conf
+/etc/httpd/conf.modules.d/README
+/etc/httpd/conf.modules.d/10-h2.conf
+/etc/httpd/conf.modules.d/10-proxy_h2.conf
+/etc/httpd/conf.modules.d/00-lua.conf
+/etc/httpd/conf.modules.d/00-brotli.conf
+/etc/httpd/conf.modules.d/00-systemd.conf
+/etc/httpd/logs
+/etc/httpd/modules
+/etc/httpd/run
+/etc/httpd/state
+Compressed the /etc file successfully
+[root@rhel9 ~]# ls
+backupscript.sh  etcbackup.tar.gz
+[root@rhel9 ~]# du -sh /etc/
+20M     /etc/
+[root@rhel9 ~]# du -sh etcbackup.tar.gz
+4.2M    etcbackup.tar.gz
+[root@rhel9 ~]# vim etcbackup1.sh
+[root@rhel9 ~]# ls
+backupscript.sh  etcbackup1.sh  etcbackup.tar.gz
+[root@rhel9 ~]# chmod[root@rhel9 ~]# cat etcbackup1.sh
+#!/bin/bash
+echo "Compressing file /etc using the bzip algorithm"
+tar -cjf /root/etcbackup1.tar.bz2 /etc
+echo "Compression successfully"
+[root@rhel9 ~]# +x etcbackup1.sh
+[root@rhel9 ~]# ls
+backupscript.sh  etcbackup1.sh  etcbackup.tar.gz
+[root@rhel9 ~]# bash etcbackup1.sh
+Compressing file /etc using the bzip algorithm
+tar: Removing leading `/' from member names
+Compression successfully
+[root@rhel9 ~]# du -sh etcbackup1.tar.bz2
+3.5M    etcbackup1.tar.bz2
+[root@rhel9 ~]#
+[root@rhel9 ~]# cat backupscript.sh
+#!/bin/bash
+echo "Creating the backup for the /etc"
+tar -cvzf /root/etcbackup.tar.gz /etc
+echo "Compressed the /etc file successfully"
+[root@rhel9 ~]# exit
+logout
+[vagrant@rhel9 ~]$ exit
+logout
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Tue Jan 31 16:02:54 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant halt
+==> default: Attempting graceful shutdown of VM...
+tcsetattr: Input/output error
+Connection to 127.0.0.1 closed by remote host.
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ vagrant status
+Current machine states:
+
+default                   poweroff (virtualbox)
+
+The VM is powered off. To restart the VM, simply run `vagrant up`
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ date
+Tue Jan 31 16:03:49 IST 2023
+
+bhara@DESKTOP-SSN6PB4  ~/devops/provision/vagrant/rhel9
+$ exit
+exit
+
+C:\WINDOWS\system32>
